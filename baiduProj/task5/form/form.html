@@ -1,0 +1,126 @@
+<!-- demo: a single form -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>single form</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        form {
+            border: solid 1px;
+            margin: 20px;
+            padding: 20px;
+        }
+        .input-msg {
+            display: inline-block;
+            width: 130px;
+            line-height: 30px;
+            text-align: right;
+        }
+        .multiline {
+            vertical-align: top;
+        }
+        textarea {
+            height: 100px;
+            width: 15%;
+        }
+        .errorInfo {
+            display: block;
+            margin-left: 140px;
+            color: grey;
+            font-size: 13px;
+            line-height: 30px
+        }
+        input[type='button'] {
+            line-height: 30px;
+            width: 50%;
+            margin-top: 10px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: #3355D0;
+            border: 1px solid #3355D0;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            box-shadow: inset 0px 1px 0px 0px #8597C9;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div>
+        <!-- "for" 属性可把 label 绑定到另外一个元素。请把 "for" 属性的值设置为相关元素的 id 属性的值。 -->
+        <div class="input-msg">请输入邮箱地址：</div>
+        <input type="text" id="email" name="email" placeholder="这是一个文本输入框" />
+        <span class="errorInfo">邮箱地址请按要求格式输入</span>
+    </div>
+    <div>
+        <div class="input-msg">请输入密码：</div>
+        <input type="password" id="pswd" name="pswd" placeholder="这是一个文本输入框" />
+    </div>
+    <div>
+        <div class="input-msg">请重复输入密码：</div>
+        <input type="password" id="pswdRepeat" name="pswdRepeat" placeholder="这是一个文本输入框" />
+        <span class="errorInfo">密码请为6-16位英文数字</span>
+    </div>
+    <div>
+        <!-- 注意 lable的用法 -->
+        <div class="input-msg">性别：</div>
+        <input type="radio" name="sex" id="male" value="male">
+        <label for="male">男</label>
+        <input type="radio" name="sex" id="female" value="female">
+        <label for="female">女</label>
+
+    </div>
+    <div>
+        <!-- 下拉列表框 -->
+        <div class="input-msg">城市：</div>
+        <select name="city">
+            <optgroup label="上海">
+                <option value="shanghai">上海</option>
+            </optgroup>
+            <optgroup label="北京">
+                <option value="beijing" selected="selected">北京</option>
+            </optgroup>
+            <optgroup label="山东">
+                <option value="qingdao">青岛</option>
+                <option value="weihai">威海</option>
+            </optgroup>
+            <optgroup label="西藏">
+                <option value="linzhi">林芝</option>
+                <option value="lasa">拉萨</option>
+            </optgroup>
+        </select>
+    </div>
+    <div>
+        <div class="input-msg">爱好：</div>
+        <input type="checkbox" name="hobies" id="exercise" value="exercise">
+        <label for="exercise">运动</label>
+        <input type="checkbox" name="hobies" id="art" value="art">
+        <label for="art">艺术</label>
+        <input type="checkbox" name="hobies" id="science" value="science">
+        <label for="science">科学</label>
+    </div>
+    <div>
+        <!-- 多行输入框 -->
+        <div class="input-msg multiline">个人描述：</div>
+            <textarea>
+                这是一个多行输入框，输入您的个人描述
+            </textarea>
+    </div>
+    <!-- button V.S. input(type=button) -->
+    <!-- 如果在 HTML 【表单】中使用 button 元素，不同的浏览器会提交不同的按钮值。请使用 input 元素在 HTML 表单中创建按钮。 -->
+    <div>
+        <input type="button" value="确认提交" />
+    </div>
+</form>
+
+</body>
+</html>

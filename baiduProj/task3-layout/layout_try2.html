@@ -1,0 +1,96 @@
+<!-- layout: use position -->
+<!-- TODO: 如何实现【父元素的高度始终为子元素中最高的高度】 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>layout</title>
+    <style>
+        #main, #left, #mid, #right {
+            border: solid 1px #999;
+            padding: 20px;
+        }
+        #main {
+            background-color: #eee;
+            margin: 20px;
+        }
+        #left, #mid, #right {
+            background-color: #fff;
+        }
+
+        #left {
+            width: 160px;
+            position: absolute;
+            top: 40px;
+            left: 50px;
+        }
+        #mid {
+            margin:0 142px 0 222px;
+        }
+        #right {
+            width: 80px;
+            position: absolute;
+            top: 40px;
+            right: 50px;
+        }
+
+        #left span {
+            float: right;       /*文字居于右上角*/
+            width: 60px;        /*限制文字宽度，保持间距*/
+        }
+        #right img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;     /*img 上下间距*/
+        }
+        #right img.lastImg {
+            margin-bottom: 0;        /*因img的父元素right存在padding, 所以最后一个img的margin-bottom设为0*/
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="main">
+    <div id="left">
+        <img src="img/youandme_80x80.jpg" alt="team logo" width="80" height="80">
+        <span>鹦鹉猫小分队</span>
+    </div>
+
+    <!-- 'center' must be put follow left & right [why?]-->
+    <div id="mid">
+        <p>鹦鹉猫小分队</p>
+        <p>鹦鹉猫是一种珍贵稀少的动物，需要人类的爱护。尤其对于我们铲屎官来说，更应该有关爱鹦鹉猫的自觉。</p>
+        <p>绿颊小太阳又名绿颊锥尾鹦鹉（学名：Pyrrhura molinae）是典型的攀禽，鸟喙强劲有力，喙钩曲，上颌具有可活动关节，喙基部具有腊膜。
+            肌肉质舌厚。脚短，强大，对趾型，两趾向前两趾向后，适合抓握和攀援生活。鸟体羽毛为绿色，前额、头顶、头部后方以及耳羽为棕色；
+            颈部两侧、喉咙、胸部上方的羽毛从褐色渐渐变为棕绿色，脸颊两侧带有些黄绿色的羽毛。晚成雏。栖息于各种树木林立的区域、沼泽、
+            充满小树的森林、生长次要植被的区域以及2900米高云雾弥漫的林区。食物为种子、浆果、水果、坚果、昆虫以及其幼虫等。分布于阿根廷，巴西和巴拉圭。
+        </p>
+        <p>绿颊小太阳又名绿颊锥尾鹦鹉（学名：Pyrrhura molinae）是典型的攀禽，鸟喙强劲有力，喙钩曲，上颌具有可活动关节，喙基部具有腊膜。
+            肌肉质舌厚。脚短，强大，对趾型，两趾向前两趾向后，适合抓握和攀援生活。鸟体羽毛为绿色，前额、头顶、头部后方以及耳羽为棕色；
+            颈部两侧、喉咙、胸部上方的羽毛从褐色渐渐变为棕绿色，脸颊两侧带有些黄绿色的羽毛。晚成雏。栖息于各种树木林立的区域、沼泽、
+            充满小树的森林、生长次要植被的区域以及2900米高云雾弥漫的林区。食物为种子、浆果、水果、坚果、昆虫以及其幼虫等。分布于阿根廷，巴西和巴拉圭。
+            绿颊小太阳又名绿颊锥尾鹦鹉（学名：Pyrrhura molinae）是典型的攀禽，鸟喙强劲有力，喙钩曲，上颌具有可活动关节，喙基部具有腊膜。
+            肌肉质舌厚。脚短，强大，对趾型，两趾向前两趾向后，适合抓握和攀援生活。鸟体羽毛为绿色，前额、头顶、头部后方以及耳羽为棕色；
+            颈部两侧、喉咙、胸部上方的羽毛从褐色渐渐变为棕绿色，脸颊两侧带有些黄绿色的羽毛。晚成雏。栖息于各种树木林立的区域、沼泽、
+            充满小树的森林、生长次要植被的区域以及2900米高云雾弥漫的林区。食物为种子、浆果、水果、坚果、昆虫以及其幼虫等。分布于阿根廷，巴西和巴拉圭。
+            <!-- 在这里添加内容：以确保在中间一栏较高和右边一栏较高时，父元素的高度始终为子元素中最高的高度。 -->
+        </p>
+    </div>
+
+    <div id="right">
+        <img src="img/1.jpg" alt="cat logo" >
+        <img src="img/2.jpg" alt="cat logo" >
+        <!-- 在这里删改：以确保在中间一栏较高和右边一栏较高时，父元素的高度始终为子元素中最高的高度。 -->
+        <!--<img src="img/3.jpg" alt="cat logo" >-->
+        <img src="img/4.jpg" alt="cat logo" >
+        <img src="img/5.jpg" alt="cat logo" >
+        <img class="lastImg" src="img/6.jpg" alt="cat logo" >
+    </div>
+
+    <!--    <div id="left">我是左边,宽:200px</div>
+        <div id="mid">我是中间,宽自适应</div>
+        <div id="right">我是右边,宽:120px</div>-->
+</div>
+</body>
+</html>

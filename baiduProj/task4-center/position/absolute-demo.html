@@ -1,0 +1,53 @@
+<!-- 绝对定位元素，父元素relative，子元素absolute
+     此例中，子元素 box-xx 设置height，父元素 box-set 也设置了height。
+     父元素的高度并非由子元素高度撑起；
+     但二者之间存在联系：子元素是相对于父元素的边缘进行位移
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>position demo</title>
+    <style>
+        body {
+            margin: 50px;
+        }
+        .box-set {
+            background: #e8eae9;
+            height: 200px;
+            /* 父元素的 height */
+            position: relative;
+        }
+        .box {
+            background: #8ec63f;
+            height: 80px;
+            /* 子元素的 height */
+            position: absolute;
+            width: 80px;
+        }
+        .box-1 {
+            top: 6%;
+            left: 2%;
+        }
+        .box-2 {
+            top: 0;
+            right: -40px;
+        }
+        .box-3 {
+            bottom: -10px;
+            right: 20px;
+        }
+        .box-4 {
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box-set">
+    <div class="box box-1">Box 1</div>
+    <div class="box box-2">Box 2</div>
+    <div class="box box-3">Box 3</div>
+    <div class="box box-4">Box 4</div>
+</div>
+</body>
+</html>

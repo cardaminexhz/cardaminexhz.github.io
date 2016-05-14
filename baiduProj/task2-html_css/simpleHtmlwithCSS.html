@@ -1,0 +1,226 @@
+<!-- TODO: 浏览器解析css原理 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>A simple html</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+</head>
+<body>
+<!-- header -->
+<div id="header">
+    <h1 class="logo">
+        <img src="img/baiduLogo.jpg" width="140" height="40">
+    </h1>
+    <ul class="nav">
+        <li><a href="https://www.baidu.com">导航链接一</a></li>
+        <li><a href="https://www.baidu.com">导航链接二</a></li>
+        <li><a href="https://www.baidu.com">导航链接三</a></li>
+        <li><a href="https://www.baidu.com">导航链接四</a></li>
+    </ul>
+</div>
+
+<div class="article">
+    <h2>文章一级标题</h2>
+    <h3>文章二级标题</h3>
+    <!-- 当显示页面时，浏览器会移除源代码中多余的空格和空行。所有连续的空格或空行都会被算作一个空格 -->
+    <h5 class="article authorInfo">文章作者 文章发表时间</h5>
+    <p>
+        这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<br />
+        换行了<br />
+        这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br />
+        这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://life.baidu.com">这里有一个链接链接到http://life.baidu.com</a>这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段<br />
+        落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落
+    </p>
+    <img src="img/youandme.jpg" alt="img from internet">
+    <p>
+        这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<br />
+        这是一个很长很长的段落，换行了<br />
+        这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，
+        <a href="http://life.baidu.com">这里有一个链接链接<br />到http://life.baidu.com</a>
+        这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是<br />
+        一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
+    </p>
+</div>
+
+<div class="article">
+    <h2>另一篇文章一级标题</h2>
+    <h3>文章二级标题</h3>
+    <h5 class="article authorInfo">文章作者 文章发表时间</h5>
+    <p>
+        这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<br />
+        换行了<br />
+        这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了<br />
+        这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://life.baidu.com">这里有一个链接链接到http://life.baidu.com</a>这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段<br />
+        落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落
+    </p>
+    <img src="img/youandme.jpg" alt="img from internet">
+    <ul type="circle">
+        <li>列表项目一</li>
+        <li>列表项目二</li>
+        <li>列表项目三</li>
+    </ul>
+</div>
+
+<div class="article">
+    <h2>图片</h2>
+    <div class="img">
+        <div class="imgDesc">好看的图片</div>
+        <a target="_blank" href="img/youandme.jpg">
+            <img src="img/youandme.jpg" alt="img from internet">
+        </a>
+    </div>
+    <div class="img">
+        <div class="imgDesc">好看的图片</div>
+        <a target="_blank" href="img/youandme.jpg">
+            <img src="img/youandme.jpg" alt="img from internet">
+        </a>
+    </div>
+    <div class="img">
+        <div class="imgDesc">好看的图片</div>
+        <a target="_blank" href="img/youandme.jpg">
+            <img src="img/youandme.jpg" alt="img from internet">
+        </a>
+    </div>
+</div>
+
+<div class="article">
+    <h2>图片</h2>
+    <!-- definition list -->
+    <dl>
+        <dd>好看的图片</dd>
+        <dd><img src="img/youandme.jpg" alt="img from internet"></dd>
+    </dl>
+    <dl>
+        <dd>好看的图片</dd>
+        <dd><img src="img/youandme.jpg" alt="img from internet"></dd>
+    </dl>
+    <dl>
+        <dd>好看的图片</dd>
+        <dd><img src="img/youandme.jpg" alt="img from internet"></dd>
+    </dl>
+</div>
+
+<div class="article">
+    <h2>最后一篇文章一级标题</h2>
+    <h3>文章二级标题</h3>
+    <h5 class="article authorInfo">文章作者 文章发表时间</h5>
+    <ol>
+        <li>排名1</li>
+        <li>排名2</li>
+        <li>排名3</li>
+    </ol>
+    <span>下面是一个表格，给表格加了一个border="1"好让你看出是一个表格</span>
+    <table class="xhtable" border="1" >
+        <tr>
+            <th>表头</th>
+            <th>表头</th>
+            <th>表头</th>
+        </tr>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="javascript:;">操作</a></td>
+        </tr>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="javascript:;">操作</a></td>
+        </tr>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="javascript:;">操作</a></td>
+        </tr>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="javascript:;">操作</a></td>
+        </tr>
+        <tr class="summary">
+            <td>总计</td>
+            <td colspan="2">1000</td>
+        </tr>
+    </table>
+</div>
+
+<div class="article">
+    <!-- sidebar -->
+    <div id="sidebar">
+        <blockquote>
+            <h3>这里以后是一个侧栏，这是侧栏的标题</h3>
+        </blockquote>
+        <form>
+            <div>
+                <!-- "for" 属性可把 label 绑定到另外一个元素。请把 "for" 属性的值设置为相关元素的 id 属性的值。 -->
+                <label for="email">请输入邮箱地址：</label>
+                <input type="text" id="email" name="email" placeholder="这是一个文本输入框" />
+                <span class="errorInfo">邮箱地址请按要求格式输入</span>
+            </div>
+            <div>
+                <label for="pswd">请输入密码：</label>
+                <input type="password" id="pswd" name="pswd" placeholder="这是一个文本输入框" />
+            </div>
+            <div>
+                <label for="pswdRepeat">请重复输入密码：</label>
+                <input type="password" id="pswdRepeat" name="pswdRepeat" placeholder="这是一个文本输入框" />
+                <span class="errorInfo">密码请为6-16位英文数字</span>
+            </div>
+            <div>
+                <label>性别：</label>
+                <input type="radio" name="sex" value="male" /><span>男</span>
+                <input type="radio" name="sex" value="female" /><span>女</span>
+            </div>
+            <div>
+                <!-- 下拉列表框 -->
+                <label>城市：</label>
+                <select name="city">
+                    <optgroup label="上海">
+                        <option value="shanghai">上海</option>
+                    </optgroup>
+                    <optgroup label="北京">
+                        <option value="beijing" selected="selected">北京</option>
+                    </optgroup>
+                    <optgroup label="山东">
+                        <option value="qingdao">青岛</option>
+                        <option value="weihai">威海</option>
+                    </optgroup>
+                    <optgroup label="西藏">
+                        <option value="linzhi">林芝</option>
+                        <option value="lasa">拉萨</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div>
+                <label>爱好：</label>
+                <input type="checkbox" name="hobies" value="exercise" />运动
+                <input type="checkbox" name="hobies" value="art" />艺术
+                <input type="checkbox" name="hobies" value="science" />科学
+            </div>
+            <div>
+                <!-- 多行输入框 -->
+                <label>个人描述：</label>
+                <textarea rows="2" cols="30">
+                    这是一个多行输入框，输入您的个人描述
+                </textarea>
+            </div>
+                <!-- button V.S. input(type=button) -->
+                <!-- 如果在 HTML 【表单】中使用 button 元素，不同的浏览器会提交不同的按钮值。请使用 input 元素在 HTML 表单中创建按钮。 -->
+            <div>
+                <input type="button" value="确认提交" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- content -->
+<div id="content"></div>
+
+<!-- footer -->
+<div id="footer">
+    <span>版权所有@xhz To be improved. 2016-5-8</span>
+</div>
+
+</body>
+</html>

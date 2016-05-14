@@ -1,0 +1,57 @@
+#content, #left, #center, #right {
+    border: solid 1px #999;
+    padding: 20px;
+}
+
+#content {
+    background-color: #eee;
+    margin: 20px;
+    min-width: 600px;
+    /* 1.默认情况下（不设置height），或者设height:auto，2.或者子元素不全是float，父元素即可自动适应内部高度 */
+    /* overflow 默认值：visible, 适用于：块容器，伸缩盒容器，grid容器
+    visible：
+    对溢出内容不做处理，内容可能会超出容器。
+    hidden：
+    隐藏溢出容器的内容且不出现滚动条。
+    scroll：
+    隐藏溢出容器的内容，溢出的内容将以卷动滚动条的方式呈现。
+    auto：
+    当内容没有溢出容器时不出现滚动条，当内容溢出容器时出现滚动条，按需出现滚动条。此为body对象和textarea的默认值。*/
+}
+
+#left, #center, #right {
+    background-color: #fff;
+}
+
+#left {
+    float: left;
+    width: 160px;
+    margin-right: -160px;
+}
+#left span {
+    float: right;       /*文字居于右上角*/
+    width: 60px;        /*限制文字宽度，保持间距*/
+}
+
+#right {
+    float: right;
+    width: 80px;
+    margin-left: -80px;
+}
+#right img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;     /*img 上下间距*/
+}
+#right img.lastImg {
+    margin-bottom: 0;        /*因img的父元素right存在padding, 所以最后一个img的margin-bottom设为0*/
+}
+
+#center {
+    width: auto;
+    margin: 0 142px 0 222px;
+}
+
+.footer {
+    clear: both;       /* 使 left, right, center 位于body边框内 */
+}

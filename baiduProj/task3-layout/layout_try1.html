@@ -1,0 +1,51 @@
+<!-- layout: use float + margin -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>简化版本的layout</title>
+    <style>
+        #main, #left, #mid, #right {
+            border: solid 1px #999;
+            padding: 20px;
+        }
+        #main {
+            background-color: #eee;
+            margin: 20px;
+        }
+        #left, #mid, #right {
+            background-color: #fff;
+        }
+        #left {
+            float:left;
+            width:160px;
+            background-color: aliceblue;
+            margin-right:-160px;
+        }
+        #mid {
+            width:auto;
+            margin:0 142px 0 222px;
+            border:1px solid #000;
+        }
+        #right {
+            float:right;
+            width:80px;
+            background-color: moccasin;
+            margin-left:-80px;
+        }
+        #foot {
+            clear:both;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="main">
+    <div id="left">我是左边,宽:200px</div>
+    <div id="right">我是右边,宽:120px</div>
+    <div id="mid">我是中间,宽自适应</div>
+</div>
+<div id="foot"></div>
+</body>
+</html>

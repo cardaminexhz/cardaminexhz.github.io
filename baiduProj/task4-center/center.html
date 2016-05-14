@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>定位和居中</title>
+    <style>
+
+        body {
+            margin: 0 auto;
+            padding: 0;
+        }
+        .square {
+            background-color: #ccc;
+            width: 400px;
+            height: 200px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            margin-top: -100px;
+            margin-left: -200px;
+        }
+        #top-left {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #fc0;
+            border-bottom-right-radius: 50px;
+        }
+        #bottom-right {
+            position: absolute;
+            top: 150px;
+            left: 350px;
+            width: 50px;
+            height: 50px;
+            background-color: #fc0;
+            border-top-left-radius: 50px;
+
+        }
+    </style>
+</head>
+<!-- 一个元素同时拥有class, id 都进行了样式设置，以哪个为准 -->
+<body>
+    <div class="square">
+        <div id="top-left"></div>
+        <div id="bottom-right"></div>
+    </div>
+</body>
+</html>

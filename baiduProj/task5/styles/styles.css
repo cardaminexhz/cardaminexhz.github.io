@@ -1,0 +1,189 @@
+/* TODO: 如何编写随分辨率变化的header*/
+header, footer {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    height: 60px;
+    background-color: #333333;
+    padding: 0;
+    margin: 0;
+}
+footer {
+    height: 0;
+    text-align: center;
+    padding: 25px 0 35px 0;
+}
+footer span {
+    color: #FFF;
+}
+h1.logo {
+    float: left;
+    width: 174px;
+    padding: 0;
+    margin: 8px;
+}
+nav ul {
+    float: right;
+    list-style-type:none;
+    overflow:hidden;
+}
+nav li
+{
+    float:left;
+}
+nav li a:link,a:visited
+{
+    display:block;
+    width:120px;
+    font-weight:bold;
+    color:#FFFFFF;
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+nav li a:hover, nav li a:active
+{
+    background-color:#cc0000;
+}
+
+body {
+    background-color: #DEDEDE;
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin: 0 auto;
+    padding: 0;
+    /* TODO: min-width 如何确定 */
+    min-width: 750px;
+}
+
+/*<!-- TODO: 边框 -->*/
+article {
+    background-color: #FFFFFF;
+
+    border-style: outset;
+    border-top: solid 1px #CACACA;
+    border-left: solid 1px #CACACA;
+
+    padding: 25px 45px;
+    margin: 40px 400px 20px 20px;
+}
+
+article.authorInfo {
+    color: #857868;
+}
+
+.right {
+    margin-right: 400px;
+}
+
+aside {
+    width: 350px;
+    padding: 10px;
+    background-color: #FFFFFF;
+
+    border-style: outset;
+    border-top: solid 1px #CACACA;
+    border-left: solid 1px #CACACA;
+
+    /* TODO: 使用position，min-width情况下，无法保证正常显示，why? */
+    /*
+    position: absolute;
+    top: 80px;
+    right: -10px;
+    margin: 20px;
+    */
+
+    float: right;
+    margin: 40px 10px 0 10px;
+}
+
+.input-msg {
+    display: inline-block;
+    width: 130px;
+    line-height: 30px;
+    text-align: right;
+}
+.multiline {
+    vertical-align: top;
+}
+textarea {
+    width: 170px;
+    height: 100px;
+}
+.errorInfo {
+    display: block;
+    margin-left: 140px;
+    color: grey;
+    font-size: 13px;
+    line-height: 30px
+}
+input[type='button'] {
+    line-height: 30px;
+    width: 100%;
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #3355D0;
+    border: 1px solid #3355D0;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: inset 0px 1px 0px 0px #8597C9;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+p {text-indent: 0.9cm}
+
+figure {
+    /* TODO: */
+    display: inline-block;
+
+    width: 166px;
+    border: 1px solid #bebebe;
+
+    margin: 10px;
+    padding: 10px;
+}
+figure a:hover img {
+    border:1px solid #333333;
+}
+figcaption {
+    text-align: center;
+    margin: 10px 5px 10px 5px;
+}
+
+table.xhtable {
+    width: 100%;
+    border-collapse: collapse;
+}
+table.xhtable td, table.xhtable th
+{
+    font-size:1em;
+    border:1px solid #E6E6E6;
+    padding:5px 7px 5px 7px;
+}
+table.xhtable th {
+    font-size:1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#333333;
+    color:#FFF6FF;
+}
+table.xhtable tr.summary {
+    background-color: #CCCCCC;
+    font-size:1.1em;
+    font-weight: 700;
+}
+
+blockquote {
+    margin: 10px 0 10px 10px;
+    padding: 0 0 0 10px;
+    border-left: 3px solid #CCCCCC;
+}
+

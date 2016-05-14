@@ -1,0 +1,176 @@
+/* TODO: 如何编写随分辨率变化的header*/
+#header,#footer {
+    position: relative;
+    z-index: 1000;
+    height: 60px;
+    background-color: #333333;
+    padding: 0;
+    margin: 0;
+}
+#footer {
+    height: 0;
+    text-align: center;
+    padding: 25px 0 35px 0;
+}
+#footer span {
+    color: #FFF;
+}
+h1.logo {
+    float: left;
+    width: 174px;
+    padding: 0;
+    margin: 8px;
+}
+ul.nav {
+    float: right;
+    list-style-type:none;
+    overflow:hidden;
+}
+ul.nav li
+{
+    float:left;
+}
+ul.nav li a:link,a:visited
+{
+    display:block;
+    width:120px;
+    font-weight:bold;
+    color:#FFFFFF;
+    text-align:center;
+    padding:4px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+ul.nav li a:hover, ul.nav li a:active
+{
+    background-color:#cc0000;
+}
+
+body {
+    background-color: #DEDEDE;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*<!-- TODO: 边框 -->*/
+div.article {
+    background-color: #FFFFFF;
+
+    border-style: outset;
+    border-top: solid 1px #CACACA;
+    border-left: solid 1px #CACACA;
+
+    padding: 25px 45px;
+    margin: 22px;
+}
+
+.article.authorInfo {
+    color: #857868;
+}
+
+p {text-indent: 0.9cm}
+
+div.img {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #bebebe;
+    height: auto;
+    width: 166px;
+    position: relative;
+    left: 37px;
+    vertical-align: baseline;  // TODO:
+}
+div.img img {
+}
+div.img a:hover img {
+    border:1px solid #333333;
+}
+div.imgDesc {
+    text-align: center;
+    margin: 10px 5px 10px 5px;
+}
+
+table.xhtable {
+    width: 100%;
+    border-collapse: collapse;
+}
+table.xhtable td, table.xhtable th
+{
+    font-size:1em;
+    border:1px solid #E6E6E6;
+    padding:5px 7px 5px 7px;
+}
+table.xhtable th {
+    font-size:1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#333333;
+    color:#FFF6FF;
+}
+table.xhtable tr.summary {
+    background-color: #CCCCCC;
+    font-size:1.1em;
+    font-weight: 700;
+}
+
+blockquote {
+    margin: 10px 0 10px 10px;
+    padding: 0 0 0 10px;
+    border-left: 3px solid #CCCCCC;
+}
+
+div label {
+    text-align: right;
+    padding-right: 10px;
+    margin: 10px;
+
+    /*TODO: what does float and width mean?*/
+    float: left;
+    width: 20%;
+
+    line-height: 30px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+div input, div select, div textarea {
+    padding: 0 10px;
+    margin: 10px;
+    height: 30px;
+    /*width: 300px;*/
+    line-height: 18px;
+    border: 1px solid #cfcdc7;
+}
+div textarea {
+    height: 50px;
+    width: 50%;
+}
+div span.errorInfo {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-left: 20%;
+    padding-left: 40px;
+
+    color: #A8A19B;
+    font-size: small;
+}
+div input[type="button"] {
+    margin-left: 24%;
+    line-height:30px;
+    width:50%;
+    color:#ffffff;
+    background-color:#ededed;
+    font-size:15px;
+    font-weight:bold;
+    font-family:Arial;
+    background:-webkit-linear-gradient(top, #79bbff 5%, #378de5 100%);
+    border:1px solid #84bbf3;
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    box-shadow: inset 0px 1px 0px 0px #bbdaf7;
+    text-align:center;
+    display:inline-block;
+    text-decoration:none;
+}
