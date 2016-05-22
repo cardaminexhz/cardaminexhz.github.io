@@ -26,24 +26,24 @@
          获取aqi-input输入的值，并显示在aqi-display中
          */
 
-        /* 3.封装通过ID获取元素的方法 */
-        /* TODO: 看下jQuery中对 $ 的封装 */
-        var $ = function(id) {
+        var $ = function(id) {    /* 封装通过ID获取元素的方法 */
             return document.getElementById(id);
         };
 
         function updateDisplay() {
             $("aqi-display").innerHTML = $("aqi-input").value;
         }
-        $("button").onclick = updateDisplay;
-        /* 2.响应回车事件 */
-        $("aqi-input").onkeyup = function(event) {
+
+        $("button").onclick = updateDisplay;       /* 响应按钮点击事件 */
+
+        $("aqi-input").onkeyup = function(event) { /* 响应回车事件 */
             if(event.keyCode == 13) {
                 updateDisplay();
             }
         };
+
+        /* TODO: 看下jQuery中对 $ 的封装 */
         /* TODO:xxx.onclick = updateDisplay; V.S. updateDisplay(); */
-        /* TODO:innerHTML V.S. innerText */
     })();
 
 </script>

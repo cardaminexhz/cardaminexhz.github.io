@@ -1,0 +1,80 @@
+<!--
+  @task      http://ife.baidu.com/task/detail?taskId=14
+  @desc      零基础JavaScript编码（二）
+  @comment   
+  Created by cardaminexhz on 2016/5/22.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 02</title>
+</head>
+<body>
+
+<h3>污染城市列表</h3>
+<ul id="aqi-list">
+    <!--
+        <li>第一名：福州（样例），10</li>
+          <li>第二名：福州（样例），10</li> -->
+</ul>
+
+<script type="text/javascript">
+
+    var aqiData = [
+        ["北京", 90],
+        ["上海", 50],
+        ["福州", 10],
+        ["广州", 50],
+        ["成都", 90],
+        ["西安", 100]
+    ];
+
+    var $ = function(id) {      /* 封装通过ID获取元素的方法 */
+        return document.getElementById(id);
+    };
+
+    function sortByValue(obj1, obj2){  /* 降序排序 */
+        return (obj2[1] - obj1[1]);    // 返回正值时交换顺序
+    }
+
+    function transfer(value) {  /* 将阿拉伯数字转译为汉字 */
+        var chineseValue = ['一', '二', '三', '四' ,'五', '六' ,'七' ,'八', '九' ,'十'];
+        return chineseValue[value];
+    }
+
+    (function () {
+
+        /*
+         在注释下方编写代码
+         遍历读取aqiData中各个城市的数据
+         将空气质量指数大于60的城市显示到aqi-list的列表中
+         */
+
+        var orderedlist = [];
+        // 过滤大于60的数据，添加到orderedlist
+        for(let item in window.aqiData) {
+            if(window.aqiData[item][1] > 60) {
+                orderedlist.push(window.aqiData[item])
+            }
+        }
+        // 按空气指数降序排序
+        orderedlist.sort(sortByValue);
+
+        var contentStr = "";
+        // 生成html标签
+        for(let item in orderedlist) {
+            /*  TODO: 尽量避免循环内appendChild…重排会引起性能下降，对DOM的操作要越少越好，可考虑将ul中内容 保存到临时字符串 最后一次性添加。*/
+            /*var rankInfo = "第" + transfer(parseInt(item)) + "名: " + orderedlist[item][0] + ", " + orderedlist[item][1];
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(rankInfo));
+            $("aqi-list").appendChild(li);*/
+
+            contentStr += "<li>" + "第" + transfer(parseInt(item)) + "名: " + orderedlist[item][0] + ", " + orderedlist[item][1] + "</li>";
+        }
+        $("aqi-list").innerHTML = contentStr;
+    })();
+
+</script>
+</body>
+</html>
