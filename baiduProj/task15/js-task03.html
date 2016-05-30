@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<ul id="source">
+<ol id="source">
     <li>北京空气质量：<b>90</b></li>
     <li>上海空气质量：<b>70</b></li>
     <li>天津空气质量：<b>80</b></li>
@@ -20,7 +20,7 @@
     <li>深圳空气质量：<b>40</b></li>
     <li>福州空气质量：<b>32</b></li>
     <li>成都空气质量：<b>90</b></li>
-</ul>
+</ol>
 
 <ul id="resort">
     <!--
@@ -48,6 +48,23 @@
         /*
          coding here
          */
+        var data = [];
+
+        for(let i = 0; i < $('source').childElementCount; i++) {
+            var li = $('source').children[i];
+            var city = li.innerText.substring(0,2);
+            var score = li.children[0].innerText;
+            data.push([city, score]);
+        }
+
+        iter = $('source').childNodes;
+        console.log(iter);
+
+        for(let j = 0; j < $('source').childNodes.length; j++) {
+            // TODO: 1-element, 3-text
+            console.log($('source').childNodes[j].nodeType);
+            console.log($('source').childNodes[j].innerText);
+        }
 
         /*
          data = [
@@ -56,21 +73,8 @@
          ……
          ]
          */
-//        var data = [];
-//        var li;
-//        var li = document.querySelector("#source").firstElementChild;
-//        if(document.querySelector("#source").hasChildNodes()) {
-//            li = document.querySelector("#source").nextElementSibling.innerHTML;
-//            console.log("li: " + li);
 
-        var pattern = /<li>(.*?)<b>(.*?)<\/b><\/li>/;
-        var ulStr = $('source').innerHTML;
-        console.log(pattern.test(str));
-
-
-
-
-//        return data;
+        return data;
 
     }
 
@@ -80,7 +84,10 @@
      * 返回一个排序后的数组
      */
     function sortAqiData(data) {
-
+        data.sort(function(d1, d2) {
+            return (d1[1]-d2[1]);
+        });
+        return data;
     }
 
     /**
@@ -89,7 +96,16 @@
      * 格式见ul中的注释的部分
      */
     function render(data) {
+        function transfer(value) {  /* 将阿拉伯数字转译为汉字 */
+            var chineseValue = ['一', '二', '三', '四' ,'五', '六' ,'七' ,'八', '九' ,'十'];
+            return chineseValue[value];
+        }
+        var contentStr = '';
+        data.forEach(function(elem, index){
+            contentStr += "<li>" + "第" + transfer(parseInt(index)) + "名: " + elem[0] + "空气质量: <b>" + elem[1] + "</b></li>";
+        });
 
+        $('resort').innerHTML = contentStr;
     }
 
     function btnHandle() {
