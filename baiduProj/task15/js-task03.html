@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>IFE JavaScript Task 01</title>
+    <title>IFE JavaScript Task 03</title>
 </head>
 <body>
 
@@ -56,14 +56,20 @@
             var score = li.children[0].innerText;
             data.push([city, score]);
         }
+//        TODO: just for test
+        console.log('childElementCount: '+$('source').childElementCount);
+        console.log('children.length: '+$('source').children.length);
+        console.log('childNodes.length: ' + $('source').childNodes.length);
+
 
         iter = $('source').childNodes;
-        console.log(iter);
+        console.log('childNodes: \n' + iter);
+
 
         for(let j = 0; j < $('source').childNodes.length; j++) {
             // TODO: 1-element, 3-text
-            console.log($('source').childNodes[j].nodeType);
-            console.log($('source').childNodes[j].innerText);
+            console.log($('source').childNodes[j].nodeType + ': ' + $('source').childNodes[j].nodeName);
+            console.log($('source').childNodes[j]);
         }
 
         /*

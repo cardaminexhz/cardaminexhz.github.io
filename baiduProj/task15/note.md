@@ -61,8 +61,23 @@ node.childElementCount = element.children.length.
         ));
     }
 
-* __childElementCount__
+* __childElementCount V.S children V.S. childNode__
 
-* __children__
+初始: childElementCount = children.length = 0 = childNodes.length
 
-* __childNode__
+
+    <ol id="source"></ol>
+
+包含换行符: childElementCount = children.length = 0; childNodes.length = 1
+
+
+    <ol id="source">
+    </ol>
+
+包含子元素: childElementCount = children.length = 2; childNodes.length = 5
+
+
+    <ol id="source">
+        <li>北京空气质量：<b>90</b></li>
+        <li>上海空气质量：<b>70</b></li>
+    </ol>
