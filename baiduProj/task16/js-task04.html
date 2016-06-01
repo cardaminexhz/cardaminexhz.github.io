@@ -1,0 +1,44 @@
+<!--
+  @task      http://ife.baidu.com/task/detail?taskId=16
+  @desc      零基础JavaScript编码（四）
+  @comment   1.保证在页面加载完毕时再执行CS,否则可能会出现元素找不到的问题
+  @future    TODO: JS, html元素加载顺序
+  Created by cardaminexhz on 2016/6/1.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 04</title>
+    <script src="js-task04.js"></script>
+</head>
+<body>
+
+<div>
+    <label>
+        城市名称：
+        <input id="aqi-city-input" type="text">
+        <span class="errorInfo" id="city-error-info" style="visibility: hidden;">请输入正确格式的城市名称：仅支持中英文字符</span>
+    </label>
+    <br>
+    <label>
+        空气质量指数：
+        <input id="aqi-value-input" type="text">
+        <span class="errorInfo" id="value-error-info" style="visibility: hidden;">请输入正确格式的空气质量指数：仅支持整数</span>
+    </label>
+    <br>
+    <button id="add-btn">确认添加</button>
+</div>
+<table id="aqi-table">
+      <tr>
+        <td>城市</td><td>空气质量</td><td>操作</td>
+      </tr>
+      <tr>
+        <td>北京</td><td>90</td><td><button>删除</button></td>
+      </tr>
+      <tr>
+        <td>北京</td><td>90</td><td><button>删除</button></td>
+      </tr>
+</table>
+</body>
+</html>
