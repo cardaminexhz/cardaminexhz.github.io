@@ -25,13 +25,17 @@ var $ = function(id) {
 function addAqiData() {
     var city = $("aqi-city-input").value.trim();
     var value = $("aqi-value-input").value.trim();
-    var cityPattern = new RegExp("^([\u4E00-\u9FA5]|[A-Za-z])+$");
+    //var cityPattern = new RegExp("^([A-Za-z]+\\s?)*[A-Za-z]$");
+    var cityPattern = /(^[\u4E00-\u9FA5]+$)|(^([A-Za-z]+\s?)*[A-Za-z]$)/;
+    // new RegExp("^([A-Za-z]+\\s?)*[A-Za-z]$")
+    // 才等价于 /^([A-Za-z]+\s?)*[A-Za-z]$/
+
     var valuePattern = new RegExp("^[0-9]+$"); // /^\d+$/
     var formValid = true;
 
     if(!cityPattern.test(city)) {
         $("city-error-info").style.visibility = "visible";
-        console.log('city invalid: ' + city);
+        console.log(cityPattern+' city invalid: ' + city);
         formValid = false;
     }
     if(!valuePattern.test(value)) {

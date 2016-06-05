@@ -14,7 +14,11 @@ tags: dailytask,
     document.write(patt1.test("The best things in life are free")); 
     // 定义了名为 patt1 的 RegExp 对象，其模式是 "e"; 结果:true，在要检索的字符串中找到了字符 "e"。  
 
+new RegExp() 的时候做了什么操作  
 
+
+    // new RegExp("^([A-Za-z]+\\s?)*[A-Za-z]$")
+    // 才等价于 /^([A-Za-z]+\s?)*[A-Za-z]$/
 
 * __JS, html元素加载顺序__
 
