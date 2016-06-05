@@ -1,61 +1,75 @@
 /**
- * Created by eversec on 2016/6/1.
+ * @comment ç‚¹å‡»æŒ‰é’®æ—¶éªŒè¯è¾“å…¥é€»è¾‘ï¼›æç¤ºæ–¹å¼ï¼šè‡ªå®šä¹‰æ–‡æœ¬ã€‚
+ * Created by cardaminexhz on 2016/6/1.
  */
 
 /**
- * aqiData£¬´æ´¢ÓÃ»§ÊäÈëµÄ¿ÕÆøÖ¸ÊıÊı¾İ
- * Ê¾Àı¸ñÊ½£º
+ * aqiDataï¼Œå­˜å‚¨ç”¨æˆ·è¾“å…¥çš„ç©ºæ°”æŒ‡æ•°æ•°æ®
+ * ç¤ºä¾‹æ ¼å¼ï¼š
  * aqiData = {
- *    "±±¾©": 90,
- *    "ÉÏº£": 40
+ *    "åŒ—äº¬": 90,
+ *    "ä¸Šæµ·": 40
  * };
  */
-var aqiData = {};
+var aqiData = [];
 
 var $ = function(id) {
     return document.getElementById(id);
 };
 
 /**
- * ´ÓÓÃ»§ÊäÈëÖĞ»ñÈ¡Êı¾İ£¬ÏòaqiDataÖĞÔö¼ÓÒ»ÌõÊı¾İ
- * È»ºóäÖÈ¾aqi-listÁĞ±í£¬Ôö¼ÓĞÂÔöµÄÊı¾İ
+ * ä»ç”¨æˆ·è¾“å…¥ä¸­è·å–æ•°æ®ï¼Œå‘aqiDataä¸­å¢åŠ ä¸€æ¡æ•°æ®
+ * ç„¶åæ¸²æŸ“aqi-liståˆ—è¡¨ï¼Œå¢åŠ æ–°å¢çš„æ•°æ®
  */
 function addAqiData() {
-    var cityReg = new RegExp($("aqi-city-input").value.trim());
-    var valueReg = new RegExp($("aqi-value-input").value.trim());
+    var city = $("aqi-city-input").value.trim();
+    var value = $("aqi-value-input").value.trim();
+    var cityPattern = new RegExp("^([\u4E00-\u9FA5]|[A-Za-z])+$");
+    var valuePattern = new RegExp("^[0-9]+$"); // /^\d+$/
     var formValid = true;
 
-    if(!cityReg.test('/^([\u4E00-\u9FA5]|[A-Za-z])+$/')) {
+    if(!cityPattern.test(city)) {
         $("city-error-info").style.visibility = "visible";
-        console.log('city invalid');
+        console.log('city invalid: ' + city);
         formValid = false;
     }
-    if(!valueReg.test('/^[1-9][0-9]*$/')) {
+    if(!valuePattern.test(value)) {
         $("value-error-info").style.visibility = "visible";
-        console.log('value invalid');
+        console.log('value invalid: ' + value);
         formValid = false;
     }
 
     if(!formValid) {
-        // ±íµ¥Î´Í¨¹ıÑéÖ¤£¬°´Å¥ÎŞĞ§
+        // è¡¨å•æœªé€šè¿‡éªŒè¯ï¼ŒæŒ‰é’®æ— æ•ˆ
         $('add-btn').disabled = "disabled";
     } else {
-        // ±íµ¥ÑéÖ¤Í¨¹ı£¬½«ÓÃ»§ÊäÈëÌí¼Óµ½aqiData
-
-
+        // è¡¨å•éªŒè¯é€šè¿‡ï¼Œå°†ç”¨æˆ·è¾“å…¥æ·»åŠ åˆ°aqiData
+        var item = {};
+        item.name = city;
+        item.value = value;
+        aqiData.push(item);
     }
+
+    console.log("aqiData: " + aqiData);
 }
 
 /**
- * äÖÈ¾aqi-table±í¸ñ
+ * æ¸²æŸ“aqi-tableè¡¨æ ¼
  */
 function renderAqiList() {
+    var contentStr = "<tr><td>åŸå¸‚</td><td>ç©ºæ°”è´¨é‡</td><td>æ“ä½œ</td></tr>";
 
+    aqiData.forEach(function(elem, index) {
+        contentStr += "<tr><td>" + elem.name + "</td><td>" + elem.value + "</td>" +
+            '<td><button onclick="delBtnHandle(\''+index+'\')">åˆ é™¤</button></td></tr>';
+    })
+
+    $('aqi-table').innerHTML = contentStr;
 }
 
 /**
- * µã»÷add-btnÊ±µÄ´¦ÀíÂß¼­
- * »ñÈ¡ÓÃ»§ÊäÈë£¬¸üĞÂÊı¾İ£¬²¢½øĞĞÒ³Ãæ³ÊÏÖµÄ¸üĞÂ
+ * ç‚¹å‡»add-btnæ—¶çš„å¤„ç†é€»è¾‘
+ * è·å–ç”¨æˆ·è¾“å…¥ï¼Œæ›´æ–°æ•°æ®ï¼Œå¹¶è¿›è¡Œé¡µé¢å‘ˆç°çš„æ›´æ–°
  */
 function addBtnHandle() {
     addAqiData();
@@ -63,29 +77,45 @@ function addBtnHandle() {
 }
 
 /**
- * µã»÷¸÷¸öÉ¾³ı°´Å¥µÄÊ±ºòµÄ´¦ÀíÂß¼­
- * »ñÈ¡ÄÄ¸ö³ÇÊĞÊı¾İ±»É¾£¬É¾³ıÊı¾İ£¬¸üĞÂ±í¸ñÏÔÊ¾
+ * ç‚¹å‡»å„ä¸ªåˆ é™¤æŒ‰é’®çš„æ—¶å€™çš„å¤„ç†é€»è¾‘
+ * è·å–å“ªä¸ªåŸå¸‚æ•°æ®è¢«åˆ ï¼Œåˆ é™¤æ•°æ®ï¼Œæ›´æ–°è¡¨æ ¼æ˜¾ç¤º
  */
-function delBtnHandle() {
+function delBtnHandle(deleteIndex) {
     // do sth.
+    aqiData = aqiData.filter(function(elem, index) {
+        return index != deleteIndex;
+    })
 
     renderAqiList();
 }
 
+function reset() {
+    $("aqi-city-input").value = '';
+    $("aqi-value-input").value = '';
+    $("city-error-info").style.visibility = "hidden";
+    $("value-error-info").style.visibility = "hidden";
+    $('add-btn').removeAttribute("disabled");
+}
+
 function init() {
 
-    // ÔÚÕâÏÂÃæ¸øadd-btn°ó¶¨Ò»¸öµã»÷ÊÂ¼ş£¬µã»÷Ê±´¥·¢addBtnHandleº¯Êı
+    // åœ¨è¿™ä¸‹é¢ç»™add-btnç»‘å®šä¸€ä¸ªç‚¹å‡»äº‹ä»¶ï¼Œç‚¹å‡»æ—¶è§¦å‘addBtnHandleå‡½æ•°
     $("add-btn").onclick = function(){
         addBtnHandle();
     };
 
-    // Ïë°ì·¨¸øaqi-tableÖĞµÄËùÓĞÉ¾³ı°´Å¥°ó¶¨ÊÂ¼ş£¬´¥·¢delBtnHandleº¯Êı
+    // é‡ç½®è¡¨å•
+    $("reset-btn").onclick = function() {
+        reset();
+    }
+
+    // æƒ³åŠæ³•ç»™aqi-tableä¸­çš„æ‰€æœ‰åˆ é™¤æŒ‰é’®ç»‘å®šäº‹ä»¶ï¼Œè§¦å‘delBtnHandleå‡½æ•°
 
 }
 
 /**
- * ´ËÀıÖĞ js ÔÚ<head>´¦ÒıÈë£¬ËùÒÔĞèÒªÅĞ¶ÏÒ³Ãæ¼ÓÔØÍê³Éºó£¬ÔÙÖ´ĞĞinit;
- * ·ñÔò»áµ¼ÖÂÔªËØ»¹²»´æÔÚ¾ÍÒÑ±»µ÷ÓÃ¡£
+ * æ­¤ä¾‹ä¸­ js åœ¨<head>å¤„å¼•å…¥ï¼Œæ‰€ä»¥éœ€è¦åˆ¤æ–­é¡µé¢åŠ è½½å®Œæˆåï¼Œå†æ‰§è¡Œinit;
+ * å¦åˆ™ä¼šå¯¼è‡´å…ƒç´ è¿˜ä¸å­˜åœ¨å°±å·²è¢«è°ƒç”¨ã€‚
  */
 window.onload = init;
 
