@@ -61,8 +61,18 @@ var $ = function(id){
 /**
  * 渲染图表
  */
-function renderChart() {
+function renderChart(chartData) {
+    var wrapWidth = document.querySelector(".aqi-chart-wrap").clientWidth;
+    var wrapHeight = document.querySelector(".aqi-chart-wrap").clientHeight;
+    console.log(wrapHeight +" : " +wrapWidth);
 
+    for(var item in chartData) {
+        console.log(chartData[item]);
+        var value = chartData[item];
+        var height = value/wrapHeight*100;
+    }
+
+    // TODO: 动态生成每个bar 的 height(与父元素的比例)；width(条数)；left(位置); color
 }
 
 /**
@@ -73,7 +83,6 @@ function graTimeChange() {
     var dateRadioObj = document.getElementsByName("gra-time");
     var dateGrain;
     for(var i = 0; i < dateRadioObj.length; i++) {
-        console.log(dateRadioObj[i].checked);
         if(dateRadioObj[i].checked) {
             dateGrain = dateRadioObj[i].value;
         }
@@ -93,10 +102,26 @@ function graTimeChange() {
  */
 function citySelectChange() {
     // 确定是否选项发生了变化
+    var selectedIndex = $("city-select").selectedIndex;
+    var selectedCity = $("city-select").options[selectedIndex].value;
+
+    // TODO: selected option 存为全局变量，每次与上次对比
+    if(selectedCity === "北京") {  // selected option 未发生变化，返回
+        return;
+    }
 
     // 设置对应数据
+    var chartData = [];
+    for(var item in aqiSourceData) {
+        if(item === selectedCity) {
+            chartData = aqiSourceData[item];
+            break;
+        }
+    }
+    console.log(chartData);
 
     // 调用图表渲染函数
+    renderChart(chartData);
 }
 
 /**
@@ -112,9 +137,19 @@ function initGraTimeForm() {
  * 初始化城市Select下拉选择框中的选项
  */
 function initCitySelector() {
+    var optionList = "";
     // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
+    for(var item in aqiSourceData) {
+        //console.log(item);
+        //console.log(aqiSourceData[item]);
+        optionList += "<option>" + item + "</option>";
+    }
+    $("city-select").innerHTML = optionList;
 
     // 给select设置事件，当选项发生变化时调用函数citySelectChange
+    $("city-select").onclick = function() {
+        citySelectChange();
+    }
 
 }
 

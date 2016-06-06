@@ -7,3 +7,10 @@ tags: dailytask,
 ---
 
 * __获取 radio 的值__
+
+* __获取 select 下拉框 的值__  
+http://www.cnblogs.com/itdream/archive/2012/05/31/2528345.html
+
+* __object, array__
+
+* __原生选择器 querySlector clientWidth, srollWidth__

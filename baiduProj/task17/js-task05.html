@@ -11,6 +11,24 @@
     <meta charset="utf-8">
     <title>IFE JavaScript Task 05</title>
     <script src="js-task05.js"></script>
+    <style type="text/css">
+        div.aqi-chart-wrap {
+            position: relative;
+
+            width: 1200px;
+            height: 600px;
+            margin: 50px auto;
+            border: solid 1px red;
+
+        }
+        div.bar {
+            position: absolute;
+            bottom: 0;         // 和父元素的底边对齐
+
+            width: 10px;
+            border: 3px solid red;
+        }
+    </style>
 </head>
 <body>
 <fieldset id="form-gra-time">
@@ -28,6 +46,9 @@
 </fieldset>
 
 <div class="aqi-chart-wrap">
+    <div class="bar" style="height: 300px;left: 5px"></div>
+    <div class="bar" style="height: 200px;left: 20px;"></div>
+    <div class="bar" style="height: 400px;left: 35px"></div>
 </div>
 </body>
 </html>
