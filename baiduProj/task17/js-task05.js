@@ -54,25 +54,51 @@ var pageState = {
     nowGraTime: "day"
 };
 
+var colors = ['#16324a', '#24385e', '#393f65', '#4e4a67', '#5a4563', '#b38e95',
+    '#edae9e', '#c1b9c2', '#bec3cb', '#9ea7bb', '#99b4ce', '#d7f0f8'];
+
 var $ = function(id){
     return document.getElementById(id);
 };
 
+// 计算柱状图宽 etc.
+function getWidth(wrapWidth, barNum) {
+    var posObj = {};
+    posObj.width = Math.floor( wrapWidth / (barNum*2) );    // 设置bar间隔与bar宽度相同; Math.floor(num) 取不小于num的最大整数
+    posObj.left = Math.floor( wrapWidth / barNum );
+    posObj.offsetLeft = Math.floor( (wrapWidth - posObj.left*(barNum-1) - posObj.width)/2 );
+    return posObj;
+}
+
 /**
  * 渲染图表
  */
-function renderChart(chartData) {
+function renderChart() {
+    // 获取父元素 wrap 的宽、高
     var wrapWidth = document.querySelector(".aqi-chart-wrap").clientWidth;
     var wrapHeight = document.querySelector(".aqi-chart-wrap").clientHeight;
     console.log(wrapHeight +" : " +wrapWidth);
 
-    for(var item in chartData) {
-        console.log(chartData[item]);
-        var value = chartData[item];
-        var height = value/wrapHeight*100;
+
+    // 动态生成每个 bar 的 height(与父元素的比例%)；width(根据bar条数来定)；left(位置); color(随机)
+    var dataKeyArr = Object.keys(chartData);    // chartData 是由key-value对组成的object，无法直接求得obj.length；将其key转化成array
+    var barNum = dataKeyArr.length;
+    var posObj = getWidth(wrapWidth, barNum);
+
+
+    // 生成 div bar
+    var contentStr = "";
+    for(var key in chartData) {
+        var barHeight = Math.floor( chartData[key] / wrapHeight * 100 );  // bar height设为与父元素高度的百分比
+        var leftBarNum = dataKeyArr.indexOf(key);
+
+        contentStr += '<div class="bar" style="height:' + barHeight + '%; width:' + posObj.width + 'px; ' +
+            'left:' + ( posObj.offsetLeft + posObj.left * leftBarNum )+'px;' +
+            'background-color:' + colors[Math.floor(Math.random() * 11)]+'"></div>';
     }
 
-    // TODO: 动态生成每个bar 的 height(与父元素的比例)；width(条数)；left(位置); color
+    document.querySelector("div.aqi-chart-wrap").innerHTML = contentStr;
+
 }
 
 /**
@@ -88,8 +114,10 @@ function graTimeChange() {
         }
     }
     console.log(dateGrain);
-    if(dateGrain === "day") {   // radio 未发生变化，返回
+    if(dateGrain === pageState.nowGraTime) {   // radio 未发生变化，返回
         return;
+    } else {
+        pageState.nowGraTime = dateGrain;
     }
 
     // 设置对应数据
@@ -105,23 +133,22 @@ function citySelectChange() {
     var selectedIndex = $("city-select").selectedIndex;
     var selectedCity = $("city-select").options[selectedIndex].value;
 
-    // TODO: selected option 存为全局变量，每次与上次对比
-    if(selectedCity === "北京") {  // selected option 未发生变化，返回
-        return;
+    if(selectedIndex === pageState.nowSelectCity) {
+        return;                                    // selected option 未发生变化，返回
+    } else {
+        pageState.nowSelectCity = selectedIndex;   // 更新全局变量
     }
 
     // 设置对应数据
-    var chartData = [];
     for(var item in aqiSourceData) {
         if(item === selectedCity) {
             chartData = aqiSourceData[item];
             break;
         }
     }
-    console.log(chartData);
 
     // 调用图表渲染函数
-    renderChart(chartData);
+    renderChart();
 }
 
 /**
@@ -140,8 +167,8 @@ function initCitySelector() {
     var optionList = "";
     // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
     for(var item in aqiSourceData) {
-        //console.log(item);
-        //console.log(aqiSourceData[item]);
+        console.log(item);
+        console.log(aqiSourceData[item]);
         optionList += "<option>" + item + "</option>";
     }
     $("city-select").innerHTML = optionList;
