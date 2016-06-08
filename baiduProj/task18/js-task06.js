@@ -2,55 +2,54 @@
  * Created by eversec on 2016/6/7.
  */
 
-// È«¾ÖµÄ¶ÓÁĞ array: ×ó²à¶ÓÊ×£¬ÓÒ²à¶ÓÎ²
+// å…¨å±€å˜é‡ï¼Œæ¨¡æ‹Ÿé˜Ÿåˆ—
 var queue = [];
 
 var $ = function(id){
     return document.getElementById(id);
-}
+};
 
-// ¸øËÄ¸ö°´Å¥°ó¶¨ÊÂ¼ş
-// ×ó²à Èë
+// å››ä¸ªæŒ‰é’®çš„ç›¸åº”äº‹ä»¶
+// å·¦ä¾§å…¥
 $("left-in").onclick = function() {
-    // TODO: ¶ÔÓÃ»§ÊäÈëµÄÊı×Ö×öĞ£Ñé
-    var value= $("queue-input").value;
-    queue.unshift(value);   // Ìí¼Óµ½¶ÓÊ×
-    console.log("left in ");
-    console.log(queue);
+    var value = $("queue-input").value;
+    var numPattern = /^\d+$/;
+    if(!numPattern.test(value)){
+        alert("è¯·è¾“å…¥æ•°å­—");
+        $("queue-input").value = "";
+        return;
+    }
+
+    queue.unshift(value);   // å·¦ä¾§å…¥ï¼Œæ·»åŠ åˆ°é˜Ÿé¦–
 
     renderQueue(1, value);
-}
-// ÓÒ²à Èë
+};
+// å³ä¾§å…¥
 $("right-in").onclick = function() {
     var value = $("queue-input").value;
-    queue.push(value);      // Ìí¼Óµ½¶ÓÎ²
-    console.log("right in");
-    console.log(queue);
+    var numPattern = /^\d+$/;
+    if(!numPattern.test(value)){
+        alert("è¯·è¾“å…¥æ•°å­—");
+        $("queue-input").value = "";
+        return;
+    }
+
+    queue.push(value);      // å³ä¾§å…¥ï¼Œæ·»åŠ åˆ°é˜Ÿå°¾
 
     renderQueue(2, value);
-}
-// ×ó²à ³ö
+};
+// å·¦ä¾§å‡º
 $("left-out").onclick = function () {
-    var value = queue.shift();          // ¶ÓÊ×ÒÆ³ı
-    console.log("left out");
-    console.log(queue);
+    var value = queue.shift();          // å·¦ä¾§å‡ºï¼Œä»é˜Ÿé¦–ç§»é™¤é¡¹
 
     renderQueue(3, value);
-}
-// ÓÒ²à ³ö
+};
+// å³ä¾§å‡º
 $("right-out").onclick = function() {
-    var value = queue.pop();            // ¶ÓÎ²ÒÆ³ı
-    console.log("right out");
-    console.log(queue);
+    var value = queue.pop();            // å³ä¾§å‡ºï¼Œä»é˜Ÿå°¾ç§»é™¤é¡¹
 
     renderQueue(4, value);
-}
-
-// TODO: ÈçºÎ¸øÃ¿¸öÔªËØ°ó¶¨ÊÂ¼ş£¿
-function removeElem(){
-    alert("123");
-    //$("queue-show").removeChild();
-}
+};
 
 
 function renderQueue(type, value) {
@@ -60,19 +59,32 @@ function renderQueue(type, value) {
     divElem.onclick = removeElem;
 
     switch(type) {
-        case 1:     // ×ó²àÈë - ¶ÓÊ×Èë
+        case 1:     // å·¦ä¾§å…¥ï¼Œé˜Ÿé¦–
             $("queue-show").insertBefore(divElem, $("queue-show").firstElementChild);
             break;
-        case 2:     // ÓÒ²àÈë - ¶ÓÎ²Èë
+        case 2:     // å³ä¾§å…¥ï¼Œé˜Ÿå°¾
             $("queue-show").appendChild(divElem);
             break;
-        case 3:     // ×ó²à³ö - ¶ÓÊ×³ö
+        case 3:     // å·¦ä¾§å‡ºï¼Œé˜Ÿé¦–
             $("queue-show").removeChild($("queue-show").firstElementChild);
-            alert("É¾³ı¶ÓÁĞ×ó²àµÚÒ»¸öÔªËØ£º" + value);
+            alert("åˆ é™¤å·¦ä¾§ç¬¬ä¸€ä¸ªå…ƒç´ ï¼š" + value);
             break;
-        case 4:     // ÓÒ²à³ö - ¶ÓÎ²³ö
+        case 4:     // å³ä¾§å‡ºï¼Œé˜Ÿå°¾
             $("queue-show").removeChild($("queue-show").lastElementChild);
-            alert("É¾³ı¶ÓÁĞÓÒ²àµÚÒ»¸öÔªËØ£º" + value);
+            alert("åˆ é™¤å³ä¾§ç¬¬ä¸€ä¸ªå…ƒç´ ï¼š" + value);
             break;
     }
+
+    $("queue-input").value = "";
+}
+
+
+// ç‚¹å‡»é˜Ÿåˆ—ä¸­ä»»ä¸€ä¸ªå…ƒç´ ï¼Œåˆ é™¤
+function removeElem(e){
+    var node = e.target;
+    var indexToDel = [].indexOf.call(node.parentNode.children, node);
+    alert("åˆ é™¤å·¦èµ·ç¬¬" + (indexToDel+1) + "ä¸ªå…ƒç´ ï¼š" + queue[indexToDel]);
+
+    $("queue-show").removeChild($("queue-show").childNodes[indexToDel]);   // ä» DOM ä¸­åˆ é™¤
+    queue.splice(indexToDel, 1);                                           // ä» é˜Ÿåˆ— ä¸­åˆ é™¤
 }
