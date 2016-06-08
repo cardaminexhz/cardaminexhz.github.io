@@ -1,9 +1,9 @@
 /**
- * Created by eversec on 2016/6/7.
+ * Created by cardaminexhz on 2016/6/8.
  */
 
 // 全局变量，模拟队列
-var queue = [];
+var queue = [20, 55, 35];
 
 var $ = function(id){
     return document.getElementById(id);
@@ -12,10 +12,20 @@ var $ = function(id){
 // 四个按钮的相应事件
 // 左侧入
 $("left-in").onclick = function() {
-    var value = $("queue-input").value;
+    var value = $("queue-input").value.trim();
     var numPattern = /^\d+$/;
     if(!numPattern.test(value)){
         alert("请输入数字");
+        $("queue-input").value = "";
+        return;
+    }
+    if(parseInt(value) < 10 || parseInt(value) > 100){
+        alert("数字的范围：10-100");
+        $("queue-input").value = "";
+        return;
+    }
+    if(queue.length > 60) {
+        alert("最多对60个元素排序");
         $("queue-input").value = "";
         return;
     }
@@ -26,10 +36,20 @@ $("left-in").onclick = function() {
 };
 // 右侧入
 $("right-in").onclick = function() {
-    var value = $("queue-input").value;
+    var value = $("queue-input").value.trim();
     var numPattern = /^\d+$/;
     if(!numPattern.test(value)){
         alert("请输入数字");
+        $("queue-input").value = "";
+        return;
+    }
+    if(parseInt(value) < 10 || parseInt(value) > 100){
+        alert("数字的范围：10-100");
+        $("queue-input").value = "";
+        return;
+    }
+    if(queue.length > 60) {
+        alert("最多对60个元素排序");
         $("queue-input").value = "";
         return;
     }
@@ -56,6 +76,7 @@ function renderQueue(type, value) {
     var divElem = document.createElement("div");
     divElem.className = "elem";
     divElem.innerText = value;
+    divElem.style.height = value + "px";
     divElem.onclick = removeElem;
 
     switch(type) {
@@ -90,3 +111,47 @@ function removeElem(e){
     $("queue-show").removeChild($("queue-show").childNodes[indexToDel]);   // 从 DOM 中删除
     queue.splice(indexToDel, 1);                                           // 从 队列 中删除
 }
+
+
+$("bubble-sort").onclick = function() {
+    bubbleSort();
+};
+
+
+function bubbleSort(){
+    var len = queue.length;
+    // 标志一次循环中是否进行了交换
+    var  unSequenced = true;
+    // 每次循环都将最大值移到数组尾，下一次循环的元素数减1
+    // 若上一次循环未交换任何元素，说明已有序
+    while( len - 1 > 0 && unSequenced ) {
+        unSequenced = false;
+        // 两两比较相邻元素，较大值后移
+        for(var j = 0; j < len - 1; j++) {
+            console.log(queue[j], queue[j+1]);
+            if(queue[j] > queue[j+1]) {
+                swap(queue, j, j+1);
+                //setTimeout("swap(queue, j, j+1)", 2000);
+                unSequenced = true;
+            }
+        }
+        len--;
+        // 每次循环后打印排序结果
+        console.log(queue);
+    }
+}
+
+function swap(arr, i, j) {
+
+    // 交换数组元素
+    var tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+
+    // 操作 DOM
+    var nodeI = $("queue-show").children[i];
+    var nodeJ = $("queue-show").children[j];
+    $("queue-show").insertBefore(nodeJ, nodeI);   // 将小值(nodeJ)插入到大值(nodeI)之前
+
+}
+
