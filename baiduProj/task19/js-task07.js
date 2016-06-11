@@ -30,7 +30,7 @@ $("left-in").onclick = function() {
         return;
     }
 
-    queue.unshift(value);   // 左侧入，添加到队首
+    queue.unshift(parseInt(value));   // 左侧入，添加到队首
 
     renderQueue(1, value);
 };
@@ -54,7 +54,7 @@ $("right-in").onclick = function() {
         return;
     }
 
-    queue.push(value);      // 右侧入，添加到队尾
+    queue.push(parseInt(value));      // 右侧入，添加到队尾
 
     renderQueue(2, value);
 };
@@ -117,28 +117,45 @@ $("bubble-sort").onclick = function() {
     bubbleSort();
 };
 
-
+// 冒泡排序
 function bubbleSort(){
-    var len = queue.length;
+    var len = queue.length,
+        i = len - 1, j = 0, delay = 100, timer;
+
+    console.log(len);
+    timer = setInterval(function() {
+        if(i < 1) {
+            clearInterval(timer);
+        }
+        if(j == i) {
+            --i;
+            j = 0;
+        }
+        if (queue[j] > queue[j+1]) {
+            swap(queue, j, j+1);
+        }
+        ++j;
+    }, delay);
+
     // 标志一次循环中是否进行了交换
-    var  unSequenced = true;
+/*    var  unSequenced = true;
+
     // 每次循环都将最大值移到数组尾，下一次循环的元素数减1
     // 若上一次循环未交换任何元素，说明已有序
     while( len - 1 > 0 && unSequenced ) {
         unSequenced = false;
         // 两两比较相邻元素，较大值后移
-        for(var j = 0; j < len - 1; j++) {
-            console.log(queue[j], queue[j+1]);
+        for(var j = 0; j < len; j++) {
+            //console.log(queue[j], queue[j+1]);
             if(queue[j] > queue[j+1]) {
                 swap(queue, j, j+1);
-                //setTimeout("swap(queue, j, j+1)", 2000);
                 unSequenced = true;
             }
         }
         len--;
         // 每次循环后打印排序结果
         console.log(queue);
-    }
+    }*/
 }
 
 function swap(arr, i, j) {
@@ -154,4 +171,3 @@ function swap(arr, i, j) {
     $("queue-show").insertBefore(nodeJ, nodeI);   // 将小值(nodeJ)插入到大值(nodeI)之前
 
 }
-
