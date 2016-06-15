@@ -18,7 +18,9 @@ var $ = function (id) {
 };
 
 
-function renderTags(type, tag) {
+function renderTags(tag, type) {
+    console.log(tag);
+
     var tagElem = document.createElement("li");
     tagElem.innerText = tag;
     $("tags-show").appendChild(tagElem);
@@ -55,6 +57,7 @@ $("tag-input").onkeyup = function(event) {
         }
 
         global_tagArr.push(tagValue);
+        console.log(tagValue);
         renderTags(tagValue);
 
     }
