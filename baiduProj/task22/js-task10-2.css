@@ -1,0 +1,20 @@
+div {
+    display: flex;
+    flex-grow: 1;
+    margin: 20px;
+}
+.root {
+    width: 1000px;
+    height: 300px;
+    border: solid 1px #3355D0;
+    margin: 100px auto;
+}
+.child_1 {
+    border: solid 1px #378de5;
+}
+.child_2 {
+    border: solid 1px red;
+}
+.child_3 {
+    border: solid 1px green;
+}

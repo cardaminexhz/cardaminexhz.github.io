@@ -1,7 +1,7 @@
 <!--
   @task      http://ife.baidu.com/task/detail?taskId=22
   @desc      JavaScript和树（一）
-  @comment   justify-content: space-between
+  @comment   flex-box 1. justify-content: space-between 2. flex-margin
   @future
   Created by cardaminexhz on 2016/7/15.
 -->
@@ -10,35 +10,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <style>
-        .root {
-            display: flex;
-            width: 1000px;
-            height: 300px;
-            border: solid 1px #3355D0;
-            padding: 20px;
-            margin: 100px auto;
-            justify-content: space-between;
-        }
-        .child_1 {
-            display: flex;
-            width: 450px;
-            border: solid 1px #378de5;
-            padding: 20px;
-            justify-content: space-between;
-        }
-        .child_2 {
-            display: flex;
-            width: 175px;
-            border: solid 1px red;
-            padding: 20px;
-            justify-content: space-between;
-        }
-        .child_3 {
-            width: 75px;
-            border: solid 1px green;
-        }
-    </style>
+    <!-- 方案1： width + padding + justify-content  -->
+    <link rel="stylesheet" type="text/css" href="js-task10-1.css">
+    <!-- 方案2： margin + flex-grow -->
+    <!--<link rel="stylesheet" type="text/css" href="js-task10-2.css" />-->
 </head>
 <body>
 
