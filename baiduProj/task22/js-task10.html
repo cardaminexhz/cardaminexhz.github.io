@@ -1,7 +1,7 @@
 <!--
   @task      http://ife.baidu.com/task/detail?taskId=22
   @desc      JavaScript和树（一）
-  @comment   TODO: justify-content: space-between
+  @comment   justify-content: space-between
   @future
   Created by cardaminexhz on 2016/7/15.
 -->
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        .parent {
+        .root {
             display: flex;
             width: 1000px;
             height: 300px;
@@ -23,33 +23,41 @@
         .child_1 {
             display: flex;
             width: 450px;
-            height: 260px;
             border: solid 1px #378de5;
             padding: 20px;
+            justify-content: space-between;
         }
         .child_2 {
             display: flex;
-            width: 410px;
+            width: 175px;
             border: solid 1px red;
             padding: 20px;
             justify-content: space-between;
         }
         .child_3 {
-            width: 185px;
+            width: 75px;
             border: solid 1px green;
         }
     </style>
 </head>
 <body>
 
-<div class="parent">
+<div class="root">
     <div class="child_1">
+        <div class="child_2">
+            <div class="child_3"></div>
+            <div class="child_3"></div>
+        </div>
         <div class="child_2">
             <div class="child_3"></div>
             <div class="child_3"></div>
         </div>
     </div>
     <div class="child_1">
+        <div class="child_2">
+            <div class="child_3"></div>
+            <div class="child_3"></div>
+        </div>
         <div class="child_2">
             <div class="child_3"></div>
             <div class="child_3"></div>
@@ -57,5 +65,10 @@
     </div>
 </div>
 
+    <input type="button" id="DLR-btn" value="前序遍历">
+    <input type="button" id="LDR-btn" value="中序遍历">
+    <input type="button" id="LRD-btn" value="后序遍历">
+
+<script src="js-task10.js"></script>
 </body>
 </html>
