@@ -1,0 +1,70 @@
+<!--
+  @task      http://ife.baidu.com/task/detail?taskId=23
+  @desc      JavaScript和树（二）
+  @comment
+  @future
+  Created by cardaminexhz on 2016/7/18.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            display: flex;
+            flex-grow: 1;
+            margin: 20px;
+            border: 1px solid mediumblue;
+
+            line-height: 40px;
+            font-size: 18px;
+            padding: 0 10px;
+        }
+        .root {
+            width: 1000px;
+            height: 500px;
+            margin: 50px auto;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+<input type="button" id="DFS-btn" value="深度优先遍历">
+<input type="button" id="BFS-btn" value="广度优先遍历">
+
+<div class="root"> Super
+    <div class="child_1"> Cat
+        <div class="child_2"> Apple
+            <div class="child_3">Pear</div>
+            <div class="child_3">Pig</div>
+            <div class="child_3">Cola</div>
+            <div class="child_3">Soccer</div>
+        </div>
+        <div class="child_2">Phone</div>
+        <div class="child_2">
+            <div class="child_3">Book</div>
+            <div class="child_3">School</div>
+        </div>
+    </div>
+    <div class="child_1">Note
+        <div class="child_2">Human
+            <div class="child_3">Code</div>
+            <div class="child_3">Operate</div>
+            <div class="child_3">Man</div>
+        </div>
+        <div class="child_2">Program
+            <div class="child_3">Bement
+                <div class="child_4">cat</div>
+            </div>
+            <div class="child_3">Glass</div>
+        </div>
+    </div>
+    <div class="child_1">Fish</div>
+</div>
+
+
+<script src="js-task11.js"></script>
+</body>
+</html>
