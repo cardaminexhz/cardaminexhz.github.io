@@ -1,17 +1,42 @@
 var $ = function(id) { return document.getElementById(id); },
     rootNode = document.getElementsByClassName("root")[0],
-    nodeList = [],
-    timer;
+    nodeList = [],  // 存储按一定顺序遍历的节点
+    timer,
+    searchInfo,
+    flagArr = [];   // 辅助数组：节点值与搜索内容是否匹配? true : false
 
-$("DFS-btn").onclick = function() {
+// 遍历 traverse
+$("DFT-btn").onclick = function() {
     init();
     dfTraverse(rootNode);
     render();
 }
-$("BFS-btn").onclick = function() {
+$("BFT-btn").onclick = function() {
     init();
     bfTraverse(rootNode);
     render();
+}
+
+// 搜索 search
+$("DFS-btn").onclick = function() {
+    searchInfo = $("search-input").value;
+
+    init();
+    dfTraverse(rootNode);
+    nodeList.forEach(function(item) {
+        flagArr.push( item.firstChild.nodeValue.trim().toLowerCase() === searchInfo.toLowerCase() );  // 忽略大小写
+    })
+    renderSearch();
+}
+$("BFS-btn").onclick = function() {
+    searchInfo = $("search-input").value;
+
+    init();
+    bfTraverse(rootNode);
+    nodeList.forEach(function(item) {
+        flagArr.push( item.firstChild.nodeValue.trim().toLowerCase() === searchInfo.toLowerCase() );  // 忽略大小写
+    })
+    renderSearch();
 }
 
 // 深度优先遍历 depth - first  栈-递归
@@ -49,7 +74,7 @@ function init() {
     nodeList = [];
 }
 
-// 颜色渲染
+// 遍历：颜色渲染
 function render() {
     var i = 0;
     nodeList[i].style.backgroundColor = 'blue';
@@ -63,4 +88,25 @@ function render() {
             nodeList[nodeList.length-1].style.backgroundColor = '#fff';
         }
     }, 1000)
+}
+
+// 搜索：渲染
+function renderSearch() {
+    var i = 0;
+    nodeList[i].style.backgroundColor = (flagArr[i] ? 'red' : 'blue');
+    timer = setInterval(function(){
+        i++;
+        if(i < nodeList.length) {
+            nodeList[i - 1].style.backgroundColor = '#fff';
+            nodeList[i].style.backgroundColor = (flagArr[i] ? 'red' : 'blue');
+
+        } else {
+            clearInterval(timer);
+            nodeList[nodeList.length-1].style.backgroundColor = '#fff';
+
+            if( flagArr.every(function(item){ return item == false; }) ) {
+                alert("未找到匹配 " + searchInfo + " 的元素");
+            }
+        }
+    }, 500)
 }

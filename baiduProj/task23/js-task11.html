@@ -2,6 +2,8 @@
   @task      http://ife.baidu.com/task/detail?taskId=23
   @desc      JavaScript和树（二）
   @comment   DepthFirstTraverse-栈-递归；BreadthFirstTraverse-队列
+             TODO: 梳理下 nodeValue etc. , node API
+             TODO: 表现和逻辑分离：匹配到设置为matched，特殊样式在css中设置
   @future
   Created by cardaminexhz on 2016/7/18.
 -->
@@ -31,8 +33,11 @@
 </head>
 <body>
 
-<input type="button" id="DFS-btn" value="深度优先遍历">
-<input type="button" id="BFS-btn" value="广度优先遍历">
+<input type="button" id="DFT-btn" value="深度优先遍历">
+<input type="button" id="BFT-btn" value="广度优先遍历">
+<input type="text" id="search-input" placeholder="请输入要查找的数据">
+<input type="button" id="DFS-btn" value="深度优先搜索">
+<input type="button" id="BFS-btn" value="广度优先搜索">
 
 <div class="root"> Super
     <div> Cat
