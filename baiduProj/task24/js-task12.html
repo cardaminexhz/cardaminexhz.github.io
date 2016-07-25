@@ -1,7 +1,7 @@
 <!--
   @task      http://ife.baidu.com/task/detail?taskId=24
   @desc      JavaScript和树（三）
-  @comment
+  @comment   1. 阻止事件冒泡 stopPropagation 2.高亮标示选中box，清楚其他元素样式 3.删除选中节点及其子节点的思路
   @future
   Created by cardaminexhz on 2016/7/18.
 -->
@@ -27,6 +27,9 @@
             margin: 50px auto;
             flex-direction: column;
         }
+        input[type="button"] {
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +39,10 @@
 <input type="text" id="search-input" placeholder="请输入要查找的数据">
 <input type="button" id="DFS-btn" value="深度优先搜索">
 <input type="button" id="BFS-btn" value="广度优先搜索">
+<br>
+<input type="button" id="DELETE-btn" value="删除节点及其子节点">
+<input type="text" id="add-input" placeholder="请输入要增加的节点内容">
+<input type="button" id="ADD-btn" value="在选中节点下增加子节点">
 
 <div class="root"> Super
     <div> Cat

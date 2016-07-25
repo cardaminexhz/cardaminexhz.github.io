@@ -3,7 +3,8 @@ var $ = function(id) { return document.getElementById(id); },
     nodeList = [],  // 存储按一定顺序遍历的节点
     timer,
     searchInfo,
-    flagArr = [];   // 辅助数组：节点值与搜索内容是否匹配? true : false
+    flagArr = [],   // 辅助数组：节点值与搜索内容是否匹配? true : false
+    selectedElem;   // 存储选中的元素
 
 // 遍历 traverse
 $("DFT-btn").onclick = function() {
@@ -37,6 +38,42 @@ $("BFS-btn").onclick = function() {
         flagArr.push( item.firstChild.nodeValue.trim().toLowerCase() === searchInfo.toLowerCase() );  // 忽略大小写
     })
     renderSearch();
+}
+
+// 删除节点及其子节点
+$("DELETE-btn").onclick = function() {
+    if(selectedElem) {
+        var parent = selectedElem.parentNode;
+        parent.removeChild(selectedElem);
+        selectedElem = undefined;
+    } else {
+        alert("请选择要删除的节点");
+    }
+}
+
+// 在选中节点下增加子节点
+$("ADD-btn").onclick = function() {
+    var nodeValue = $("add-input").value,
+        newDiv;
+
+    if(!nodeValue) {
+        alert("请输入要添加的节点内容");
+        return;
+    }
+    if(!selectedElem) {
+        alert("请选择要添加子节点的节点");
+        return;
+    }
+
+    newDiv = document.createElement("div");
+    newDiv.innerText = nodeValue;
+
+    selectedElem.appendChild(newDiv);
+
+    clearResult();
+    selectedElem.style.backgroundColor = '#fef9d1';
+    $("add-input").value = '';
+
 }
 
 // 深度优先遍历 depth - first  栈-递归
@@ -112,7 +149,7 @@ function renderSearch() {
 }
 
 
-// 绑定click事件
+// 点击box，背景色改变
 var divNodes = document.getElementsByTagName("div");
 
 for(var i = 0; i < divNodes.length; i++) {
@@ -120,11 +157,19 @@ for(var i = 0; i < divNodes.length; i++) {
 }
 
 function highLightElem(e) {
-    var elem = e.target;
-    console.log(e)
-    console.log(elem)
+    clearResult();
 
-    elem.style.backgroundColor = '#fef9d1';
+    // 新的选中元素
+    selectedElem = e.target;
+    e.stopPropagation();//阻止事件冒泡
+    selectedElem.style.backgroundColor = '#fef9d1';
+}
+
+function clearResult() {
+    var allDivElems = document.getElementsByTagName("div");
+    for(var i = 0; i < allDivElems.length; i++) {
+        allDivElems[i].style.backgroundColor = '#fff';
+    }
 }
 
 
