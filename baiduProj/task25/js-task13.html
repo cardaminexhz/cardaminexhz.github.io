@@ -1,0 +1,92 @@
+<!--
+  @task      http://ife.baidu.com/task/detail?taskId=25
+  @desc      JavaScript和树（四）
+  @comment   1.arrow是如何通过border生成的
+  @future
+  Created by cardaminexhz on 2016/7/25.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        fieldset {
+            width: 400px;
+            margin: 50px auto;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin: 5px 10px;
+
+            line-height: 40px;
+            font-size: 18px;
+        }
+        input[type="text"] {
+            margin-left: 20px;
+        }
+
+        .arrow {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .right-arrow {
+            width: 0;
+            border-left: 10px solid #00BCD4;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        .down-arrow {
+            width: 0;
+            height: 0;
+            border-top: 10px solid #00BCD4;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+        .empty-arrow {
+            border-left: 10px solid transparent;
+        }
+        .add-icon {
+            display: none;
+        }
+        .del-icon {
+            display: none;
+        }
+        img {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<fieldset>
+    <legend>树形组件</legend>
+    <input type="text" id="search-inpput" placeholder="请输入要搜索的值">
+    <input type="button" id="search-btn" value="搜索">
+    <input type="button" id="reset-btn" value="重置">
+
+    <div class="node-area">
+        <div class="nodebody-visible">
+            <label class="node-header">
+                <div class="arrow right-arrow"></div>
+                <span class="node-title">前端攻城狮</span>
+                <img class="addIcon" src="img/add.png">
+            </label>
+        </div>
+<!--        <div class="nodebody-visible">
+            <label class="node-header">
+                <div class="arrow right-arrow"></div>
+                <span class="node-title">super</span>
+                <img class="add-icon" src="img/add.png">
+                <img class="del-icon" src="img/delete.png">
+            </label>
+        </div>-->
+
+    </div>
+</fieldset>
+
+<script src="js-task13.js"></script>
+</body>
+</html>

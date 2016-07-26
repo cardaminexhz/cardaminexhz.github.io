@@ -1,0 +1,60 @@
+<!--
+  @desc      JavaScript Ninja 3.3 实现自己的forEach函数
+  @comment   1.基础功能：该函数在数组的每个元素上都进行回调调用
+             2.增强：校验第一个参数是数组；第二个参数是函数
+             3.增强：开发人员在任何时候都可以终止循环
+             4.增强：除index索引外，传递更多参数给callback函数
+  Created by cardaminexhz on 2016/7/26.
+-->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>forEach</title>
+    <script>
+        var weapons = ['katana', 'nunchuncks', 'dalalala'],
+            continueFlag = true;   // 循环终止条件，需要终止循环时设置为false
+
+        function forEach(list, callback) {
+            // 判断第一个参数是否是数组
+            if(!Array.isArray(list)) {
+                console.log("[ERROR] the 1st argument needs an Array; " + typeof(list)+ " provided");
+                return;
+            }
+            // 判断第二个参数是否是函数
+            if(isFunction(list)) {
+                console.log("[ERROR] the 2nd argument needs a function; " + typeof(list)+ " provided");
+                return;
+            }
+
+            for(var i = 0; i < list.length && continueFlag; i++) {
+                // 传递更多参数给callback，e.g. item, index, array
+                callback.call(list[i], list[i], i, list);
+            }
+
+            function isFunction(o) {
+                return typeof (o) === "function";
+            }
+        }
+
+        forEach(weapons, function(item, index, array) {
+            if(index === 1) {
+                continueFlag = false;  // 遍历完索引为0,1的元素后，终止循环
+            }
+            console.log("item:");
+            console.log(item);
+            console.log("index:");
+            console.log(index);
+            console.log("array:");
+            console.log(array);
+
+            if(this == weapons[index])
+                console.log("got the expected value of: " + weapons[index]);
+        })
+        forEach({},function() {})  // 测试
+    </script>
+</head>
+<body>
+
+</body>
+</html>
