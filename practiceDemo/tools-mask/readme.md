@@ -28,14 +28,15 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
     -webkit-mask: url(img/mask.png);
 
 >　图像是由rgb三个通道以及在每个像素上定义的颜色组成的。但是在他们之上还有第四个通道，alpha通道，通过亮度定义每个像素上的透明度。
-白色意味着不透明，黑色意味着透明，介于黑白之间的灰色表示半透明。
+白色意味着不透明，黑色意味着透明，介于黑白之间的灰色表示半透明。  
 `The first three values are RGB color values and the last value is the level of the transparency (0 = transparent and 1 = opaque).`
 
- ![eg.ng](img/eg.png =160x100)
- ![rgba.png](img/rgba.png =140x80)
+ <img src="img/eg.png" width = "160" height = "100" alt="eg.png" align=center />
+ <img src="./xxx.png" width = "140" height = "80" alt="rgba.png" align=center />
  
   ref: 
   [如何在CSS中使用遮罩](http://www.w3cplus.com/css3/css-masking.html/)
+  
   [The Basics of CSS3](http://webdesignerwall.com/tutorials/the-basics-of-css3/)
        
 ***
@@ -64,4 +65,5 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
 
 ref: 
 [Web端遮罩效果实现探究](https://jdc.jd.com/archives/1535)
+
 [CSS3 Image Styles](http://webdesignerwall.com/demo/css3-image-styles/)
