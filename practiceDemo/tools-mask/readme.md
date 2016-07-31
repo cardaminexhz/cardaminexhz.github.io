@@ -58,7 +58,7 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
 1. 用超大 border 实现外部填充
 2. `:hover` 时，增大透明圆形的 `width` 和 `height`
 3. 通过 `transition` 加上一个过渡动画效果
-4. demo 可以看这里 [say Hi](http://cardaminexhz.github.io/practiceDemo/tools-mask/mask-transition.html/) 文字通过 `:hover::after` 添加。
+4. demo 可以看这里 [say Hi](http://cardaminexhz.github.io/practiceDemo/tools-mask/mask-transition.html) 文字通过 `:hover::after` 添加。
 
 ***
 
