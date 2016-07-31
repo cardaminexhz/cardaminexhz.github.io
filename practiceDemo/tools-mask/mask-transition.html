@@ -1,0 +1,69 @@
+<!--
+    @comment  遮罩效果
+              1. clip: 定义一个剪裁矩形，用来剪裁绝对定位元素；
+              允许规定一个元素的可见尺寸，这样此元素就会被修剪并显示为这个形状；
+              出了这个剪裁区域的内容会根据 overflow 的值来处理；
+              剪裁区域可能比元素的内容区大，也可能比内容区小。
+              2. opacity
+              3. transition
+    @future
+    @ref      https://jdc.jd.com/archives/1535
+    created by cardaminexhz on 2016-7-31
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .wrap {
+            width: 1024px;
+            height: 700px;
+            margin: 10px;
+            background: url(img/background.jpg) repeat;
+
+            position: relative;
+            overflow: hidden;
+        }
+        .mask {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;      /* 实现圆形 */
+
+            position: absolute;
+            top: 48%;
+            left: 50%;
+
+            border: 20000px solid black;  /* 用超大border实现外部填充 */
+            margin-left: -20000px;
+            margin-top: -20000px;
+
+            opacity:0.9;              /* 透明度 */
+            filter:Alpha(opacity=90); /* IE8 以及更早的浏览器 */
+            -moz-opacity:0.9;
+
+            transition: 2s ease;
+        }
+        .mask:hover {
+            width: 300px;
+            height: 300px;
+        }
+        .mask:hover::after {
+            content: "Hi！小胖童鞋！快去刷鞋吧";
+            margin: 0 0 0 -100px;
+            color: #fff;
+            font: bold 20px/1.2 '微软雅黑';
+            text-shadow: 1px 1px rgba(0, 0, 0, .35);
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="mask">
+    </div>
+</div>
+</body>
+</html>
