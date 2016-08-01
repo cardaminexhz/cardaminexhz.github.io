@@ -49,6 +49,7 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
        剪裁区域可能比元素的内容区大，也可能比内容区小。
     2. transition 一个简写属性，用来设置4个过渡属性。
         * transition-property	规定设置过渡效果的 CSS 属性的名称。
+            如果使用all关键字或者省略了transition-property，那么所有发生变化的属性都会应用transition；如果使用none关键字，则不会有transition效果
         * transition-duration	规定完成过渡效果需要多少秒或毫秒。
         * transition-timing-function	规定速度效果的速度曲线。
         * transition-delay	定义过渡效果何时开始
@@ -65,3 +66,41 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
 ref:  
 [Web端遮罩效果实现探究](https://jdc.jd.com/archives/1535)   
 [CSS3 Image Styles](http://webdesignerwall.com/demo/css3-image-styles/)
+
+***
+
+* 练习题-A块覆盖B块 `A-B-transmition.html`
+
+> 遮罩效果 - 块a覆盖块b
+    块a，块b等宽高（假设 width: 200px; height: 300px;）。
+    当鼠标移入b中时，a慢慢地往下移，直到完全覆盖在b上面。
+    a块只有和b重叠的部分才会显示在页面上（原本a从页面上看不见）
+    
+思路：
+
+1. 定位
+
+        <!-- html -->
+        <div class="b">
+            <div class="a"></div>
+        </div>
+        
+        <!-- css -->
+        .b {
+            position: relative;
+            overflow: hidden;    <!-- a块只有和b重叠的部分才会显示在页面上 -->
+        }
+        .a {
+            position: absolute;
+            top: -300px;
+            transition: top 2s;
+        }
+2. 伪类：`当鼠标移入b中时，a慢慢地往下移`
+
+        .b:hover .a{ top: 0; }
+    怪不得说选择器是前段同学吃饭的家伙咯~
+3. 动画操作 `top` 还是 `height`
+
+    如上例，a, b等宽高，a相对b定位，初始时 `.a{ top: -300px; }`， 动画操作a的 `top`。   
+    还尝试初始 `.a{ height: 0; top: 0; }`，动画操作a的 `height`，亦可实现；但当块ab含有文本节点时（并通过 `line-height` 来设置文字在竖直方向的位置），文本节点的显示效果不符合要求。
+    
