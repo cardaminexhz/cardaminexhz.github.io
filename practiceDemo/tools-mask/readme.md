@@ -67,6 +67,7 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
     + 触发器：促使样式发生变化（最初 -> 最终）的执行动作。
         - 伪类触发：e.g. `:hover`（鼠标悬浮在元素上时），`:active`（鼠标单击元素时），`:target`（元素成为链接目标时）。
         - 通过JS动态改变标签样式：1.改变 `className`；2.修改 `.style.xxxproperty`
+        
             应用场景：需要在点击元素时启动 transition；当有鼠标悬停在一个元素上时，在另一个元素上触发 transition；etc.
         - 总之，只要有 css属性发生变化，css transition 都会生效。
         
