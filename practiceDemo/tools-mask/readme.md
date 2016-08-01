@@ -60,7 +60,6 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
 * transition
 
 1. transition 是什么 - 在一定时间内，将一组css属性 `变换` 到另一组属性的 `动画展示过程`。
-
 2. 如何使 transition 生效
     + 两个样式：最初，最终。然后浏览器负责以动画形式展示两个样式之间的变化过程。
     + transition 属性：一般定义在最初样式中。
@@ -73,22 +72,19 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
         
         当不再触发执行动作时（如鼠标离开），浏览器会将该标签返回到它的前一个样式，并以动画显示整个过程。
         样式变化（最初 < - > 最终），只需设置一次 transition。
-        【问】通过JS动态改变标签样式时，并未自动回到最初状态？
-        
+        【问】通过JS动态改变标签样式时，并未自动回到最初状态？       
 3. 可以以动画形式模拟哪些css属性
     + `height` `width` `margin` `padding`
     + `top` `left` `bottom` `right` （定位属性）
     + `color` `background-color` `opacity`
     + `border-color` `border-width`
-    + `font-size` `line-height` `letter-spacing` `word-spacing`  
-    
+    + `font-size` `line-height` `letter-spacing` `word-spacing`      
 4. 如何添加 transition
     + transition-property	以过渡效果展示哪些属性
       如果使用all关键字或者省略了transition-property，那么所有发生变化的属性都会应用transition；如果使用none关键字，则不会有transition效果
     + transition-duration	完成过渡效果需要多少秒或毫秒。
     + transition-timing-function	规定速度效果的速度曲线。
-    + transition-delay	过渡效果开始之前要不要延时
-        
+    + transition-delay	过渡效果开始之前要不要延时        
 5. 快捷方式
 
         transition: all 1s ease-in 5s;
