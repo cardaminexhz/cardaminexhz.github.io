@@ -12,7 +12,7 @@ function upper(all, letter, index, sourceStr) {
 
 testStr = "border-bottom-width";
 newStr = testStr.replace(/-(\w)/g, upper);
-console.log("convert " + testStr + " to " + newStr);
+console.log("convert " + testStr + " to " + newStr + "\n=====");
 
 /* 1-1.中横线字符串 <- 驼峰拼写 e.g. border-bottom-width <- borderBottomWidth */
 function back(all, letter, index, sourceStr) {
@@ -21,7 +21,7 @@ function back(all, letter, index, sourceStr) {
 }
 
 backStr = newStr.replace(/([A-Z])/g, back);
-console.log("convert " + newStr + " to " + backStr);
+console.log("convert " + newStr + " to " + backStr + "\n=====");
 
 
 /* 2.压缩查询字符串 e.g. foo=1&foo=2&blah=a&blah=b&foo=3 -> foo=1,2,3&blah=a,b */
@@ -71,7 +71,7 @@ testStr = "foo=1&foo=2&blah=a&blah=b&foo=3";   // foo=1,2,3&blah=a,b
 testStr.replace(/([^=&]+)=([^=&]*)/g, anotherExtract);   // 每次两个捕获 key, value
 console.log(argusObj);
 newStr = convert(argusObj);
-console.log(newStr);
+console.log("convert " + testStr + " to " + newStr + "\n=====");
 
 
 /* 3. 去除字符串前后多余空格 */
@@ -81,10 +81,10 @@ function trim(str) {
 
 testStr = "     #id div.class ";
 newStr = trim(testStr);
-console.log(newStr);
+console.log("convert " + testStr + " to " + newStr + "\n=====");
 
 
 /* 4. 交换字符串中的两个单词 */
 testStr = "John Smith";
 newStr = testStr.replace(/(\w+)\s(\w+)/, "$2 $1");
-console.log(newStr);
+console.log("convert " + testStr + " to " + newStr + "\n=====");
