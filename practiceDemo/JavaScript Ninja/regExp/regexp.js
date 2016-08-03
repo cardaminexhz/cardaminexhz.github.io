@@ -84,7 +84,67 @@ newStr = trim(testStr);
 console.log("convert " + testStr + " to " + newStr + "\n=====");
 
 
-/* 4. 交换字符串中的两个单词 */
+/* 4. 替换字符 $n，捕获组 - 交换字符串中的两个单词 */
 testStr = "John Smith";
 newStr = testStr.replace(/(\w+)\s(\w+)/, "$2 $1");
+console.log("$n -- convert " + testStr + " to " + newStr + "\n=====");
+
+/* 4-1 替换字符 $n - 重新组合 */
+testStr = "JohnSmith@126.com";
+newStr = testStr.replace(/(.+)(@).*/, "$2$1");
+console.log("$n -- convert " + testStr + " to " + newStr + "\n=====");
+
+/* 4-2 替换字符 $&，匹配的字符串 */
+newStr = testStr.replace(/smith/i, "{$&}");
+console.log("$& -- convert " + testStr + " to " + newStr + "\n=====");
+
+/* 4-3 替换字符 $` $'，匹配 - 使用$`和$'字符替换内容 */
+testStr = "abc";
+newStr = testStr.replace(/b/, "$`");
+console.log("$` -- convert " + testStr + " to " + newStr);
+newStr = testStr.replace(/b/, "$'");
+console.log("$' -- convert " + testStr + " to " + newStr + "\n=====");
+
+
+/* 4-4  删除行内样式中的单引号 */
+testStr = '<span style="font-family:\'msyh\';">;demo</span>';
+
+/* .1 非贪婪匹配 nogreedy a+? */
+function remove1(all, capture, index, sourceStr) {
+    console.log("no greedy match: ", all, capture, index, sourceStr);
+    return capture.replace(/'/g, "");
+}
+newStr = testStr.replace(/(:.*?;)/g, remove1);
+console.log("convert " + testStr + " to " + newStr + "\n=====");
+
+/* .2 */
+function remove2(all, index, sourceStr) {
+    console.log(all, index, sourceStr);
+    return all.replace(/\'/g, "");
+}
+newStr = testStr.replace(/\'[^']+\'/g, remove2);
+console.log("convert " + testStr + " to " + newStr + "\n=====");
+
+/* 5 洗扑克: 将ThisNimojs-JavaScript使用正则替换成 TJhaivsaNSicmroijpst */
+testStr = "ThisNimojs-JavaScript";
+
+function mixStr(all, str1, str2, index, sourceStr) {
+    console.log(all, str1, str2, index, sourceStr);
+
+    var arr1, arr2, arrMix=[], minLen;
+
+    arr1 = str1.split("");
+    arr2 = str2.split("");
+    minLen = arr1.length < arr2.length ? arr1.length : arr2.length;
+
+    for(var i = 0; i < minLen; i++) {
+        arrMix.push(arr1[i], arr2[i]);
+    }
+    if(arr1.length != arr2.length) {
+        arrMix = arrMix.concat(arr1.length > arr2.length ? arr1.slice(minLen - 1) : arr2.slice(minLen - 1));
+    }
+
+    return arrMix.join("");
+}
+newStr = testStr.replace(/(\w+)-(\w+)/, mixStr);
 console.log("convert " + testStr + " to " + newStr + "\n=====");

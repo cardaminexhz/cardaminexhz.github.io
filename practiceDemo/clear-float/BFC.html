@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            border: 1px solid #00BCD4;
+        }
+        .parent {
+            overflow: hidden;
+            background-color: antiquewhite;
+        }
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: khaki;
+            margin: 20px;
+        }
+        .wrap {
+            overflow: hidden;
+        }
+        .main {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="wrap">
+        <div class="child"></div>
+    </div>
+    <div class="wrap">
+        <div class="child"></div>
+    </div>
+    <div class="child"></div>
+    <div class="child"></div>
+</div>
+<div class="main"></div>
+
+</body>
+</html>

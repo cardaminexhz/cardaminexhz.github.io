@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .pass {
+            color: green;
+        }
+        .fail {
+            color: red;
+        }
+    </style>
+    <script>
+        var $ = function(id) { return document.getElementById(id); };
+
+        // 断言: for test
+        function assert(condition, desc) {
+            var content = desc;
+
+            if(condition) {
+                $("assertResult").className = 'pass';
+                content += ': true';
+            } else {
+                $("assertResult").className = 'fail';
+                content += ': false';
+            }
+            console.log(content);
+            $("assertResult").innerText = content;
+        }
+
+
+        // 构造函数
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.sayHello = function () {
+                console.log("[sayHello] " + this.name + "; " + this.age);
+                console.log(this);
+            }
+        }
+
+
+        // 原型
+        function ProtoPerson() {
+
+        }
+        ProtoPerson.prototype.name = "public";
+        ProtoPerson.prototype.age = "public";
+        ProtoPerson.prototype.sayHello = function() {
+            console.log("[sayHello] " + this.name + "; " + this.age);
+            console.log(this);
+        };
+
+
+        // 混合 构造函数 + 原型，自定义类型
+        function MixPerson(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        MixPerson.prototype = {
+            constructor: MixPerson,
+            sharedAttr: "public",
+            sayHello: function () {
+                console.log("[sayHello] " + this.name + "; " + this.age);
+                console.log(this);
+            }
+        };
+
+
+
+        // 测试
+        window.onload = function() {
+            console.log("[构造函数]");
+            var lily = new Person("lily", 18);
+            assert(lily instanceof Person, "lily instanceof Person");
+            assert(lily instanceof Object, "lily instanceof Object");
+            var john = new Person("john", 22);
+            assert(lily.sayHello === john.sayHello, "lily.sayHello === john.sayHello");
+            console.log(lily);
+
+
+            console.log("[原型]");
+            var p1 = new ProtoPerson();
+            var p2 = new ProtoPerson();
+            assert(p1.sayHello === p2.sayHello, "p1.sayHello === p2.sayHello");
+
+
+            console.log("[混合 构造函数 + 原型]");
+            var m1 = new MixPerson("mix-snow", 33);
+            var m2 = new MixPerson("mix-rain", 35);
+            assert(m1.sayHello === m2.sayHello, "m1.sayHello === m2.sayHello");
+            m1.sayHello();
+            // 对原型的修改能立即从实例中体现出来
+            console.log("before edit: " + m1.sharedAttr);
+            MixPerson.prototype.sharedAttr = "already edited";
+            console.log("after edit: " + m1.sharedAttr);
+
+
+
+            console.log("[继承]");
+            // 继承
+            function Baby(sleepHour) {
+                this.sleepHour = sleepHour;
+            }
+            console.log("=== 初始原型和实例 ===");
+            console.log(Baby.prototype);
+            var oriBaby = new Baby(13);
+            console.log(oriBaby);
+            /**
+             * 重写原型
+             * 1. 原有实例仍指向最初的原型
+             * 2. 新原型，切断了构造函数与最初原型的联系
+             * */
+            console.log("=== 重写后的原型 ===");
+            Baby.prototype = new MixPerson();
+            console.log(Baby.prototype);
+            console.log("=== 重写原型后，原有实例仍指向最初的原型 ===");
+            console.log(oriBaby);
+
+            var child1 = new Baby(10);
+            var child2 = new Baby(12);
+            assert(child1.sayHello === child2.sayHello, "child1.sayHello === child2.sayHello");
+            console.log("=== 重写原型后，新实例 ===");
+            console.log(child1);
+            console.log(Baby.prototype.constructor);
+            console.log(Baby.prototype);
+            var child3 = new Baby(14, "child3", 2);
+            child3.sayHello();
+
+            // 组合继承 借用构造函数 + 原型
+            console.log("[组合继承：借用构造函数+原型]");
+            function AnotherBaby (name, age, habit) {
+                MixPerson.call(this, name, age);
+                this.habit = habit;
+            }
+            AnotherBaby.prototype = new MixPerson();
+            AnotherBaby.prototype.constructor = AnotherBaby;
+            AnotherBaby.prototype.sayHabit = function() {
+                console.log(this.habit);
+            };
+
+            var baby1 = new AnotherBaby("baby1", 2, "sleep");
+            var baby2 = new AnotherBaby("baby2", 1, "watch");
+            assert(baby1.sayHello === baby2.sayHello, "baby1.sayHello === baby2.sayHello");
+            assert(baby1.sayHabit === baby2.sayHabit, "baby1.sayHabit === baby2.sayHabit");
+            console.log(baby1);
+
+
+            // 原型式继承
+            console.log("[原型式继承]");
+            function object(o) {
+                function F() {}
+                F.prototype = o;
+                return new F();
+            }
+
+            var person = {
+                name: "json",
+                friends: ["sherly", "lucy", "lily"],
+                sayFriends: function() {}
+            };
+
+            var anotherPerson = object(person);
+            anotherPerson.name = "Greg";
+            anotherPerson.friends.push("Rob");
+            console.log(anotherPerson);
+
+            var yetAnotherPerson = object(person);
+            yetAnotherPerson.name = "Linda";
+            yetAnotherPerson.friends.push("Smith");
+            console.log(yetAnotherPerson);
+
+            assert(anotherPerson.sayFriends === yetAnotherPerson.sayFriends, "anotherPerson.sayFriends === yetAnotherPerson.sayFriends");
+
+            // ES5 Object.create() 规范了原型式继承
+            var thirdAnotherPerson = Object.create(person, {
+                name: {
+                    value: "Greg"
+                }
+            });
+            console.log(thirdAnotherPerson);
+
+        }
+
+    </script>
+</head>
+<body>
+<h1>object</h1>
+
+<p id="assertResult"></p>
+
+</body>
+</html>

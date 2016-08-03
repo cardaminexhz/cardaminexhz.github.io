@@ -16,3 +16,9 @@
     - 2.压缩查询字符串 e.g. foo=1&foo=2&blah=a&blah=b&foo=3 -> foo=1,2,3&blah=a,b 
     - 3.去除字符串前后多余空格
     - 4.交换字符串中的两个单词
+        * 4-1 替换字符 $n - 重新组合
+        * 4-2 替换字符 $&，匹配的字符串
+        * 4-3 替换字符 $` $'，匹配 - 使用$`和$'字符替换内容
+        * 4-4  删除行内样式中的单引号
+    - 5.洗扑克: 将 ThisNimojs-JavaScript 使用正则替换成 `TJhaivsaNSicmroijpst` - 来自 nimojs blog
+        
