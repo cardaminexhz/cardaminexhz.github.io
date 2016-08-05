@@ -6,13 +6,13 @@
     + 修缮拖拽
         问题：元素的左上角总是和鼠标在一起
         - 鼠标事件的几个概念：   
-            1. 客户区坐标 `event.clientX` `clientY`
+            1. 客户区坐标 `event.clientX` `clientY`   
                 事件发生时，mouse在 `视口` 中的水平/ 垂直坐标；
                 不包含页面滚动的距离，不代表mouse在页面上的位置；
-            2. 页面坐标 `event.pageX` `pageY`   
+            2. 页面坐标 `event.pageX` `pageY`    
                 事件发生时，mouse在 `页面` 中的位置；
                 页面没有发生滚动时，clientX === pageX；
-            3. 屏幕坐标 `event.screenX` `screenY`  
+            3. 屏幕坐标 `event.screenX` `screenY`   
                 相对于 `屏幕`，（而非浏览器窗口）
             
             <img src="client-page.png" width="480px" height="330px">
