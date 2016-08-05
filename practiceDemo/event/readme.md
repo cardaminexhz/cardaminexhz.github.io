@@ -95,8 +95,8 @@
         
 ***
 
-* 总结：
-    <img src="event.png" width = "350" height = "500" alt="event.png" align=center />
+* 总结：  
+    <img src="event.png" width = "420" height = "600" alt="event.png" align=center />
     
     + preventDefault()
         e.g. 阻止链接的默认行为（被单击时，跳转到其href指定的url）
