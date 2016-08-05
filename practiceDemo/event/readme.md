@@ -121,7 +121,7 @@
                 } else if(element.detachEvent) {
                     element.detachEvent(type, handler);
                 } else {
-                    element["on"+type] = null;
+                    element["on"+type] = null;  <!-- 方括号语法，可支持动态构建属性名 -->
                 }
             },
 
@@ -130,7 +130,7 @@
             },
             
             getTarget: function (event) {
-                return event.target ? event.target : event.srcElement;
+                return event.target || event.srcElement;
             },
             
             preventDefault: function (event) {
