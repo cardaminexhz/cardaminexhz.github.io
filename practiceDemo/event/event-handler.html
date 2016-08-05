@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var $ = function(id) {
+            return document.getElementById(id);
+        }
+
+        window.onload = function() {
+            /* dom0 级只能定义一个 handler：定义多个时，以后一个为准 */
+            $("dom0-btn").onclick = function() {
+                console.log("[onclick] 1");
+            }
+            $("dom0-btn").onclick = function() {
+                console.log("[onclick] 2");
+            }
+
+            /* dom2 级可以添加多个 handler：按添加它们的顺序触发 */
+            $("dom2-btn").addEventListener("click", function() {
+                console.log("[addEventListener] 1");
+            }, false);
+            $("dom2-btn").addEventListener("click", function() {
+                console.log("[addEventListener] 2");
+            }, false);
+
+            // -------------------------------------------------
+            // event.currentTarget V.S. this V.S. event.target
+/*            $("bubble-btn").onclick = function(event) {
+                console.log("event.currentTarget === this: ");
+                console.log(event.target === this);
+                console.log("event.target === this: ");
+                console.log(event.target === this);
+            }*/
+/*
+            document.body.onclick = function(event) {
+                console.log("event.currentTarget === document.body: ");
+                console.log(event.currentTarget === document.body);
+                console.log("this === document.body: ");
+                console.log(this === document.body);
+                console.log('event.target === $("bubble-btn")');
+                console.log(event.target === $("bubble-btn"));
+            };*/
+
+            // IE event handler
+            function IEHandler(){
+                console.log("IE");
+                console.log(window.event.type);
+                console.log(window.event.srcElement);
+            }
+
+            $("IE-attach-btn").onclick = function() {
+                $("IE-btn").attachEvent("onclick", IEHandler);
+            };
+            $("IE-detach-btn").onclick = function() {
+                alert("continue to detachEvent");
+                $("IE-btn").detachEvent("onclick", IEHandler);
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" id="dom0-btn" value="dom0">
+<input type="button" id="dom2-btn" value="dom2">
+
+<hr />
+
+<input type="button" id="bubble-btn" value="bubble">
+
+<hr />
+<input type="button" id="IE-btn" value="IE，点击后面两个按钮，为我添加/移除handler">
+<input type="button" id="IE-attach-btn" value="IE-attachEvent">
+<input type="button" id="IE-detach-btn" value="IE-detachEvent">
+
+</body>
+</html>

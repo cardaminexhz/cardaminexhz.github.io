@@ -1,0 +1,145 @@
+<!--
+TODO: 为什么 width: auto; height: 100px; 有大小；而width: 200px；height: auto；无大小
+-->
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            border: 1px solid cornflowerblue;
+        }
+        .wrap {
+            /*margin: 100px;*/
+            height: 400px;
+
+            position: relative;
+            overflow: hidden;
+        }
+        .draggable {
+            width: 50px;
+            height: 60px;
+            background-color: lightyellow;
+            cursor: crosshair;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+    <script>
+        var $ = function(id) { return document.getElementById(id); };
+
+        // 兼容 DOM2， DOM0, IE
+        var EventUtil = {
+            addHandler: function(element, type, handler) {
+                if(element.addEventListener) {
+                    element.addEventListener(type, handler, false);
+                } else if(element.attachEvent()) {
+                    element.attachEvent(type, handler);
+                } else {
+                    element["on"+type] = handler;
+                }
+            },
+
+            removeHandler: function(element, type, handler) {
+                if(element.removeEventListener) {
+                    element.removeEventListener(type, handler, false);
+                } else if(element.detachEvent) {
+                    element.detachEvent(type, handler);
+                } else {
+                    element["on"+type] = null;
+                }
+            },
+
+            getEvent: function(event) {
+                return event ? event : window.event;
+            },
+            
+            getTarget: function (event) {
+                return event.target ? event.target : event.srcElement;
+            },
+            
+            preventDefault: function (event) {
+                if(event.preventDefault) {
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },
+            
+            stopPropagation: function (event) {
+                if(event.stopPropagation) {
+                    event.stopPropagation();
+                } else {
+                    event.cancelBubble = true;
+                }
+            }
+
+        };
+
+
+        var drapDrop = function() {
+            var dragging = null,
+                diffX = 0,
+                diffY = 0;
+
+            function handler(event) {
+                // 获取事件和目标
+                event = EventUtil.getEvent(event);
+                var target = EventUtil.getTarget(event);
+
+                switch (event.type) {
+                    case "mousedown":
+                        if(target.className.search("draggable") != -1) {
+                            dragging = target;
+                            diffX = event.clientX - target.offsetLeft;
+                            diffY = event.clientY - target.offsetTop;
+                        }
+                        break;
+
+                    case "mouseup":
+                        dragging = null;
+                        break;
+
+                    case "mousemove":
+                        if(dragging) {
+                            dragging.style.left = event.clientX - diffX + "px";
+                            dragging.style.top = event.clientY - diffY + "px";
+                        }
+                        break;
+                }
+            }
+
+            return {
+                enable: function () {
+                    EventUtil.addHandler(document, "mousedown", handler);
+                    EventUtil.addHandler(document, "mousemove", handler);
+                    EventUtil.addHandler(document, "mouseup", handler);
+                },
+                disable: function () {
+                    EventUtil.removeHandler(document, "mousedown", handler);
+                    EventUtil.removeHandler(document, "mousemove", handler);
+                    EventUtil.removeHandler(document, "mouseup", handler);
+                }
+            }
+        };
+
+
+
+        window.onload = function() {
+            drapDrop().enable();
+        }
+    </script>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="draggable"></div>
+</div>
+
+</body>
+</html>

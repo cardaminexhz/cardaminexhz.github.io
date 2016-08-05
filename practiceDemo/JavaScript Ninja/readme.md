@@ -9,8 +9,12 @@
 
 ***
 
-+ 7 正则   2016-8-2  `regExp`
++ 7 正则   2016-8-2  `regExp`  
+
+> 正则表达式是一个拆分字符串并查询相关信息的过程。
+
 `正则需要大量的练习，并从中总结技巧 - xhz`
+
     - 1.中横线字符串 -> 驼峰拼写 e.g. border-bottom-width -> borderBottomWidth
     - 1-1.中横线字符串 <- 驼峰拼写 e.g. border-bottom-width <- borderBottomWidth
     - 2.压缩查询字符串 e.g. foo=1&foo=2&blah=a&blah=b&foo=3 -> foo=1,2,3&blah=a,b 
