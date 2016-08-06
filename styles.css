@@ -20,7 +20,7 @@ body {
     margin: 0;
     padding: 0;
 
-    line-height: 1.5;
+    line-height: 1.5;  /* 此数字会与当前的字体尺寸相乘来设置行间距。 */
 }
 
 section {

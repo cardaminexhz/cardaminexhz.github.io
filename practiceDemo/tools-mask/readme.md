@@ -145,8 +145,9 @@ ref:
 ***
 
 * css `:hover` V.S. JS `onmouseover` `onmouseout`
-    + 通过监听鼠标事件  
-        如何验证？`pointer-events`
+    + 先说结论：都是通过监听鼠标事件   
+        如何验证？`pointer-events`  
+        `{ pointer-events: none; }` `:hover`, `onmouseover` `onmouseout`, 均失效
 
     > The pointer-events property allows for control over how HTML elements respond to mouse/touch events – 
     including CSS hover/active states, click/tap events in Javascript, and whether or not the cursor is visible.
@@ -170,6 +171,6 @@ ref:
 ***
 
 ref:  
-[pointer-events](https://css-tricks.com/almanac/properties/p/pointer-events/)
+[pointer-events](https://css-tricks.com/almanac/properties/p/pointer-events/)   
 [详解css3 pointer-events（阻止hover、active、onclick等触发事件来](http://outofmemory.cn/css/css3-pointer-events)
 
