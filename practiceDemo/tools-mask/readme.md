@@ -65,7 +65,8 @@ CSS3 提供了 mask-img 来实现遮罩。mask 的原理是使用一张遮罩用图片，遮罩图片中的黑
     + transition 属性：一般定义在最初样式中。
     + 触发器：促使样式发生变化（最初 -> 最终）的执行动作。
         - 伪类触发：e.g. `:hover`（鼠标悬浮在元素上时），`:active`（鼠标单击元素时），`:target`（元素成为链接目标时）。
-        - 通过JS动态改变标签样式：1.改变 `className`；2.修改 `.style.xxxproperty`
+        - 通过JS动态改变标签样式：1.改变 `className`；2.修改 `.style.xxxproperty`  
+            `onmouseover` 时修改为最终样式；`onmouseout` 时修改为最初样式。   
         
             应用场景：需要在点击元素时启动 transition；当有鼠标悬停在一个元素上时，在另一个元素上触发 transition；etc.
         - 总之，只要有 css属性发生变化，css transition 都会生效。
@@ -140,4 +141,35 @@ ref:
 
     如上例，a, b等宽高，a相对b定位，初始时 `.a{ top: -300px; }`， 动画操作a的 `top`。   
     还尝试初始 `.a{ height: 0; top: 0; }`，动画操作a的 `height`，亦可实现；但当块ab含有文本节点时（并通过 `line-height` 来设置文字在竖直方向的位置），文本节点的显示效果不符合要求。
-    
+  
+***
+
+* css `:hover` V.S. JS `onmouseover` `onmouseout`
+    + 通过监听鼠标事件  
+        如何验证？`pointer-events`
+
+    > The pointer-events property allows for control over how HTML elements respond to mouse/touch events – 
+    including CSS hover/active states, click/tap events in Javascript, and whether or not the cursor is visible.
+
+    + `pointer-events`
+        - 用来控制 HTML 元素如何对 鼠标/ 触摸事件 做出响应
+        - 缺省鼠标指针的显示
+        - CSS里的 hover 和 active 状态的变化触发事件
+        - JavaScript点击动作触发的事件
+    + `pointer-events` 为 SVG 提供了11个可能的取值，但只有三个取值对任何 HTML 元素都是有效的：
+        - `auto` 与 pointer-events 属性未指定时的表现效果相同
+        - `none` 元素永远不会成为鼠标事件的target。   
+            但是，当其后代元素的 pointer-events 属性指定其他值时（`auto`），鼠标事件仍可以指向后代元素，
+            在这种情况下，鼠标事件将在捕获或冒泡阶段，触发自身/ 父元素的事件侦听器
+        - `inherit` 使用父元素的 pointer-events 值
+    + `pointer-events` 用途
+        - 提交页面，提交按钮点击后，添加这个样式属性（`xx.style.pointerEvents = "none";`），来防止重复提交；
+        - 除了指定元素不成为鼠标事件的目标，none值还指示鼠标事件穿过该元素，并指向位于元素下面的元素；
+        - 一些层的绝对定位，覆盖按钮，穿透可以点击它。
+        
+***
+
+ref:  
+[pointer-events](https://css-tricks.com/almanac/properties/p/pointer-events/)
+[详解css3 pointer-events（阻止hover、active、onclick等触发事件来](http://outofmemory.cn/css/css3-pointer-events)
+

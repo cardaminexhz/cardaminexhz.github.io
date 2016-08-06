@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .avoid-clicks {
+            display: block;
+            width: 8em;
+            height: 8em;
+            background: rgba(51,51,51,0.85);
+            position: absolute;
+            top: 1em;
+            left: 4em;
+            padding: 0.75em;
+            pointer-events: none;
+            color: whitesmoke;
+        }
+
+        body {
+            font: 14px/1.4 "Trebuchet MS", sans-serif;
+            padding: 3em;
+            max-width: 600px;
+            background: whitesmoke;
+        }
+
+        div {
+            pointer-events: none;
+        }
+
+        p {
+            border: 10px solid red;
+            padding: 0.75em;
+            background: #ddd;
+            pointer-events: auto;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+
+            /*
+             父元素：pointer-events: none; 子元素： pointer-events: auto; 这时，鼠标事件仍可以指向子元素，
+            鼠标事件将在捕获或冒泡阶，触发自身/ 父元素的事件侦听器 */
+            document.getElementsByTagName("div")[0].onclick = function () {
+                alert("click div");
+                document.getElementsByTagName("p")[0].style.pointerEvents = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+
+<div>
+    123124
+    <p>
+        This is some basic flow content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni eos ipsum sunt repellat nisi modi voluptatum ipsa eligendi minima cumque. Accusantium laudantium autem quae earum eaque expedita quia molestiae in.
+    </p>
+</div>
+
+<div class="avoid-clicks">try selecting text through me</div>
+
+</body>
+</html>
