@@ -4,9 +4,8 @@
               当鼠标移入b中时，a慢慢地往下移，直到完全覆盖在b上面。
               a块只有和b重叠的部分才会显示在页面上（原本a从页面上看不见）
 
-    @comment  1.定位 2.伪类 ; transition: 1.伪类触发 2.JS动态改变标签样式
-    @notice   2.JS动态改变标签样式 后并未返回初始状态
-              TODO: 深入理解 css :hover, JS onmouseover, onmouseout [ok]
+    @comment  1.定位 2.伪类 ;  animation实现
+    @future
     @ref      解决方案来自小伙伴@彩霞小仙女
     created by on 2016-8-1
 -->
@@ -25,13 +24,15 @@
         .b {
             width: 200px;
             height: 300px;
-            background-color: #16324a;
+            /*background-color: #16324a;*/
             margin: 100px;
 
             position: relative;
             overflow: hidden;
 
             display: inline-block;
+
+            animation: glow 10s forwards;
 
             /*pointer-events: none;*/  /* 测试css `:hover` V.S. JS `onmouseover` `onmouseout` */
         }
@@ -42,26 +43,31 @@
 
             position: absolute;
             top: -300px;
-
-            transition: top 2s;
         }
         .b:hover .a{
-            top: 0;
+            animation: fadeIn 2s forwards;  /* forwards 当动画完成后，保持最后一个属性值 */
         }
-        .normalTop {
-            top: 0;
+        @keyframes fadeIn {
+            from { top: -300px; }
+            to { top: 0; }
+        }
+        @keyframes fadeOut {
+            from { top: 0; }
+            to { top: -300px; }
+        }
+        @keyframes glow {
+            0%, 20% { background-color: burlywood; }
+            45%, 65% { background-color: #79bbff; }   /* 从25%-75% 背景色都保持为蓝色 */
+            to { background-color: lemonchiffon; }
         }
     </style>
     <script>
         window.onload = function() {
             document.getElementsByClassName("b1")[0].onmouseover = function () {
-                // 方法一 直接修改 .style.xxxproperty
-                document.getElementsByClassName("a1")[0].style.top = 0;
-                // 方法二 修改className
-//                document.getElementsByClassName("a")[0].className = "a normalTop";
+                document.getElementsByClassName("a1")[0].style.animation = "fadeIn 2s forwards";
             };
             document.getElementsByClassName("b1")[0].onmouseout = function () {
-                document.getElementsByClassName("a1")[0].style.top = '-300px';
+                document.getElementsByClassName("a1")[0].style.animation = "fadeOut 2s";
             }
         }
     </script>

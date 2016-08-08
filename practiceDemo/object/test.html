@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var a = function() {};
+        a.prototype.b = 1;
+        a.b = 3;
+        c = new a();
+        console.log(c.b);   // 1
+        a.prototype.b = 6;
+        console.log(c.b);   // 6
+    </script>
+</head>
+<body>
+
+</body>
+</html>

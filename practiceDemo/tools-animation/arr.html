@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1 {
+			padding: 100px;
+			background-color: lightyellow;
+		}
+		.div2 {
+			padding: 100px;
+			background-color: powderblue;
+		}
+		button {
+			width: 100px;
+			height: 70px;
+			background-color: #f60;
+		}
+
+		.div0 {
+			position: relative;
+			width: 100px;
+			height: 100px;
+			background-color: #79bbff;
+			animation: mymove 2s infinite;
+		}
+		@keyframes mymove {
+			0% {
+				transform: rotate(-10deg)
+			}
+ 			50% {
+				transform: rotate(0deg)
+ 			}
+ 			100% {
+				transform: rotate(10deg)
+ 			}
+		}
+	</style>
+</head>
+<body>
+	<div class="div0">
+		
+	</div>
+	<div class="div1">
+		<div class="div2">
+			<button id="btn"></button>
+		</div>
+	</div>
+	<script>
+		var div1 = document.querySelector(".div1");
+		div1.onclick=function(){
+			alert('i am div1')
+		}
+
+
+		var div2 = document.querySelector(".div2");
+		div2.onclick=function(event){
+
+			alert('i am div2')
+			event.stopPropagation();
+		}
+
+		var btn = document.querySelector("#btn");
+		btn.onclick=function(event){
+			event.stopPropagation();
+			alert('i am btn')
+		}
+		arr = [0 ,1, 2, 3]
+		console.log(arr.toString())
+		console.log( arr instanceof Array)
+		console.log(arr.valueOf())
+
+		color = 'blue'
+
+		var o = {
+			color: 'red'
+		}
+
+		function sayColor() {
+			alert(this.color)
+		}
+
+		//sayColor.call(o)
+		a = sayColor.bind(o)
+		//a();
+
+		function sum(num) {
+			if(num <= 1) {
+				return 1;
+			}else {
+				return num + arguments.callee(num-1)
+			}
+		}
+
+		console.log(sum(5));
+
+		function A(){
+			B()
+		}
+
+		function B(){
+			console.log(B.caller)
+		}
+
+		A()
+	</script>
+</body>
+</html>
