@@ -9,6 +9,10 @@
 3. 几个应用例子
     + 背景：黄色 -> 蓝色（持续一会） -> 红色
     
+            .className{
+                animation: glow 10s forwards;  /* forwards 当动画完成后，保持最后一个属性值 */
+            }
+            
             @keyframes glow {
                 from { background-color: yellow; }
                 25%, 75% { background-color: blue; }   /* 从25%-75% 背景色都保持为蓝色 */
