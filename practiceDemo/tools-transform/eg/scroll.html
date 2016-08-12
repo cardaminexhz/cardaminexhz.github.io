@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        #box{position:relative;width:960px;margin:100px auto;}
+        #div1{width:960px;height:300px;position:relative;overflow:hidden;}
+        ul{position:absolute;left:0;top:0;}
+        li{float:left;list-style:none;width:960px;height:300 px;}
+        a{text-decoration:none;position:absolute;z-index:10;background-color:rgba(0,0,0,0.5);padding:10px;color:#fff;}
+        .left{left:0px;top:135px}
+        .right{right:0px;top:135px;}
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            var oDiv=document.getElementById("div1");
+            var oUl=oDiv.getElementsByTagName("ul")[0];
+            var aLi=oUl.getElementsByTagName("li");
+            var button=document.getElementsByTagName("a");
+            var speed;
+            oUl.innerHTML+=oUl.innerHTML;
+            oUl.style.width=aLi[0].offsetWidth*aLi.length+"px";
+            function move(){
+                if(oUl.offsetLeft<-oUl.offsetWidth/2){
+                    oUl.style.left=0
+                }
+                if(oUl.offsetLeft>0){
+                    oUl.style.left=-oUl.offsetWidth/2+"px"
+                }
+                oUl.style.left=oUl.offsetLeft+speed+"px"
+            }
+            var timer=setInterval(function (){
+                if(oUl.offsetLeft<-oUl.offsetWidth/2){
+                    oUl.style.left=0
+                }
+                if(oUl.offsetLeft>0){
+                    oUl.style.left=-oUl.offsetWidth/2+"px"
+                }
+                oUl.style.left=oUl.offsetLeft-5+"px"
+            },30)
+            oDiv.onmousemove=function(){
+                clearInterval(timer)
+            }
+            oDiv.onmouseout=function(){
+                timer=setInterval(move,30)
+            }
+            button[0].onclick=function(){
+                speed=-5
+            }
+            button[1].onclick=function(){
+                speed=5
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <div id="div1">
+        <ul>
+            <li><img src="http://d.lanrentuku.com/down/js/jiaodiantu-962/images/1.jpg"></li>
+            <li><img src="http://d.lanrentuku.com/down/js/jiaodiantu-962/images/2.jpg"></li>
+            <li><img src="http://d.lanrentuku.com/down/js/jiaodiantu-962/images/3.jpg"></li>
+            <li><img src="http://d.lanrentuku.com/down/js/jiaodiantu-962/images/4.jpg"></li>
+            <li><img src="http://d.lanrentuku.com/down/js/jiaodiantu-962/images/5.jpg"></li>
+        </ul>
+    </div>
+    <a href="javascript:;" class="left">&lt;</a>
+    <a href="javascript:;" class="right">&gt;</a>
+</div>
+</body>
+</html>

@@ -67,6 +67,8 @@ article {
 
     padding: 25px 45px;
     margin: 40px 400px 20px 20px;
+
+    display: block;
 }
 
 article.authorInfo {

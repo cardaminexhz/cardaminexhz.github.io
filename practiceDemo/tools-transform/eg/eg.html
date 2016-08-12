@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>CSS3鼠标滑过渐变颜色旋转图标特效</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;list-style: none;}
+        #order_nav {  position: relative; background: #fff; position: relative; }
+        #order_nav .list { width: 936px; margin: 0 auto; }
+        #order_nav .list li { width: 116px; height: 116px; float: left; border-radius: 50%; position: relative; margin: 0 20px 80px 20px; position: relative; cursor: pointer; -webkit-transition: .4s all; -moz-transition: .4s all; -ms-transition: .4s all; transition: .4s all; }
+        #order_nav .list li a { display: block; width: 100%; height: 100%; }
+        #order_nav .list li .cycle_mark { position: absolute; left: 0; top: 0; z-index: 2; }
+        #order_nav .list li .ico { width: 102px; height: 102px; position: absolute; left: 7px; top: 7px; background: #424242 url(http://demo.lanrenzhijia.com/2015/css1125/images/rotate.png); border-radius: 50%; z-index: 1; -webkit-transition: .4s all; -moz-transition: .4s all; -ms-transition: .4s all; transition: .4s all; }
+        #order_nav .list li ._1 { background-position: 0px 0px; }
+        #order_nav .list li ._2 { background-position: -102px 0px; }
+        #order_nav .list li ._3 { background-position: -204px 0px; }
+        #order_nav .list li ._4 { background-position: -306px 0px; }
+        #order_nav .list li ._5 { background-position: -408px 0px; }
+        #order_nav .list li ._6 { background-position: -510px 0px; }
+        #order_nav .list li p { width: 100%; position: absolute; left: 0; top: 126px; text-align: center; }
+        #order_nav .list li p span { font-size: 16px; color: #414141; display: block; font-weight: bold; }
+        #order_nav .list li p strong { font-size: 12px; color: #f00; display: block; }
+        #order_nav .list li.on { background: rgba(0,0,0,.5); }
+        #order_nav .list li.on .ico { background-color: #0ff; -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); transform: rotate(360deg); }
+    </style>
+</head>
+<body>
+<div id="order_nav">
+    <ul class="list not_ie">
+        <li>
+            <div class="ico _1"><a href="#"></a></div>
+            <p><span>网站建设</span></p>
+        </li>
+        <li>
+            <div class="ico _2"><a href="#"></a></div>
+            <p><span>网站设计</span></p>
+        </li>
+        <li>
+            <div class="ico _3"><a href="#"></a></div>
+            <p><span>网站策划</span></p>
+        </li>
+        <li>
+            <div class="ico _4"><a href="#"></a></div>
+            <p><span>SEO优化</span></p>
+        </li>
+        <li>
+            <div class="ico _5"><a href="#"></a></div>
+            <p><span>WAP/APP</span></p>
+        </li>
+        <li>
+            <div class="ico _6"><a href="#"></a></div>
+            <p><span>网站营销</span></p>
+        </li>
+    </ul>
+</div>
+<script>
+    var orderNav = document.getElementById("order_nav");
+    var lis = orderNav.getElementsByTagName("li");
+    for(var i =0;i<lis.length;i++){
+        lis[i].onmouseover = function(){
+            this.className = "on";
+        };
+        lis[i].onmouseout = function(){
+            this.className = "";
+        }
+    }
+</script>
+</body>
+</html>

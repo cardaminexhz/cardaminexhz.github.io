@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+            border: 1px solid #79bbff;
+
+            font-size: 1em;
+            color: #3355D0;
+            line-height: 200px;
+            white-space: nowrap;  /* 强制不换行 */
+            text-align: center;
+
+        }
+        #another-box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            function animate(id) {
+                var elem = document.getElementById(id),
+                    tick = 0,
+                    timer;
+
+                timer = setInterval(function () {
+                    if (tick < 300) {
+                        elem.style.left = elem.style.top = tick + 'px';
+                        tick++;
+                    } else {
+                        clearInterval(timer);
+                        console.log(tick);
+                        console.log(elem);
+                        console.log(timer);
+                    }
+                }, 10)
+            }
+
+            animate("box");
+            animate("another-box");
+        }
+    </script>
+</head>
+<body>
+
+<div class="box" id="box">
+    hi, 这是一个会移动的box
+</div>
+
+<div class="box" id="another-box">
+    hi, another box
+</div>
+
+</body>
+</html>
