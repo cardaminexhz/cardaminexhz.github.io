@@ -1,0 +1,112 @@
+<!--
+  @task      http://ife.baidu.com/task/detail?taskId=30
+  @desc      表单（二）多个表单项的动态校验
+  @comment
+  @future
+  Created by cardaminexhz on 2016/8/13.
+-->
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            box-sizing: content-box;
+            font-size: 16px;
+        }
+
+        form {
+            width: 600px;
+            margin: 0 100px;
+
+            position: relative;
+        }
+
+        label {
+            width: 80px;
+            display: inline-block;
+        }
+
+        /* 输入框 */
+        .input {
+            width: 510px;
+            height: 40px;
+            border-radius: 5px;
+
+            font-size: 1.2em;
+        }
+        .input.default {
+            border: 1px solid #a8a8a8;
+        }
+        .input.correct {
+            border: 1px solid darkseagreen;
+        }
+        .input.error {
+            border: 1px solid pink;
+        }
+
+        /* 按钮 */
+        input[type="button"] {
+            font-size: 1.2em;
+            height: 44px;
+            border-radius: 5px;
+            background-color: #2F79BA;
+            border: 2px solid white;
+            color: white;
+
+            position: absolute;
+            right: 0;
+        }
+
+        /* 提示信息 */
+        p {
+            visibility: hidden;
+        }
+
+        .info {
+            padding-left: 90px;
+            font-size: 0.8em;
+        }
+        .info.default {
+            color: #a8a8a8;
+        }
+        .info.correct {
+            color: green;
+        }
+        .info.error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <label for="name">名称：</label>
+    <input type="text" class="input default" id="name">
+    <p class="info default" id="name-tip">必填，长度为4-16个字符</p>
+
+    <!-- TODO: 密码加强：可显示密码 -->
+    <label for="pswd">密码：</label>
+    <input type="password" class="input default" id="pswd">
+    <p class="info default" id="pswd-tip">必填，密码长度为8~20个字符</p>
+
+    <label for="pswd-confirm">密码确认：</label>
+    <input type="password" class="input default" id="pswd-confirm">
+    <p class="info default" id="pswd-confirm-tip">必填，密码长度为8~20个字符</p>
+
+    <label for="mail">邮箱：</label>
+    <input type="text" class="input default" id="mail">
+    <p class="info default" id="mail-tip">必填</p>
+
+    <label for="phone">手机：</label>
+    <input type="text" class="input default" id="phone">
+    <p class="info default" id="phone-tip">必填</p>
+
+    <input type="button" id="validate-btn" value="提交">
+</form>
+
+
+<script src="validate.js"></script>
+</body>
+</html>
