@@ -94,20 +94,28 @@ function validate(inputID, value) {
         $(infoID).className = "info error";
         $(inputID).className = "input error";
     }
-
+    return isValidate;
 }
 
 // 点击提交按钮时，对页面中所有输入进行校验，校验结果显示方式同上。若所有表单校验通过，弹窗显示“提交成功”，否则显示“提交失败”
 function formValidationHandler(ev) {
     var event = ev || window.event,
-        target = event.target || event.srcElement;
+        target = event.target || event.srcElement,
+        validateNum = 1;
 
     if (target.type === "button") {
         for (var i = 0; i < GLOBAL_INPUT.length; i++) {
             if (GLOBAL_INPUT[i].type === "text" || GLOBAL_INPUT[i].type === "password") {
                 $(GLOBAL_INPUT[i].id + "-tip").style.visibility = "visible";
-                validate(GLOBAL_INPUT[i].id, GLOBAL_INPUT[i].value);
+                if (validate(GLOBAL_INPUT[i].id, GLOBAL_INPUT[i].value)) {
+                    validateNum++;
+                }
             }
+        }
+        if (validateNum === GLOBAL_INPUT.length) {
+            alert("提交成功");
+        } else {
+            alert("提交失败：表单验证未通过");
         }
     }
 }
