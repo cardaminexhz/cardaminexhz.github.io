@@ -68,12 +68,12 @@
         
         > 1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。    
           2）对于n字节的符号（n>1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。  
-            <img src="uft-8-1.png" width="440px" height="160px">
+            <img src="uft-8-1.png" width="550px" height="200px">  
             如果一个字节的第一位是0，则这个字节单独就是一个字符；  
             如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。
             
         - 再看一个 [UTF-8 Encoding](http://www.fileformat.info/info/unicode/utf8.htm)
-            <img src="uft-8-2.png" width="680px" height="136px">
+            <img src="uft-8-2.png" width="850px" height="170px">
     + `ASCII`: 单字节编码系统 [ref](http://www.asciima.com/)
         - ASCII非打印控制字符  
             0～31及127(共33个)是控制字符或通信专用字符（其余为可显示字符），    
@@ -117,10 +117,11 @@
 * ref
     + 大端/小端：[程序员趣味读物：谈谈Unicode编码](http://www.pconline.com.cn/pcedu/empolder/gj/other/0505/616631.html)
     
-    > `big endian` 和 `little endian` 是CPU处理多字节数的不同方式。  
-      例如“汉”字的Unicode编码是6C49。那么写到文件里时，究竟是将6C写在前面，还是将49写在前面？如果将6C写在前面，就是`big endian`。还是将49写在前面，就是`little endian`。   
-      “endian”这个词出自《格列佛游记》。小人国的内战就源于吃鸡蛋时是究竟从大头(Big-Endian)敲开还是从小头(Little-Endian)敲开，由此曾发生过六次叛乱，其中一个皇帝送了命，另一个丢了王位。  
-      我们一般将 `endian` 翻译成“字节序”，将 `big endian` 和 `little endian` 称作“大尾”和“小尾”。
+        > `big endian` 和 `little endian` 是CPU处理多字节数的不同方式。  
+          例如“汉”字的Unicode编码是6C49。那么写到文件里时，究竟是将6C写在前面，还是将49写在前面？如果将6C写在前面，就是`big endian`。还是将49写在前面，就是`little endian`。  
+          “endian”这个词出自《格列佛游记》。小人国的内战就源于吃鸡蛋时是究竟从大头(Big-Endian)敲开还是从小头(Little-Endian)敲开，由此曾发生过六次叛乱，其中一个皇帝送了命，另一个丢了王位。  
+          我们一般将 `endian` 翻译成“字节序”，将 `big endian` 和 `little endian` 称作“大尾”和“小尾”。
+      
     + 为什么会有 `Unicode`: [encoding](http://info.lionbridge.com/rs/lionbridge/images/Lionbridge%20FAQ_encoding_2013.pdf)
         大意是 `ASCII`（单字节编码） 能表示的字符有限，对英文这样的语言适用，但中文系的（象形）语言就表示不过来。于是有 `Unicode` 这样的多字节编码。其中中文这样的亚洲象形文字称为 `JCR`.
            
