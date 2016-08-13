@@ -65,25 +65,27 @@
         - 变长的编码方式：最小编码单位(code unit)为1个字节，可以用1-4个字节来表示字符，根据不同的字符来变换字节长度  
         （赞！节省存储空间。怎么就默默地想起来变长指令集了呢o(╯□╰)o）
         - 先来看看[阮一峰](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)的总结：
-        > 1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。  
-          2）对于n字节的符号（n>1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。
-            <img src="utf-8-1.png" width="440px" height="160px">
-          如果一个字节的第一位是0，则这个字节单独就是一个字符；  
-          如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。
+        
+        > 1）对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。    
+          2）对于n字节的符号（n>1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。  
+            <img src="uft-8-1.png" width="440px" height="160px">
+            如果一个字节的第一位是0，则这个字节单独就是一个字符；  
+            如果第一位是1，则连续有多少个1，就表示当前字符占用多少个字节。
+            
         - 再看一个 [UTF-8 Encoding](http://www.fileformat.info/info/unicode/utf8.htm)
-            <img src="utf-8-2.png" width="680px" height="136px">
+            <img src="uft-8-2.png" width="680px" height="136px">
     + `ASCII`: 单字节编码系统 [ref](http://www.asciima.com/)
-        - ASCII非打印控制字符
-            0～31及127(共33个)是控制字符或通信专用字符（其余为可显示字符），  
-            如控制符：LF（换行）、CR（回车）、FF（换页）、DEL（删除）、BS（退格)、BEL（响铃）等;  
-            ASCII值为8、9、10 和13 分别转换为退格、制表、换行和回车字符。
+        - ASCII非打印控制字符  
+            0～31及127(共33个)是控制字符或通信专用字符（其余为可显示字符），    
+            如控制符：LF（换行）、CR（回车）、FF（换页）、DEL（删除）、BS（退格)、BEL（响铃）等;   
+            ASCII值为8、9、10 和13 分别转换为退格、制表、换行和回车字符。 
         - ASCII打印字符：能在键盘上找到的字符 32-126    
             32是空格,  
             48～57为0到9十个阿拉伯数字  
             65～90为26个大写英文字母  
-            97～122号为26个小写英文字母  
+            97～122号为26个小写英文字母   
             同时还要注意，在标准ASCII中，其最高位(b7)用作奇偶校验位。
-        - 扩展ASCII打印字符  
+        - 扩展ASCII打印字符   
             扩展ASCII码允许将每个字符的第8位用于确定附加的128个特殊符号字符、外来语字母和图形符号。
         
  * 解决
@@ -114,9 +116,10 @@
             }
 * ref
     + 大端/小端：[程序员趣味读物：谈谈Unicode编码](http://www.pconline.com.cn/pcedu/empolder/gj/other/0505/616631.html)
+    
     > `big endian` 和 `little endian` 是CPU处理多字节数的不同方式。  
-      例如“汉”字的Unicode编码是6C49。那么写到文件里时，究竟是将6C写在前面，还是将49写在前面？如果将6C写在前面，就是`big endian`。还是将49写在前面，就是`little endian`。  
-      “endian”这个词出自《格列佛游记》。小人国的内战就源于吃鸡蛋时是究竟从大头(Big-Endian)敲开还是从小头(Little-Endian)敲开，由此曾发生过六次叛乱，其中一个皇帝送了命，另一个丢了王位。
+      例如“汉”字的Unicode编码是6C49。那么写到文件里时，究竟是将6C写在前面，还是将49写在前面？如果将6C写在前面，就是`big endian`。还是将49写在前面，就是`little endian`。   
+      “endian”这个词出自《格列佛游记》。小人国的内战就源于吃鸡蛋时是究竟从大头(Big-Endian)敲开还是从小头(Little-Endian)敲开，由此曾发生过六次叛乱，其中一个皇帝送了命，另一个丢了王位。  
       我们一般将 `endian` 翻译成“字节序”，将 `big endian` 和 `little endian` 称作“大尾”和“小尾”。
     + 为什么会有 `Unicode`: [encoding](http://info.lionbridge.com/rs/lionbridge/images/Lionbridge%20FAQ_encoding_2013.pdf)
         大意是 `ASCII`（单字节编码） 能表示的字符有限，对英文这样的语言适用，但中文系的（象形）语言就表示不过来。于是有 `Unicode` 这样的多字节编码。其中中文这样的亚洲象形文字称为 `JCR`.
@@ -124,7 +127,7 @@
 ***
 
 * 点击按钮出现一个类似边框的东西？
-    + [为什么会出现](http://zhidao.baidu.com/question/331807657.html?fr=qrl&index=0&qbl=topic_question_0&word=css%20outline)
+    + [为什么会出现](http://zhidao.baidu.com/question/331807657.html?fr=qrl&index=0&qbl=topic_question_0&word=css%20outline)  
         当元素获得焦点的时候，焦点框为0.
         比如说当前这个网页，你用tab键切换的时候，文字链接、搜索框、按钮等的外面会有一个虚线框（或高亮框），此时当前的元素就获得了焦点，你可以对它进行操作。
         这个功能一般是为使用键盘操作的用户准备的。
