@@ -1,3 +1,11 @@
+<!--
+  @task      http://ife.baidu.com/task/detail?taskId=29
+  @desc      JavaScript和树（四）
+  @comment   1.arrow是如何通过border生成的
+  @future
+  Created by cardaminexhz on 2016/7/25.
+-->
+
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -8,14 +16,24 @@
             box-sizing: content-box;
             font-size: 16px;
         }
+        /* 输入框 */
         .input {
             width: 300px;
             height: 40px;
             border-radius: 5px;
-            border: 1px solid #a8a8a8;
 
             font-size: 1.2em;
         }
+        .input.default {
+            border: 1px solid #a8a8a8;
+        }
+        .input.correct {
+            border: 1px solid darkseagreen;
+        }
+        .input.error {
+            border: 2px solid pink;
+        }
+        /* 按钮 */
         input[type="button"] {
             font-size: 1.2em;
             height: 44px;
@@ -24,16 +42,17 @@
             border: 2px solid white;
             color: white;
         }
+        /* 提示信息 */
         .info {
             padding-left: 3.5em;
         }
-        .default {
+        .info.default {
             color: #a8a8a8;
         }
-        .correct {
+        .info.correct {
             color: green;
         }
-        .error {
+        .info.error {
             color: red;
         }
     </style>
@@ -42,7 +61,7 @@
 <form>
     <label>
         名称：
-        <input type="text" class="input" id="input">
+        <input type="text" class="input default" id="input">
         <input type="button" id="validate-btn" value="验证">
         <p class="info default" id="tip">必填，长度为4-16个字符</p>
     </label>
