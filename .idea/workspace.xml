@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d07145a-7d77-4d30-bb97-f4d3213718bb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baiduProj/task31/select-prac.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/baiduProj/task31/select-prac.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/baiduProj/task30/readme.md" afterPath="$PROJECT_DIR$/baiduProj/task30/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practiceDemo/event/readme.md" afterPath="$PROJECT_DIR$/practiceDemo/event/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cardaminexhz.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,16 +65,16 @@
       </file>
       <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/baiduProj/task30/readme.md">
-          <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="1.542394">
-                <caret line="133" column="44" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
+              <first_editor vertical-scroll-proportion="0.34912717">
+                <caret line="91" column="89" selection-start-line="91" selection-start-column="89" selection-end-line="91" selection-end-column="89" />
                 <folding />
               </first_editor>
               <second_editor />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
           </provider>
         </entry>
@@ -115,9 +110,9 @@
         <option value="$PROJECT_DIR$/baiduProj/task31/readme.md" />
         <option value="$PROJECT_DIR$/baiduProj/task31/select-prac.html" />
         <option value="$PROJECT_DIR$/baiduProj/task31/select-prac.js" />
-        <option value="$PROJECT_DIR$/baiduProj/task30/readme.md" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/practiceDemo/event/readme.md" />
+        <option value="$PROJECT_DIR$/baiduProj/task30/readme.md" />
       </list>
     </option>
   </component>
@@ -791,10 +786,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/baiduProj/task30/readme.md">
-      <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="1.542394">
-            <caret line="133" column="44" selection-start-line="133" selection-start-column="44" selection-end-line="133" selection-end-column="44" />
+          <first_editor vertical-scroll-proportion="0.34912717">
+            <caret line="91" column="89" selection-start-line="91" selection-start-column="89" selection-end-line="91" selection-end-column="89" />
             <folding />
           </first_editor>
           <second_editor />
@@ -805,7 +800,7 @@
           <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
         <state />
       </provider>
     </entry>
