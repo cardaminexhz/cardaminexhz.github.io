@@ -81,7 +81,7 @@
                 btn.attachEvent("onclick", function(){
                     console.log(this === window);       <!-- true -->
                 })
-        - `elem.attach(event, handler)` 添加到冒泡阶段；
+        - `elem.attachEvent(event, handler)` 添加到冒泡阶段；
         - event: `onclick`  （V.S. DOM2）
         - 注意 `handler 的作用域`
             1. 使用 `attachEvent()`，handler 在全局作用域中运行，`this -> window`
@@ -150,6 +150,11 @@
             }
 
         };
+
+***
+
+[事件2：事件委托 / 事件模拟](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/baiduProj/task30)
+
 
 ***
 

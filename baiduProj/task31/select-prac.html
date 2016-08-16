@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>select 练习</title>
+    <style>
+        .group {
+            border-bottom: 1px solid #2F79BA;
+            margin: 50px;
+        }
+        .form-control {
+            height: 34px;
+            width: 100%;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+        }
+        .form-control:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        }
+        .echo {
+            padding: 20px 0;
+        }
+
+        option.default {
+            background-color: transparent;
+        }
+        option.selected {
+            background-color: lightgoldenrodyellow;
+        }
+
+        .multi-select {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="group">
+    <span>单选：选择选项</span>
+    <select class="form-control" id="single-select">
+        <option value="">请选择</option>
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+        <option value="shenzhen">深圳</option>
+    </select>
+    <div class="echo" id="show-single-select"></div>
+</div>
+
+<div class="group">
+    <span>多选：选择选项</span>
+    <select class="multi-select form-control" id="multi-select" multiple="multiple">
+        <option value="">请选择</option>
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+        <option value="shenzhen">深圳</option>
+    </select>
+    <div class="echo" id="show-multi-select"></div>
+</div>
+
+<script src="select-prac.js"></script>
+</body>
+</html>
