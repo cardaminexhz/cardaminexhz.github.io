@@ -4,7 +4,8 @@
 var $ = function (id) {
     return document.getElementById(id)
     },
-    global_multiOptions = [];
+    global_multiOptions = [],
+    global_srcOption;
 
 
 
@@ -66,5 +67,59 @@ function showMultiSelectedHandler(ev) {
 }
 
 
+function addSrcOptions(ev) {
+    var event = ev || window.event,
+        target = event.target || event.srcElement;
+
+    for(var i = 0; i < target.options.length; i++) {
+        if(target.options[i].selected === true) {
+            global_srcOption = target.options[i];
+        }
+    }
+}
+
+function moveOptionHandler() {
+    if(global_srcOption) {
+        $("move-select2").appendChild(global_srcOption);
+        global_srcOption = null;
+    } else {
+        alert("请选择要移动的option");
+        return;
+    }
+}
+
+
+function addOptionHandler(ev) {
+    var event = ev || window.event,
+        target = event.target || event.srcElement,
+        text = target.value,
+        option;
+
+    option = new Option(text, "");
+    $("add-select").appendChild(option);
+    target.value = "";
+}
+
+function searchOptionHandler(ev) {
+    var event = ev || window.event,
+        target = event.target || event.srcElement,
+        text = target.value,
+        addSelect = $("add-select");
+
+    for(var i = 0; i < addSelect.options.length; i++) {
+        addSelect.options[i].className = "default";
+        if(addSelect.options[i].text === text) {
+            //  TODO: 如何让滚动条自动滚到该位置
+            addSelect.options[i].className = "selected";
+        }
+    }
+}
+
 $("single-select").addEventListener("change", showSelectedHandler, false);
 $("multi-select").addEventListener("change", showMultiSelectedHandler, false);
+
+$("move-select1").addEventListener("change", addSrcOptions, false);
+$("move-icon").addEventListener("click", moveOptionHandler, false);
+
+$("add-input").addEventListener("blur", addOptionHandler, false);
+$("add-input").addEventListener("keyup", searchOptionHandler, false);

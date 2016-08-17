@@ -61,6 +61,22 @@
         span {
             display: block;
         }
+        .middle-icon {
+            text-align: center;
+            transform: translateY(30px);
+            font-size: x-large;
+
+            background-color: inherit;
+            transition: background-color 2s;
+        }
+        .middle-icon:hover, .middle-icon:focus {
+            background-color: bisque;
+        }
+
+        input{
+            box-sizing: border-box;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -95,15 +111,26 @@
         <option value="shenzhen">深圳</option>
     </select>
 
-    <div class="col-3">
-        >
+    <div class="col-3 middle-icon">
+        <span id="move-icon"> > </span>
     </div>
 
     <select class="col-3 multi-select form-control" id="move-select2" multiple="multiple">
+        <option value="beijing">neverland</option>
+        <option value="shanghai">塔希提</option>
+        <option value="shenzhen">斯里兰卡</option>
+    </select>
+</div>
+
+<div class="group">
+    <span>多选：搜索 / 添加选项</span>
+    <input type="text" class="form-control" id="add-input" placeholder="请输入选项">
+    <select class="multi-select form-control" id="add-select" multiple="multiple">
         <option value="beijing">北京</option>
         <option value="shanghai">上海</option>
         <option value="shenzhen">深圳</option>
     </select>
+    <div class="echo" id="show-add-select"></div>
 </div>
 
 <script src="select-prac.js"></script>

@@ -42,5 +42,77 @@
 
 * `visibility` or `display`
     + 此处当切换radio时，切换在校/非在校的输入框，但显示在相同位置，所以隐藏的元素不应占据空间 =》`display`
+
+*** 
+ 
+* html 选择框脚本 `<select>` `<option>`
+    + 为与 `<select>` 控件 交互，HTMLSelectElement 还提供一下属性方法：
+        - multiple, (Boolean) <=> <select ...  multiple="multiple">
+        - options, 控件中所有 `<option>` 元素的 HTMLCollection
+        - selectedIndex, 选中项的索引（基于0）；若无，-1；支持多选的控件，只保存选中第一项的索引。
+        - size <=> <select ... size="n"> 选择框中可见的行数
+        - type, select-one | select-multiple
+        - `add(newOption, relOption)`
+        - `remove(pos)`
+    + DOM 中，每个 `<option>` 元素都有一个 HTMLOptionElement 对象表示：
+        - index, 当前选项在options集合中的索引
+        - text, 选项的文本
+        - value, 选项的值
+        - selected, 当前选项是否被选中
+        - label
+        - 【推荐】操作选项时，使用特定于选项的属性（所有浏览器都支持）；不推荐用标准DOM技术来操作`<option>`的文本、值。
+            
+                var text = selectBox.options[0].text;
+                var value = selectBox.options[0].value;
+        - change 事件
+            * 对选择框，只要选中了选项就触发
+            * 对其他表单字段，值被修改且焦点离开当前字段，才触发
+
+* 选择选项
+
+        /* 获取选中项的索引、文本、值，适用于单选框 */
+        var index, option, text, value;
+        index = selectBox.selectedIndex;
+        option = selectBox.options[index];
+        text = option.text;
+        value = option.value;
+        
+        /* 多选框，遍历options的 selected (Boolean) 属性 */
+        var selectedOptions = [];
+        for (var i = 0; i < target.options.length; i++) {
+            if (target.options[i].selected) {
+                selectedOptions.push(target.options[i]);
+            }
+        }
+* 添加选项
+    1. HTMLSelectElement 的 `add(newOption, relOption)`
+        
+            selectBox.add(new Option(text, val), undefined)  
+    2. 标准DOM + `appendChild()` / `insertBefore()`
     
-* html `select` `option`     
+            selectBox.appendChild( new Option(text, val) );
+            selectBox.insertBefore( new Option(text, val), relOption);
+* 移除选项
+    1. 移除某一个
+        + HTMLSelectElement 的 `remove(pos)`
+        
+                selectBox.remove(pos)
+        + DOM `removeChild()`
+        
+                selectBox.removeChild( selectBox.option[0] );
+    2. 移除全部
+        
+            selectBox.options.length = 0;
+* 移动和重排选项
+    + 移动：DOM `appendChild()`     
+        如果为 `appendChild()` 传入一个文档中已有的元素，就会先从该元素的父节点中移除它，再把它添加到指定位置。  
+        
+            selectBox2.appendChild(selectBox1.options[0]);
+    + 重排：DOM `insertBefore()`  
+            
+            /* e.g. 将选项位置前移一个 */
+            var optionToMove = selectBox.options[2],
+                relPos = optionToMove.index-1;
+            
+            selectBox.insertBefore(optionToMove, selectBox.options[relPos]);
+    + 移动与重排，会重置每一个选项的 index。
