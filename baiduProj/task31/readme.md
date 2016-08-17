@@ -47,10 +47,10 @@
  
 * html 选择框脚本 `<select>` `<option>`
     + 为与 `<select>` 控件 交互，HTMLSelectElement 还提供一下属性方法：
-        - multiple, (Boolean) <=> <select ...  multiple="multiple">
+        - multiple, (Boolean) <=> `<select ...  multiple="multiple">`
         - options, 控件中所有 `<option>` 元素的 HTMLCollection
         - selectedIndex, 选中项的索引（基于0）；若无，-1；支持多选的控件，只保存选中第一项的索引。
-        - size <=> <select ... size="n"> 选择框中可见的行数
+        - size <=> `<select ... size="n">` 选择框中可见的行数
         - type, select-one | select-multiple
         - `add(newOption, relOption)`
         - `remove(pos)`
