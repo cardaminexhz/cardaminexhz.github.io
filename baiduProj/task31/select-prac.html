@@ -44,6 +44,23 @@
         .multi-select {
             height: 100px;
         }
+
+        .col-3 {
+            width: 33.33%;
+            float: left;
+        }
+        .clear:after {
+            clear: both;
+            content: '';
+            display: block;
+            height: 0;
+            visibility: hidden;
+
+            margin-bottom: 40px;
+        }
+        span {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +85,25 @@
         <option value="shenzhen">深圳</option>
     </select>
     <div class="echo" id="show-multi-select"></div>
+</div>
+
+<div class="group clear">
+    <span>移动选项</span>
+    <select class="col-3 multi-select form-control" id="move-select1" multiple="multiple">
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+        <option value="shenzhen">深圳</option>
+    </select>
+
+    <div class="col-3">
+        >
+    </div>
+
+    <select class="col-3 multi-select form-control" id="move-select2" multiple="multiple">
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+        <option value="shenzhen">深圳</option>
+    </select>
 </div>
 
 <script src="select-prac.js"></script>

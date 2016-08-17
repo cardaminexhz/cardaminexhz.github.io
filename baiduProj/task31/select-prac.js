@@ -23,25 +23,33 @@ function showSelectedHandler(ev) {
 }
 
 
+// 存在，返回index; 不存在，返回-1 (Boolean(0) === false)
 function hasOption(arr, option) {
-    return arr.some(function(elem){
-        return elem.value === option.value;
+    var flag = false,
+        pos;
+
+    arr.forEach(function (elem, index) {
+        if(elem.value === option.value) {
+            flag = true;
+            pos = index;
+        }
     });
+
+    return (flag ? pos : -1);
 }
 
 function showMultiSelectedHandler(ev) {
     var event = ev || window.event,
         target = event.target || event.srcElement,
         content = '',
-        showID = "show-" + target.id;
+        showID = "show-" + target.id,
+        pos;
 
     for (var i = 0; i < target.options.length; i++) {
         if(target.options[i].selected === true) {
-
-            if(hasOption(global_multiOptions, target.options[i])) {
-                console.log("already in");
-
-                global_multiOptions.remove(target.options[i]);
+            pos = hasOption(global_multiOptions, target.options[i]);
+            if(pos != -1) {
+                global_multiOptions.splice(pos, 1);
                 target.options[i].className = "default";
             } else {
                 global_multiOptions.push(target.options[i]);
