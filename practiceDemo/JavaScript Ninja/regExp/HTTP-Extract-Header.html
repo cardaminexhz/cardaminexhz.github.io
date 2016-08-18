@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extract Header</title>
+    <script>
+        var headerStr = "POST /dlied6.qq.com/invc/fid.dll.zip?mkey=57b5932ca220578e&f=d410&c=0&p=.zip HTTP/1.1\r\nConnection: Keep-Alive\r\nUser-Agent: Mozilla/4.0 (compatible; chrome 11; Mac OS X 10.7) pcmgr_modup_11.6.17652.231\r\n";
+        var reg = /((GET|POST)[^\r\n]*\r\n)/;
+
+        var destStr = headerStr.match(reg);
+        console.log(destStr);
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
