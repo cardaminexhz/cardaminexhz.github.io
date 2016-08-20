@@ -1,7 +1,7 @@
 /**
  * Created by cardaminexhz on 2016/8/18.
  */
-var G_PORT = "http://localhost:3000/posts",
+var G_PORT = "http://10.108.114.133:3000/posts",
     $ = function(id) { return document.getElementById(id); };
 
 

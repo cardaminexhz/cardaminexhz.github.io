@@ -84,8 +84,8 @@
         * 非幂等：两次相同的POST请求会在服务器端创建两份资源，它们具有不同的URI。
         * POST 所对应的URI并非创建的资源本身，而是资源的接收者。比如：POST xx/articles 的语义是在 xx/articles下创建一篇帖子。
         * 从另一个角度理解 POST [如何设计下单的接口？`post /orders` ?](https://www.web-tinker.com/article/21284.html)
-        * 
-        > 本来 POST 就是被设计来提交表单这样的事务型操作的。所以 POST 可以理解为执行服务器的一个事务。POST 请求服务器执行一个动作，多次发起请求可能导致动作多次执行：非幂等。
+        
+            > 本来 POST 就是被设计来提交表单这样的事务型操作的。所以 POST 可以理解为执行服务器的一个事务。POST 请求服务器执行一个动作，多次发起请求可能导致动作多次执行：非幂等。
     - `put`
         * 幂等：对同一URI进行多次PUT的副作用和一次PUT是相同的。
         * PUT 所对应的URI是要创建或更新的资源本身。比如：PUT xx/articles/4231 的语义是创建或更新ID为4231的帖子。
@@ -140,6 +140,18 @@
         * [Method Definitions RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
         * [REST Design - Choosing the Right HTTP Method](http://codeahoy.com/2016/07/04/rest-design-choosing-the-right-http-method/)
 
-
+    ***
+    
+    > The fundamental difference between the POST and PUT requests is reflected in the different meaning of the Request-URI. 
+    
+    > The URI in a POST request identifies the resource that will handle the enclosed entity. That resource might be a data-accepting process, 
+    a gateway to some other protocol, or a separate entity that accepts annotations. 
+    
+    > In contrast, the URI in a PUT request identifies the entity enclosed with the request – the user agent knows what URI is intended 
+    and the server MUST NOT attempt to apply the request to some other resource.
+    
+    - POST 和 PUT 最根本的区别反映在 request URI 的含义上：
+        * POST 请求中的 URI，标识了要处理所附实体的资源。
+        * PUT 请求的的 URI，标识了所附实体。
 
         
