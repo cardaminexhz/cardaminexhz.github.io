@@ -1,11 +1,11 @@
 /**
  * Created by cardaminexhz on 2016/8/18.
  */
-var G_PORT = "http://10.108.114.133:3000/posts",
+var G_PORT = "http://localhost:3000/posts",
     $ = function(id) { return document.getElementById(id); };
 
 
-// TODO: 模拟 ajax
+// 模拟 ajax
 var xhrFactory = function() {
     this.init.apply(this, arguments);
 };
@@ -24,8 +24,6 @@ xhrFactory.prototype = {
 
             console.log("readyState:");
             console.log(this.readyState);
-
-            //&& this.status === 200
 
             /* TODO: 如何上传文件 + 更新 */
             if(this.readyState === 4 ){
