@@ -84,7 +84,8 @@
         * 非幂等：两次相同的POST请求会在服务器端创建两份资源，它们具有不同的URI。
         * POST 所对应的URI并非创建的资源本身，而是资源的接收者。比如：POST xx/articles 的语义是在 xx/articles下创建一篇帖子。
         * 从另一个角度理解 POST [如何设计下单的接口？`post /orders` ?](https://www.web-tinker.com/article/21284.html)
-        * > 本来 POST 就是被设计来提交表单这样的事务型操作的。所以 POST 可以理解为执行服务器的一个事务。POST 请求服务器执行一个动作，多次发起请求可能导致动作多次执行：非幂等。
+        * 
+        > 本来 POST 就是被设计来提交表单这样的事务型操作的。所以 POST 可以理解为执行服务器的一个事务。POST 请求服务器执行一个动作，多次发起请求可能导致动作多次执行：非幂等。
     - `put`
         * 幂等：对同一URI进行多次PUT的副作用和一次PUT是相同的。
         * PUT 所对应的URI是要创建或更新的资源本身。比如：PUT xx/articles/4231 的语义是创建或更新ID为4231的帖子。
@@ -136,6 +137,8 @@
         * `patch` 做局部更新，后台只会更新接收到的字段。【节省带宽】
     - ref:
         * [PUT vs POST in REST](http://stackoverflow.com/questions/630453/put-vs-post-in-rest)
+        * [Method Definitions RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
+        * [REST Design - Choosing the Right HTTP Method](http://codeahoy.com/2016/07/04/rest-design-choosing-the-right-http-method/)
 
 
 
