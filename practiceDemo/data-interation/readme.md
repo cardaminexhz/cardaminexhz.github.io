@@ -68,15 +68,16 @@
     从这个角度来说，对哪种操作使用哪种方法，取决于 `HTTP 方法本身的特性` 和 `前后台交互接口的约定`。
 
 * HTTP 方法的两个关键特性：`安全`|`幂等` （`safe`|`idempotent`）
-    + `safe`
+    + `safe`   
         安全的方法被期望不会产生任何副作用（side effects）。这些操作是只读的。e.g. 查询数据库。
-    + `idempotent`
-        幂等的方法保证了重复进行一个请求和一次请求的效果相同。  
+    + `idempotent`   
+        幂等的方法保证了重复进行一个请求和一次请求的效果相同。    
         在数学中，幂等性指N次变换和一次变换的结果相同。
         
             x = 1;    /* 幂等 */
             x++;      /* 非幂等 */
-    + <img src="http-method.png" width="660px" height="300px">
+            
+        <img src="http method.png" width="660px" height="300px">
 
 + RESTful 下的 `post` `put` `patch`
     - `post`
@@ -100,13 +101,13 @@
     > The REST standard doesn’t stop us from using POST requests for updates. 
     In fact, it doesn’t even talk about it because idempotency and safety guarantees are properties of the HTTP protocol, not of the REST standard.
     
-    作者[Code Ahoy](http://codeahoy.com/2016/07/04/rest-design-choosing-the-right-http-method/) 又引用了 Roy Fielding 的话，
-    大意是，例如 RESTful 不适用 GET 来进行不安全的操作，因为这会违反 HTTP 中对 GET 方法的定义，反过来就会影响中间件和搜索引擎。由 HTTP 定义的方法是 
+    作者 [Code Ahoy](http://codeahoy.com/2016/07/04/rest-design-choosing-the-right-http-method/) 又引用了 Roy Fielding 的话，
+    大意是，例如 RESTful 不使用 GET 来进行不安全的操作，是因为这会违反 HTTP 中对 GET 方法的定义，反过来就会影响中间件和搜索引擎。由 HTTP 定义的方法是 
     Web's architecture definition 的一部分，而不属于 REST architecture style.
     
     因此，使用 POST 还是 PUT 归结于：这些方法的幂等性保证。
     
-    因为 PUT 是幂等的，所以当第一个请求的响应没有及时到达的时候，clients 或者中间件可以重复发送 PUT 请求，而不用考虑 server 可能已经处理了第一个请求。
+    因为 PUT 是幂等的，所以当第一个请求的响应没有及时到达的时候，clients 或者中间件可以重复发送 PUT 请求，而不用考虑 server 是否已经处理了第一个请求。
     而为了保证幂等性，PUT 请求必须替换整个资源，因此必须发送所有属性。
     如果要进行局部更新，就必须使用 POST 或者 PUT 这些非幂等的方法。
         
@@ -117,7 +118,9 @@
       `PATCH` to a URL updates part of the resource at that client defined URL.   
       
     - `post` `put`
+    
         创建的对象，其URL是由 client 命名，还是 server？server 决定 - `post`；client 命名 - `put`.  
+        
         如果只是知道这个资源的父级类别的 URL，用 `post`；（比如说创建的资源id是数据库中自增长的）；   
           
             POST /expense-report
@@ -128,11 +131,9 @@
             
         `put` 是创建时的一个候选方法：当 client 在资源创建前就已经知道了它的URL。  
         
-        `post` 方法不是幂等的，若反复执行多次对应的每一次都会创建一个新资源。如果请求超时，则需要回答这一问题：资源是否已经在服务端创建了？能否再重试一次或检查资源列表？而对于幂等方法不存在这一个问题，我们可以放心地多次请求。
     - `put` `patch`
-        `put` 会替换掉已知URL上的资源（如果它已存在的话）：所以 `put` 是幂等的，即使两次 put 同一个 request 也没有影响。  
-        `put` 用来对已知资源做完全替换，要求前端提供一个完整的资源对象，缺了的字段会被清空。
-        `patch` 做局部更新，后台只会更新接收到的字段。【节省带宽】
+        * `put` 用来对已知资源做完全替换，要求前端提供一个完整的资源对象，缺了的字段会被清空。
+        * `patch` 做局部更新，后台只会更新接收到的字段。【节省带宽】
     - ref:
         * [PUT vs POST in REST](http://stackoverflow.com/questions/630453/put-vs-post-in-rest)
 
