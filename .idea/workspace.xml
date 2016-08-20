@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d07145a-7d77-4d30-bb97-f4d3213718bb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practiceDemo/data-interation/readme.md" afterPath="$PROJECT_DIR$/practiceDemo/data-interation/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="cardaminexhz.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,18 +63,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/practiceDemo/data-interation/readme.md">
           <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.819202">
-                <caret line="135" column="10" selection-start-line="135" selection-start-column="10" selection-end-line="135" selection-end-column="10" />
+              <first_editor vertical-scroll-proportion="0.023690773">
+                <caret line="113" column="7" selection-start-line="113" selection-start-column="7" selection-end-line="113" selection-end-column="7" />
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8948005">
+              <caret line="92" column="135" selection-start-line="92" selection-start-column="135" selection-end-line="92" selection-end-column="135" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,13 +122,13 @@
         <option value="$PROJECT_DIR$/baiduProj/task31/select-prac.js" />
         <option value="$PROJECT_DIR$/baiduProj/task31/select.html" />
         <option value="$PROJECT_DIR$/baiduProj/task31/select-prac.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/baiduProj/task31/readme.md" />
         <option value="$PROJECT_DIR$/practiceDemo/JavaScript Ninja/regExp/HTTP-Extract-Header.html" />
         <option value="$PROJECT_DIR$/../../jsonServer/db.json" />
         <option value="$PROJECT_DIR$/practiceDemo/data-interation/demo2.js" />
         <option value="$PROJECT_DIR$/practiceDemo/data-interation/demo2.html" />
         <option value="$PROJECT_DIR$/practiceDemo/data-interation/readme.md" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -624,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.123337366">
-          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practiceDemo/data-interation/demo1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28053203">
@@ -711,11 +714,19 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.819202">
-            <caret line="135" column="10" selection-start-line="135" selection-start-column="10" selection-end-line="135" selection-end-column="10" />
+          <first_editor vertical-scroll-proportion="0.023690773">
+            <caret line="113" column="7" selection-start-line="113" selection-start-column="7" selection-end-line="113" selection-end-column="7" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8948005">
+          <caret line="92" column="135" selection-start-line="92" selection-start-column="135" selection-end-line="92" selection-end-column="135" />
+          <folding />
         </state>
       </provider>
     </entry>
