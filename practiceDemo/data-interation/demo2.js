@@ -75,12 +75,21 @@ xhrFactory.prototype = {
     },
     put: function (url, data, callback, async, timeout) {
         this.statechange(timeout, callback);
-        var newUrl = url + "?id=" + data.id;
+        var newUrl = url + "/" + data.id;
         this.xhr.open("PUT", newUrl , async ? true : false);
-        console.log(data);
         delete data.id;
-        console.log(data);
         render("request", "PUT " + url + "; data: " + JSON.stringify(data));
+
+        this.xhr.setRequestHeader("content-type", "application/json");
+
+        this.xhr.send(data ? JSON.stringify(data) : null);
+    },
+    patch: function (url, data, callback, async, timeout) {
+        this.statechange(timeout, callback);
+        var newUrl = url + "/" + data.id;
+        this.xhr.open("PATCH", newUrl , async ? true : false);
+        delete data.id;
+        render("request", "PATCH " + url + "; data: " + JSON.stringify(data));
 
         this.xhr.setRequestHeader("content-type", "application/json");
 
