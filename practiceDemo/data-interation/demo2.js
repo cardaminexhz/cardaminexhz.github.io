@@ -25,7 +25,7 @@ xhrFactory.prototype = {
             console.log("readyState:");
             console.log(this.readyState);
 
-            /* TODO: 如何上传文件 + 更新 */
+            /* TODO: 如何上传文件 */
             if(this.readyState === 4 ){
                 render("response", this.response);
                 callback(this.response, this.status);

@@ -95,12 +95,13 @@
 ***
 
 * RESTful 
+
     RESTful 只是一种 architectural style，意思是如果大家都依此行事的话，沟通成本会很低，开发效率就高。
     
     那么只要前后台约定好，就可以随意选取方法了么？
     
     > This is wrong because a request passes through many intermediaries and middleware applications which perform optimizations based on the HTTP method type. 
-    These optimizations depend on two key characteristics of HTTP methods: idempotency and safety, which are defined in the HTTP specification.
+    These optimizations depend on two key characteristics of HTTP methods: idempotency and safety, which are defined in the HTTP specification.   
     [Code Ahoy: REST Design - Choosing the Right HTTP Method](http://codeahoy.com/2016/07/04/rest-design-choosing-the-right-http-method/)
     
     从这个角度来说，对哪种操作使用哪种方法，取决于 `HTTP 方法本身的特性` 和 `前后台交互接口的约定`。
@@ -109,13 +110,24 @@
     + `safe`   
         安全的方法被期望不会产生任何副作用（side effects）。这些操作是只读的。e.g. 查询数据库。
     + `idempotent`   
-        幂等的方法保证了重复进行一个请求和一次请求的效果相同。    
+        幂等的方法保证了重复进行一个请求和一次请求的效果相同。（并不是指返回 client 的响应总是相同的；而是指 server 上资源的状态从第一次请求后就不再改变）    
         在数学中，幂等性指N次变换和一次变换的结果相同。
         
             x = 1;    /* 幂等 */
             x++;      /* 非幂等 */
             
         <img src="http method.png" width="660px" height="300px">
+
+* `安全`|`幂等` 是由 HTTP 标准定义的契约：开发者在实现 RESTful API 时必须遵守。
+
+    + 如果一个操作没有以幂等的方式实现，那么即使它是通过 GET 方法调用的，它也不会自动变成 幂等的/ 安全的。
+    + 当使用 HTTP 构建 RESTful 程序时，对HTTP method 的实现应该满足其安全性和幂等性，来使 client 和中间件能自由地按契约优化，并增强用户体验。
+    
+        e.g. 浏览器并不确切知道某个特定的 form 用途，但如果这个 form 是通过 HTTP GET 提交的，浏览器就会知道当出现网络异常的时候，它可以安全的、自动再次尝试提交。
+        而通过 HTTP POST 提交的 form，如果浏览器不先向用户确认就重复提交，会是不安全的。
+        
+        <img src="safe idempotent.png" width="330px" height="120px">
+    
 
 + RESTful 下的 `post` `put` `patch`
     - `post`
