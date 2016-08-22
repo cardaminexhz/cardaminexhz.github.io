@@ -126,7 +126,10 @@
         e.g. 浏览器并不确切知道某个特定的 form 用途，但如果这个 form 是通过 HTTP GET 提交的，浏览器就会知道当出现网络异常的时候，它可以安全的、自动再次尝试提交。
         而通过 HTTP POST 提交的 form，如果浏览器不先向用户确认就重复提交，会是不安全的。
         
-        <img src="safe idempotent.png" width="330px" height="120px">
+    + [Idempotent and Safe HTTP Methods - Why Do They Matter?](http://codeahoy.com/2016/06/30/idempotent-and-safe-http-methods-why-do-they-matter/)   
+      [Limitations of the GET method in HTTP](https://blogs.dropbox.com/developers/2015/03/limitations-of-the-get-method-in-http/)
+        
+        <img src="safe idempotent.png" width="660px" height="240px">
     
 
 + RESTful 下的 `post` `put` `patch`
