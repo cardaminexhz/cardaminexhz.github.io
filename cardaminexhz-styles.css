@@ -109,6 +109,9 @@ footer {
     html {
         font-size: 10px;
     }
+    a {
+        font-size: 1.5em;
+    }
     aside {
         float: none;
         width: auto;
