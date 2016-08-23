@@ -1,4 +1,4 @@
-
+/* reset browser styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,36 +7,37 @@
     vertical-align: baseline;
 }
 
-body, textarea, select, input {
-    font-family: "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1";
+html {
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
+}
+header, footer, aside, section{
+    font-size: 1rem;
 }
 
 header {
     background-color: rgb(93, 43, 78);
     background-image: -webkit-linear-gradient(right, rgb(93, 43, 78), rgb(8, 2, 50));
-    padding: 60px 0 20px;
+    padding: 3.75em 0 1.25em;
 }
-
 .header-box {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
     color: white;
 }
-
 .header-title a {
     color: inherit;
-    font: normal 40px/1 'Microsoft Yahei';
+    font: normal 2.5rem/1 'Microsoft Yahei';
 }
 
 ul.nav {
-    margin-top: 20px;
+    margin-top: 1.25em;
 }
 
 ul.nav li {
     display: inline-block;
-    margin: 0 16px;
+    margin: 0 1em;
 }
 
 .page-wrapper {
@@ -48,23 +49,23 @@ ul.nav li {
     display: block;
     clear: both;
 }
-
 .clear {
     zoom: 1;
 }
+
 aside {
     float: left;
     width: 25%;
-    padding: 50px 100px 0 20px;
+    padding: 3.75em 6.25em 0 1.25em;
     text-align: right;
 }
 .main-content {
     float: right;
     width: 75%;
-    padding: 20px 0 0 20px;
+    padding: 1.875em 0 0 1.25em;
 }
 section {
-    padding: 30px 0 30px 0;
+    padding: 1.875em 0 1.875em 0;
     border-bottom: 1px solid #eef2f8;
 }
 ul {
@@ -84,16 +85,42 @@ a:hover {
 }
 aside a {
     border-bottom: 1px dashed;
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
 }
 
 footer {
     margin: 0 auto;
     text-align: center;
-    padding: 60px 0 20px;
+    padding: 3.75em 0 1.25em;
     background-color: rgb(93, 43, 78);
     background-image: -webkit-linear-gradient(right, rgb(93, 43, 78), rgb(8, 2, 50));
-    color: white;
+    color: wheat;
 }
 
+/* for landscape */
+@media (min-width: 481px) and (max-width: 900px) {
+    aside {
+        padding-right: 0;
+    }
+}
+
+/* for mobile phone */
+@media (max-width: 480px) {
+    html {
+        font-size: 10px;
+    }
+    aside {
+        float: none;
+        width: auto;
+        padding: 1em 0 0 0;
+        text-align: center;
+    }
+    aside ul li {
+        display: inline-block;
+    }
+    .main-content {
+        float: none;
+        width: auto;
+    }
+}
 
