@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    background: url(../back-s.jpg) repeat;
+    background: url(back-s.jpg) repeat;
     /*background: -webkit-image-set( url('back-s.jpg') 1x, url('back-s.jpg') 2x );*/
     margin: 0;
     padding: 0;
