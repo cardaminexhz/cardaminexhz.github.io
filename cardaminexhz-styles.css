@@ -1,0 +1,99 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+body, textarea, select, input {
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1";
+    font-size: 16px;
+}
+
+header {
+    background-color: rgb(93, 43, 78);
+    background-image: -webkit-linear-gradient(right, rgb(93, 43, 78), rgb(8, 2, 50));
+    padding: 60px 0 20px;
+}
+
+.header-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+}
+
+.header-title a {
+    color: inherit;
+    font: normal 40px/1 'Microsoft Yahei';
+}
+
+ul.nav {
+    margin-top: 20px;
+}
+
+ul.nav li {
+    display: inline-block;
+    margin: 0 16px;
+}
+
+.page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.clear {
+    zoom: 1;
+}
+aside {
+    float: left;
+    width: 25%;
+    padding: 50px 100px 0 20px;
+    text-align: right;
+}
+.main-content {
+    float: right;
+    width: 75%;
+    padding: 20px 0 0 20px;
+}
+section {
+    padding: 30px 0 30px 0;
+    border-bottom: 1px solid #eef2f8;
+}
+ul {
+    list-style: none;
+}
+a {
+    color: #9999CC;
+    font-size: 1em;
+    line-height: 2;
+    margin-right: 1em;
+    text-decoration: none;
+
+    transition: color 0.5s;
+}
+a:hover {
+    color: #CCCCFF;
+}
+aside a {
+    border-bottom: 1px dashed;
+    margin-bottom: 20px;
+}
+
+footer {
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 0 20px;
+    background-color: rgb(93, 43, 78);
+    background-image: -webkit-linear-gradient(right, rgb(93, 43, 78), rgb(8, 2, 50));
+    color: white;
+}
+
+

@@ -15,12 +15,12 @@ html {
 }
 
 body {
-    background: url(back-s.jpg) repeat;
+    background: url(../back-s.jpg) repeat;
     /*background: -webkit-image-set( url('back-s.jpg') 1x, url('back-s.jpg') 2x );*/
     margin: 0;
     padding: 0;
 
-    line-height: 1.5;  /* ´ËÊı×Ö»áÓëµ±Ç°µÄ×ÖÌå³ß´çÏà³ËÀ´ÉèÖÃĞĞ¼ä¾à¡£ */
+    line-height: 1.5;  /* ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ëµ±Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¼ï¿½à¡£ */
 }
 
 section {

@@ -1,18 +1,18 @@
 # cardaminexhz.github.io
 
-* ±³¾°
+* èƒŒæ™¯å›¾åŠ è½½æ…¢ï¼Œå¦‚ä½•è§£å†³ `background: url(back.jpg) repeat;
 
 ***
 
 * `px` `em` `rem`
     + Font Size Idea: `px` at the Root, `rem` for Components, `em` for Text Elements
-    + `px` £¨pixel£©£¬Ïà¶ÔÓÚÏÔÊ¾Æ÷µÄÆÁÄ»·Ö±æÂÊ¡£
-    + `em` Ïà¶ÔÓÚµ±Ç°¶ÔÏóÄÚÎÄ±¾µÄ×ÖÌå³ß´ç¡£ÈôÎ´ÉèÖÃ£¬ÔòÏà¶ÔÓÚä¯ÀÀÆ÷µÄÄ¬ÈÏ×ÖÌå³ß´ç¡£
-        ÈÎÒâä¯ÀÀÆ÷µÄÄ¬ÈÏ×ÖÌå¸ß£º16px¡£  
+    + `px` ï¼ˆpixelï¼‰ï¼Œç›¸å¯¹äºæ˜¾ç¤ºå™¨çš„å±å¹•åˆ†è¾¨ç‡ã€‚
+    + `em` ç›¸å¯¹äºå½“å‰å¯¹è±¡å†…æ–‡æœ¬çš„å­—ä½“å°ºå¯¸ã€‚è‹¥æœªè®¾ç½®ï¼Œåˆ™ç›¸å¯¹äºæµè§ˆå™¨çš„é»˜è®¤å­—ä½“å°ºå¯¸ã€‚
+        ä»»æ„æµè§ˆå™¨çš„é»˜è®¤å­—ä½“é«˜ï¼š16pxã€‚  
         `1em = 16px` `12px = 0.75em`
-    + `rem` £¨root em£¬¸ùem£©£¬ÊÇcss3ĞÂÔöµÄÒ»¸öÏà¶Ôµ¥Î»¡£   
-        Ê¹ÓÃ rem ÉèÖÃ×ÖÌå´óĞ¡Ê±£¬Ïà¶ÔµÄÊÇhtml¸ùÔªËØ¡£  
-        ×öµ½£ºÖ»ĞŞ¸Ä¸ùÔªËØ£¬¾Í¿ÉÒÔ³É±ÈÀıµØµ÷Õû¶àËùÓĞ×ÖÌå´óĞ¡¡£
+    + `rem` ï¼ˆroot emï¼Œæ ¹emï¼‰ï¼Œæ˜¯css3æ–°å¢çš„ä¸€ä¸ªç›¸å¯¹å•ä½ã€‚   
+        ä½¿ç”¨ rem è®¾ç½®å­—ä½“å¤§å°æ—¶ï¼Œç›¸å¯¹çš„æ˜¯htmlæ ¹å…ƒç´ ã€‚  
+        åšåˆ°ï¼šåªä¿®æ”¹æ ¹å…ƒç´ ï¼Œå°±å¯ä»¥æˆæ¯”ä¾‹åœ°è°ƒæ•´å¤šæ‰€æœ‰å­—ä½“å¤§å°ã€‚
     
     > While em is relative to the font-size of its direct or nearest parent, rem is only relative to the html (root) font-size.
     
@@ -50,12 +50,17 @@
         h3 {
           font-size: 2em;
         }
+        
+    ref:  
+    [Font Size Idea: px at the Root, rem for Components, em for Text Elements](https://css-tricks.com/rems-ems/)
 
 ***
 
-* ±³¾°Í¼¼ÓÔØÂı£¬ÈçºÎ½â¾ö `background: url(back.jpg) repeat;
+* `margin: 0 auto` å¤±æ•ˆåœºæ™¯
+    1. æœªç»™è¦å±…ä¸­çš„å…ƒç´ è®¾ç½®å®½åº¦
+    2. å¯¹æµ®åŠ¨å…ƒç´ å¤±æ•ˆ
+
 
 ***
 
-ref:  
-[Font Size Idea: px at the Root, rem for Components, em for Text Elements](https://css-tricks.com/rems-ems/)
+
