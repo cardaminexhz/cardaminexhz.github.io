@@ -90,7 +90,8 @@
         - `background-image`
             * 适用于一些场景：图片上放置文字
             * 缺：不能被打印出来；也不被spider搜索
-                <img src="ref-img/background-img.png" width="400px" height="200px">
+            
+            <img src="ref-img/backgroound-img.png" width="400px" height="200px">
     + 元素层次 `position`
     
     ***
@@ -113,9 +114,11 @@
     + 为什么浮动元素会凸出 stick out 其包围块（溢出）
         - ref: [Containing Floats](http://complexspiral.com/publications/containing-floats/)
         - 先来看下浮动元素的设计场景：开始时，float 是为了产生环绕效果，对正常的文本流就需要浮动元素凸出它的包围块。但当用 float 来布局时，这个特性就产生了问题。
-        - 不期待的效果：浮动元素不凸出包围块   
+        - 不期待的效果：浮动元素不凸出包围块 
+          
         <img src="ref-img/float-unexpected.png" width="400px" height="300px">
         - 期待的效果：   
+        
         <img src="ref-img/float-expected.png" width="400px" height="240px">
     
     + 如何避免浮动元素溢出 | 清除浮动【TODO】
