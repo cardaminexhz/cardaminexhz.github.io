@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d07145a-7d77-4d30-bb97-f4d3213718bb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ref-img/include-float.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ref-img/include-float1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practiceDemo/tmp/2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practiceDemo/tmp/3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ref-img/backgroound-img.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ref-img/float-expected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ref-img/float-unexpected.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practiceDemo/tmp/background-img.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practiceDemo/tmp/float-element_position.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practiceDemo/tmp/float-element_position2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/practiceDemo/tmp/float.html" />
+      <change type="DELETED" beforePath="C:\Users\carda\workspace\github\cardaminexhz.github.io\practiceDemo\tmp\1.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\carda\workspace\github\cardaminexhz.github.io\practiceDemo\tmp\2.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\carda\workspace\github\cardaminexhz.github.io\practiceDemo\tmp\3.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cardaminexhz.github.io.iws" />
@@ -39,22 +44,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cardaminexhz-styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cardaminexhz-styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="104" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.5660848">
-                <caret line="126" column="41" selection-start-line="126" selection-start-column="41" selection-end-line="126" selection-end-column="41" />
+              <first_editor vertical-scroll-proportion="0.638404">
+                <caret line="116" column="25" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -62,26 +57,6 @@
           </provider>
           <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.236841">
-              <caret line="54" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.552631">
-              <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -139,8 +114,13 @@
         <option value="$PROJECT_DIR$/practiceDemo/tmp/1.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/practiceDemo/tmp/3" />
-        <option value="$PROJECT_DIR$/practiceDemo/tmp/2.html" />
         <option value="$PROJECT_DIR$/practiceDemo/tmp/3.html" />
+        <option value="$PROJECT_DIR$/practiceDemo/tmp/4.html" />
+        <option value="$PROJECT_DIR$/practiceDemo/tmp/background-img.html" />
+        <option value="$PROJECT_DIR$/practiceDemo/tmp/float.html" />
+        <option value="$PROJECT_DIR$/practiceDemo/tmp/2.html" />
+        <option value="$PROJECT_DIR$/practiceDemo/tmp/float-element_position.html" />
+        <option value="$PROJECT_DIR$/practiceDemo/tmp/float-element_position2.html" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -276,7 +256,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tmp" />
+              <option name="myItemId" value="clear-float" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -422,35 +402,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/baiduProj/task29/readme.md" />
-    <entry file="file://$PROJECT_DIR$/baiduProj/task29/validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="39" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baiduProj/task30/validate-v3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baiduProj/task30/validate-cat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baiduProj/task30/validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="102" column="12" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/practiceDemo/event/readme.md" />
     <entry file="file://$PROJECT_DIR$/baiduProj/task30/readme.md">
       <provider editor-type-id="text-editor">
@@ -699,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.087061666">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ref-img/font-size.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -732,18 +676,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/2.html">
+    <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/float.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.236841">
-          <caret line="54" column="16" selection-start-line="0" selection-start-column="0" selection-end-line="60" selection-end-column="7" />
+        <state vertical-scroll-proportion="-0.7631579">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/3.html">
+    <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/float-element_position2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.552631">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.035066504">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/float-element_position.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practiceDemo/tmp/background-img.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0519952">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practiceDemo/clear-float/background.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practiceDemo/clear-float/overflow demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.053204354">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practiceDemo/clear-float/overflow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07013301">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/practiceDemo/clear-float/BFC.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.016928658">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -751,8 +740,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.5660848">
-            <caret line="126" column="41" selection-start-line="126" selection-start-column="41" selection-end-line="126" selection-end-column="41" />
+          <first_editor vertical-scroll-proportion="0.638404">
+            <caret line="116" column="25" selection-start-line="116" selection-start-column="25" selection-end-line="116" selection-end-column="25" />
             <folding />
           </first_editor>
           <second_editor />

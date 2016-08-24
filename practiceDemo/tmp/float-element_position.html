@@ -1,3 +1,6 @@
+<!--
+@comment 利用浮动，改变源码顺序 1
+-->
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -7,23 +10,35 @@
         * {
             box-sizing: border-box;
         }
-
         div {
             border: 1px solid grey;
             height: 200px;
         }
-        .main {
+        .wrapper {
             float: left;
-            width: 50%;
-            background-color: #bbdaf7;
+            width: 75%;
+            padding: 30px;
+            height: auto;
         }
-
+        .clear:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .clear {
+            zoom: 1;
+        }
+        .main {
+            float: right;
+            width: 75%;
+            background-color: #bbdaf7;
+            margin-top: 18px;
+        }
         .left {
             float: left;
             width: 25%;
             background-color: lightyellow;
         }
-
         .right {
             float: right;
             width: 25%;
@@ -34,11 +49,13 @@
 </head>
 <body>
 <header>1 header</header>
-
-<div class="left">2 left(25%)<br>left <==</div>
-<div class="main">3 main(50%)<br>left <==</div>
+<div class="wrapper">
+    2 wrapper(75%) left <==
+    <div class="main">3 main(75%)<br>==> right</div>
+    <div class="left">4 left(25%)<br>left <==</div>
+</div>
 <div class="right">
-    4 right(25%)
+    5 right(25%)
     <br>
     ==> right
 </div>
