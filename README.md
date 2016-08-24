@@ -120,14 +120,24 @@
     
     ***
     
-    + 在浮动元素里浮动元素【TODO】
+    + 在浮动元素里浮动元素
+    
+    利用不同的浮动方法，可以轻松改变 HTML 的源码顺序。
+    
+    场景：响应式布局时，可能需要将主体部分优先显示（需要 main 的源码在前）
+    
+    <img src="ref-img/include-float1.png" width="500px" height="150px">
+    
+    <img src="ref-img/include-float.png" width="500px" height="250px">
     
     ***
     
     + 浮动下落 float drop
         - 原因：空间不够，容纳不下所有的列（浏览器为元素计算实际屏幕宽度时的古怪方式）
     + 盒模型（以 宽 为例）
-        <img src="ref-img/css-box.png" width="450px" height="300px">
+    
+        - <img src="ref-img/css-box.png" width="450px" height="300px">
+        
         - 标准盒模型：
         
             width 只是 content 的宽度，元素宽 = width + 2*(padding + border + margin)    
@@ -141,7 +151,7 @@
         + `box-sizing` 
             - content-box：width 只包含 content（默认值）
             - padding-box：width 包含 content | padding（只有 firefox 支持）
-            - border-box： width 包含 content | padding | border（使算数计算简单，在遇到某些常见需求时更容易实现效果） 
+            - border-box： width 包含 content | padding | border（使算数计算简单，在遇到某些常见需求时更容易实现效果）
               
                     /* 通用选择器 */
                     * {
@@ -154,7 +164,7 @@
 + 混合流式布局 + 固定宽度
     - `%`
     - max-width 代替 width，弹性设计：既能适应不同的浏览器窗口；在超宽显示器上因为不会超过max-witdh，也不会难以阅读
-    - 左右居中：`margin: 0 auto;`
+    - 水平居中：`margin: 0 auto;`
         * `margin: 0 auto` 失效场景
             1. 未给要居中的元素设置宽度
             2. 对浮动元素失效
@@ -196,6 +206,7 @@
         - 大于等于 769px
         - 从哪个值的位置开始断开：断点/ 最佳尺寸
     + 策略
+    
         先从默认设计开始（即没有媒体查询就能生效的设计），之后再创建媒体查询样式来调整/ 修饰。
         
         不需要给每种设备分别创建3组完整的样式。
