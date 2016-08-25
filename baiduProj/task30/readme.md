@@ -80,6 +80,11 @@
             - 点提交按钮验证整个表单时，循环所有 input，显式调用验证，`GLOBAL_INPUT[i].id` `GLOBAL_INPUT[i].value`
     + `validate-v3.js`
         1. 用在父级元素 form 上` 事件委托` 来代替上述方案中的 `循环所有input`，来为不同事件绑定响应handler: `focusHandler` `blurHandler`
+        
+            `focus` `blur` 不冒泡，需要在捕获阶段侦听到它们。
+            
+                GLOBAL_FORM.addEventListener("focus", focusHandler, true);
+                GLOBAL_FORM.addEventListener("blur", blurHandler, true);
         2. （同上）提取公共的 input 验证函数 `function validate(inputID, value)`
 
 ***
