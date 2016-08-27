@@ -102,7 +102,7 @@ function mergeSortTop2Bottom(arr) {
         left = arr.slice(0, mid),
         right = arr.slice(mid);
 
-    console.log(left, right);
+    console.log(left.valueOf(), right.valueOf());
     return merge(mergeSortTop2Bottom(left), mergeSortTop2Bottom(right));
 }
 
@@ -110,23 +110,24 @@ function merge(arr1, arr2) {
     var sortedArr = [];
 
     console.log("sortedArr,   arr1,   arr2");
-    console.log(sortedArr, arr1, arr2);
+    console.log(sortedArr.valueOf(), arr1.valueOf(), arr2.valueOf());
     while(arr1 && arr1.length > 0 && arr2 && arr2.length > 0) {
         if(arr1[0] < arr2[0]) {
             sortedArr.push(arr1.shift());
         } else {
             sortedArr.push(arr2.shift());
         }
-        console.log(sortedArr, arr1, arr2);
+        console.log(sortedArr.valueOf(), arr1.valueOf(), arr2.valueOf());
     }
 
     var target = sortedArr.concat(arr1, arr2);
-    console.log(target);
+    console.log(target.valueOf());
     return target;
 }
 
 
-function quickSort(arr, customSort){
+// a bucket sort implemented to do a quick sort
+function quickSortByBucketSocket(arr, customSort){
 
     if(!customSort) {
         //if true, place value as "greater"
@@ -153,9 +154,48 @@ function quickSort(arr, customSort){
         }
     }
 
-    var target = quickSort(left).concat(pivot, quickSort(right));
+    var target = quickSortByBucketSocket(left).concat(pivot, quickSortByBucketSocket(right));
     console.log(target);
     return target;
+}
+
+// Keep in mind that the partitioning is happening in place, without creating any additional arrays.
+function quickSort(arr, left, right) {
+    var index;
+
+    if(arr.length > 1) {
+        index = partition(arr, left, right);
+        if (left < index - 1) {
+            quickSort(arr, left, index - 1);
+        }
+        if (index < right) {
+            quickSort(arr, index, right);
+        }
+    }
+
+    return arr;
+}
+
+function partition(arr, left, right) {
+    var pivotPos = Math.floor((left+right)/2),
+        pivot = arr[pivotPos];
+
+    while(left <= right) {
+        while(arr[left] < pivot) {
+            left++;
+        }
+        while(arr[right] > pivot) {
+            right--;
+        }
+        if(left <= right) {
+            swap(arr, left, right);
+            left++;
+            right--;
+        }
+    }
+    console.log(arr.valueOf())
+
+    return left;
 }
 
 window.onload = function() {
@@ -174,6 +214,9 @@ window.onload = function() {
     console.log("mergeSort ==============");
     mergeSortTop2Bottom(GLOBAL_ARR.slice(0));
 
+    console.log("quickSortByBucketSocket ==============");
+    quickSortByBucketSocket(GLOBAL_ARR.slice(0));
+
     console.log("quickSort ==============");
-    quickSort(GLOBAL_ARR.slice(0));
+    quickSort(GLOBAL_ARR.slice(0), 0, GLOBAL_ARR.length-1);
 };
