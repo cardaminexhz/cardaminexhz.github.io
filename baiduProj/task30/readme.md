@@ -129,12 +129,29 @@
             * 事件，通常由用户操作，或通过其他浏览器功能来触发。
             * 但，也可以使用 JS 来在任意时刻触发特定的事件。
             * 此时的事件和浏览器创建的事件一样，也会冒泡，并能引发相应 handler 的处理 etc.。
-        - 如何模拟事件
+        - 创建自定义事件：
+            * 创建和分发事件  `Event 构造函数` `dispatchEvent`
+            
+                    var event = new Event('build');
+                    
+                    // Listen for the event.
+                    elem.addEventListener('build', function (e) { ... }, false);
+                    
+                    // Dispatch the event.
+                    elem.dispatchEvent(event);
+            * 添加自定义数据  `CustomEvent`
+            
+                    var event = new CustomEvent('build', { 'detail': elem.dataset.time });
+                    
+                    function eventHandler(e) {
+                      log('The time is: ' + e.detail);
+                    }
+        - 如何模拟事件（已过时）
             1. 创建 event 对象
             2. 使用与事件有关的信息对其初始化。每种类型的 event 对象都有一个特殊的方法，为其传入适当参数就可以初始化该 event 对象。
             3. 触发事件
-        - 一段示例代码
+            一段示例代码
         
-                var event = document.createEvent("MouseEvents");
-                event.initEvent("focus", true, true);
-                input[i].dispatchEvent(event);
+                    var event = document.createEvent("MouseEvents");
+                    event.initEvent("focus", true, true);
+                    input[i].dispatchEvent(event);
