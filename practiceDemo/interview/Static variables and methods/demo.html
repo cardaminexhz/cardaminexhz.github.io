@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        console.log(typeof getName);
+        console.log(getName);
+
+        function Foo() {
+            console.log(getName)
+            getName = function () { console.log(1); };
+            console.log(getName)
+
+            return this;
+        }
+        Foo.getName = function () { console.log(2);};
+        Foo.prototype.getName = function () { console.log(3);};
+        var getName = function () { console.log(4);};
+        function getName() { console.log(5);}
+
+        //请写出以下输出结果：
+        Foo.getName();
+        getName();
+        Foo().getName();
+        getName();
+        new Foo.getName();
+        new Foo().getName();
+        new new Foo().getName();
+
+
+        function MyClass () { // constructor function
+
+            var privateVariable = "foo";  // Private variable
+
+            this.publicVariable = "bar";  // Public variable
+
+            this.privilegedMethod = function () {  // Public Method
+                console.log(privateVariable);
+            };
+        }
+
+        // Instance method will be available to all instances but only load once in memory
+        MyClass.prototype.publicMethod = function () {
+            console.log(this.publicVariable);
+        };
+
+        // Static variable shared by all instances
+        MyClass.staticProperty = "baz";
+
+        // Static method shared by all instances
+        MyClass.staticMethod = function() {
+            console.log(MyClass.staticProperty);
+        };
+
+        var myInstance = new MyClass();
+        console.log(MyClass.prototype);
+        myInstance.privilegedMethod();  // foo
+        myInstance.publicMethod();   // bar
+        MyClass.staticMethod();     // baz
+    </script>
+</head>
+<body>
+
+</body>
+</html>
