@@ -20,6 +20,22 @@ ref: [一道常被人轻视的前端JS面试题](http://www.cnblogs.com/xxcangha
     new Foo().getName();
     new new Foo().getName();
 
+* 几个点：
+    + js 静态属性/ 方法
+    + 声明提升（变量声明/ 函数声明）；函数表达式
+    + 作用域链；修改下 Foo
+    
+            function Foo() {
+                console.log(getName);
+                var getName = function () { console.log(1); };
+                console.log(getName);
+                console.log(this);
+                return this;
+            } 
+    + this 的指向：由所在函数的调用方式决定的
+    + JS 带有返回值的构造函数的处理
+    + JS 运算符的优先级 【TODO】
+
 ***
 
 * static variables and methods
