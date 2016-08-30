@@ -5,6 +5,26 @@
     <title></title>
 </head>
 <body>
+<h3>4.手写一个事件模型。题目给出以下部分</h3>
+
+<p>
+    var em = new EventEmitter();
+    <br>
+    em.on("hello", function (name) {
+    <br>
+        console.log("Hello, " + name);
+    <br>
+    });
+    <br>
+
+    em.emit("hello", "world!");
+</p>
+
+<p>
+    打开console查看结果<br>
+    源码：
+    <a href="https://github.com/cardaminexhz/cardaminexhz.github.io/practiceDemo/interview/microchat/eventModal/demo.js">here</a>
+</p>
 
 <script src="demo.js"></script>
 </body>
