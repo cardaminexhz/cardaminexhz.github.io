@@ -94,9 +94,8 @@
         
 ***
 
-* 事件对象 
-    <img src="event.png" width = "470px" height = "630px" alt="event.png" align=center />
-    
+* 事件对象
+    + <img src="event.png" width = "470px" height = "630px" alt="event.png" align=center />
     + preventDefault()
         e.g. 阻止默认行为（e.g. 链接被单击时，跳转到其href指定的url）
     + stopPropagation()

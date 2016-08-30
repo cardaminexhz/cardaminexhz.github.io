@@ -55,28 +55,24 @@
 
 * 事件相关点整理 
 
-    [1,2,3,4 here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/practiceDemo/event)
+    [1,2,3,4 here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/practiceDemo/event) | [5 here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/baiduProj/task30) | 6 见上文
     
-    [5 here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/baiduProj/task30)
+1. 事件流：从页面中接收事件的顺序；`IE` `W3C(DOM2级)` 
+2. 事件处理程序的区别 `DOM0/2` `IE`
+    <img src="event-handler.png" width="660px" height="300px">
+3. 事件对象的区别 `DOM` `IE`
+4. 跨浏览器的事件处理程序 | 事件对象 （最小功能集）
     
-    6 见上文
-    
-    1. 事件流：从页面中接收事件的顺序；`IE` `W3C(DOM2级)` 
-    2. 事件处理程序的区别 `DOM0/2` `IE`
-        <img src="event-handler.png" width="660px" height="300px">
-    3. 事件对象的区别 `DOM` `IE`
-    4. 跨浏览器的事件处理程序 | 事件对象 （最小功能集）
-        
-            var EventUtil = {
-                addListener: ...,
-                removeListener: ...,
-                
-                getEvent: ...,
-                getTarget: ...,
+        var EventUtil = {
+            addListener: ...,
+            removeListener: ...,
+            
+            getEvent: ...,
+            getTarget: ...,
 
-                preventDefault: ...,
-                stopPropagation: ...
-            }
-    5. 事件委托；原理，优缺点；原生JS实现事件委托，兼容浏览器
-    6. 原生JS实现事件模型
-    7. 模拟事件；事件如何派发？【TODO】
+            preventDefault: ...,
+            stopPropagation: ...
+        }
+5. 事件委托；原理，优缺点；原生JS实现事件委托，兼容浏览器
+6. 原生JS实现事件模型
+7. 模拟事件；事件如何派发？【TODO】
