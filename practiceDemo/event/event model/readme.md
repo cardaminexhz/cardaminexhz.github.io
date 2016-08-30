@@ -56,7 +56,9 @@
 * 事件相关点整理 
 
     [1,2,3,4 here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/practiceDemo/event)
+    
     [5 here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/baiduProj/task30)
+    
     6 见上文
     
     1. 事件流：从页面中接收事件的顺序；`IE` `W3C(DOM2级)` 
