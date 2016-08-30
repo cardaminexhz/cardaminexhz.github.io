@@ -44,15 +44,21 @@
                     handlers[i].call(this, event);
                 }
     + [源码，来自上述博客](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/practiceDemo/event/event model/demo.js)
-    + 增强：
+    + 增强：【TODO】
         - 事件冒泡
         - 出错后继续执行handler
         - 允许handler阻止进一步操作或和默认行为
+        - 比如触发响应函数时的上下文应该是什么，
+        触发响应函数的参数列表应该是什么，如果要求把调用trigger的参数列表都传到响应函数中还要考虑到吧arguments对象转化为纯数组才行等等。
 
 ***
 
 * 事件相关点整理
-    + 事件的三个阶段；在IE，W3C中的区别；绑定/解绑方法的异同 [here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/practiceDemo/event)
+    + 事件流：从页面中接收事件的顺序；`IE` `W3C(DOM2级)` [here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/practiceDemo/event)
+    + 事件处理程序的区别 `DOM0/2` `IE`
+        <img src="event-handler.png" width="660px" height="300px">
+    + 事件对象的区别 `DOM` `IE`
+    + 原生JS实现跨浏览器的事件处理程序 | 事件对象
     + 事件委托；原理，优缺点；原生JS实现事件委托，兼容浏览器 [here](https://github.com/cardaminexhz/cardaminexhz.github.io/tree/master/baiduProj/task30)
     + 原生JS实现事件模型
     + 模拟事件；事件如何派发？【TODO】
