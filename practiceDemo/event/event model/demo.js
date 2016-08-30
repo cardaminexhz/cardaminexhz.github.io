@@ -1,5 +1,8 @@
 /**
  * Created by carda on 2016/8/29.
+ * @coment: 增强：
+ *      1. 触发响应函数时的上下文
+ *      2. 触发响应函数时的参数列表：fire的参数列表都传到响应函数中
  */
 
 function EventTarget() {
@@ -18,6 +21,9 @@ EventTarget.prototype = {
     },
 
     fire: function (event) {
+        var argus = Array.prototype.slice.call(arguments, 0),
+            handlers;
+
         if(typeof event == "string") {
             event = { type: event};
         }
@@ -29,9 +35,9 @@ EventTarget.prototype = {
             return;
         }
 
-        var handlers = this._listeners[event.type];
+        handlers = this._listeners[event.type];
         for(var i = 0; i < handlers.length; i++) {
-            handlers[i].call(this, event);
+            handlers[i].call(this, argus.slice(1));
         }
 
     },
@@ -53,6 +59,20 @@ EventTarget.prototype = {
 };
 
 
+
+/* ---------------- basic use ------------------------ */
+var target = new EventTarget();
+function handleEvent(str){
+    console.log("basic use: " + str);
+}
+
+target.addListener("foo", handleEvent);
+target.fire({ type: "foo" }, "hello", "world", "basic use");    //can also do target.fire("foo")
+target.removeListener("foo", handleEvent);
+
+
+
+/* ---------------- 创建一个EventTarget的子类，然后创建子类的实例 ------------------------ */
 function MyObject(){
     EventTarget.call(this);
 }
@@ -60,14 +80,15 @@ function MyObject(){
 MyObject.prototype = new EventTarget();
 MyObject.prototype.constructor = MyObject;
 MyObject.prototype.foo = function(){
-    this.fire("foo");
+    var argus = Array.prototype.slice.call(arguments, 0);
+    this.fire.call(this, "foo", argus);
 };
 
 
 var o = new MyObject();
 
-o.addListener("foo", function(){
-    console.log("Foo just happened.");
+o.addListener("foo", function(str){
+    console.log("extended use: " + str);
 });
 
-o.foo();
+o.foo("hello", "world", "extended use");
