@@ -97,7 +97,7 @@
             所有用到按钮的事件（多数鼠标事件、键盘事件）。   
             `click` `mousedown` `mouseup` `keydown` `keyup` `keypress`   
         - 优点（内存，时间）
-            1. 在JS中，添加到页面上的 event handler（即函数）也是对象，会占用内存；内存中对象越多，性能越差。  
+            1. 在JS中，添加到页面上的 event handler（即函数）也是对象，会占用内存；内存中对象越多，性能越差。
             2. 为DOM元素绑定 event handler，而导致的DOM访问次数，会影响页面的交互就绪时间。
             3. 新增子对象时，不需要再次为其绑定 handler。
             

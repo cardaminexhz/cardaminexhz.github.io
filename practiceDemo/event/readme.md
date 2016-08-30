@@ -49,7 +49,6 @@
     
 ***
 
-
 * JS事件处理程序 
     + DOM0 级 `onclick`
             
@@ -95,13 +94,16 @@
         
 ***
 
-* 总结：  
+* 事件对象 
     <img src="event.png" width = "470px" height = "630px" alt="event.png" align=center />
     
     + preventDefault()
-        e.g. 阻止链接的默认行为（被单击时，跳转到其href指定的url）
+        e.g. 阻止默认行为（e.g. 链接被单击时，跳转到其href指定的url）
     + stopPropagation()
         e.g. 立即停止事件在DOM层次中的传播，来取消进一步的事件冒泡/捕获
+        
+***
+
 * 一个兼容（DOM0/ DOM2/ IE）的事件处理程序
 
         var EventUtil = {
@@ -109,7 +111,7 @@
                 if(element.addEventListener) {
                     element.addEventListener(type, handler, false);
                 } else if(element.attachEvent()) {
-                    element.attachEvent(type, handler);
+                    element.attachEvent("on" + type, handler);
                 } else {
                     element["on"+type] = handler;
                 }
@@ -119,7 +121,7 @@
                 if(element.removeEventListener) {
                     element.removeEventListener(type, handler, false);
                 } else if(element.detachEvent) {
-                    element.detachEvent(type, handler);
+                    element.detachEvent("on" + type, handler);
                 } else {
                     element["on"+type] = null;  <!-- 方括号语法，可支持动态构建属性名 -->
                 }
