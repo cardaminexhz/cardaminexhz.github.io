@@ -48,12 +48,14 @@
 
 ***
 
-* `visibility` V.S. `display`
+* 隐藏元素的方法 `visibility` `display` `opacity`
     + `visibility="visible|hidden"`
         - 隐藏，仍占据原来的空间
         - 隐藏后，不能再接收事件
     + `display: none;`
         - 消失，从页面上被移走，不占据原来的空间
+    + `opacity: 0;`
+        - 是一个浏览器可以为其创建动画的属性. e.g. transition + opacity
         
 ***
 
