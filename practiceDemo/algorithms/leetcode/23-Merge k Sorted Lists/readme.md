@@ -25,7 +25,12 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
         `T(n) = nklog(k)`
         + 空间消耗在堆，有 k 个元素的堆：`S(n) = k`
         
-        + ref：
-            [堆操作](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/23-Merge%20k%20Sorted%20Lists/binaryHeap123.js)
-            [堆操作-注释源码](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/23-Merge%20k%20Sorted%20Lists/BinaryHeap.js)
+        + ref：   
+            [堆操作](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/23-Merge%20k%20Sorted%20Lists/binaryHeap123.js)   
+            [堆操作-注释源码](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/23-Merge%20k%20Sorted%20Lists/BinaryHeap.js)   
             [Binary Heaps](http://eloquentjavascript.net/1st_edition/appendix2.html)
+    3. 分治 divide and conquer
+        + `T(n) = nklog(k)`
+        + `S(n) = 1`
+        + 基于 21 Merge two sorted lists
+        + 见[divide-conquer.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/23-Merge%20k%20Sorted%20Lists/divide-conquer.js)
