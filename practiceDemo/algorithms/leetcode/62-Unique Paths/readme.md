@@ -18,10 +18,13 @@ Note: m and n will be at most 100.
     + recursion 见[demo.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/62-Unique%20Paths/demo.js)
     + DP - top down
     + DP - bottom up
+        
+        以 3 x 7 grid 为例：
+           
         <img src="DP-bottom-up.png" width="1100px" height="200px">
         
-        见[demo.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/62-Unique%20Paths/DP-memorization.js)
+        见[DP-memorization.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/62-Unique%20Paths/DP-memorization.js)
     + 组合数学
-        见[demo.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/62-Unique%20Paths/combinatorics.js)
+        见[combinatorics.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/62-Unique%20Paths/combinatorics.js)
     
     
