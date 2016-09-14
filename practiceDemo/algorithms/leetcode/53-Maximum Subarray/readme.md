@@ -20,7 +20,7 @@ If you have figured out the O(n) solution, try coding another solution using the
     2. DP
         `T(n) = O(n); S(n) = O(1)`
         + 寻找状态转移方程
-        + `f(k)` 表示到索引k位置结束的字串的 maxSum
+        + `f(k)` 表示到索引k位置结束的子串的 maxSum
         + `f(k) = max( f(k-1) + nums[k], nums[k] )`
         + 初始状态 `f(0) = nums[0]`
         见[dp.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/algorithms/leetcode/53-Maximum%20Subarray/dp.js)
