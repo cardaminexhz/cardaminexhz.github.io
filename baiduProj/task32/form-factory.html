@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div class="wrap clear">
+    <section class="config">
+        <h1>表单一配置</h1>
+            <textarea id="form1-config">{
+                "name": {
+                    "id": "name1",
+                    "label": "姓名",
+                    "type": "text",
+                    "validators": ["isNotEmpty","isValidName"],
+                    "rule": "必填，长度为4~16个字符",
+                    "success": "姓名格式输入正确"
+                },
+                "submit": {
+                    "id": "validate1",
+                    "value": "验证",
+                    "type": "button",
+                    "fail": "提交失败",
+                    "success": "提交成功"
+                }
+            }</textarea>
+        <br/>
+        <input type="button" value="生成表单" id="form1-create"/>
+    </section>
+
+    <section class="form"></section>
+
+</div>
+
+
+</body>
+</html>
