@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4d07145a-7d77-4d30-bb97-f4d3213718bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/practiceDemo/DOM Scripting/readme.md" afterPath="$PROJECT_DIR$/practiceDemo/DOM Scripting/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cardaminexhz.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,16 +25,16 @@
     <leaf>
       <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/practiceDemo/DOM Scripting/readme.md">
-          <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor vertical-scroll-proportion="0.7468828">
-                <caret line="126" column="39" selection-start-line="126" selection-start-column="39" selection-end-line="126" selection-end-column="39" />
+              <first_editor vertical-scroll-proportion="0.638404">
+                <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
                 <folding />
               </first_editor>
               <second_editor />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
           </provider>
         </entry>
@@ -798,16 +797,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/practiceDemo/DOM Scripting/readme.md">
-      <provider editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.7468828">
-            <caret line="126" column="39" selection-start-line="126" selection-start-column="39" selection-end-line="126" selection-end-column="39" />
+          <first_editor vertical-scroll-proportion="0.638404">
+            <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
         <state />
       </provider>
     </entry>
