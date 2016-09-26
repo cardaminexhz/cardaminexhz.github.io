@@ -4,8 +4,6 @@
 
     见[deepClone.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/tools-deepClone/deepClone.js)
 
-***
-
 2. JSON
 
 `var resultObj = JSON.parse(JSON.stringify( oriObj ));`
