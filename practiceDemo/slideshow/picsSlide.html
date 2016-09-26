@@ -21,9 +21,16 @@
             margin: 0;
             padding: 0;
         }
+        .container {
+
+        }
         .wrap {
-            width: 250px;
-            height: 200px;
+            left: 50%;
+            margin-left: -150px;
+            top: 50px;
+
+            width: 300px;
+            height: 400px;
 
             position: relative;
             overflow: hidden;
@@ -50,31 +57,33 @@
 
         }
         #slider-1 {
-            background-color: red;
+            background-image: url(pics/1.jpg);
         }
         #slider-2 {
-            background-color: green;
+            background-image: url(pics/2.jpg);
         }
         #slider-3 {
-            background-color: blue;
+            background-image: url(pics/3.jpg);
         }
         .sliders li:target {
             left: 0%;
             animation: 0.5s in ease;
         }
         .btns {
-            position: absolute;
-            bottom: 0;
-            right: 0;
+            position: relative;
+            bottom: -100px;
+            left: 50%;
+            margin-left: -100px;
             display: flex;
         }
         .btns a {
-            display: block;
-            margin: 0 1px;
-            padding: 10px 14px;
+            margin: 0 8px;
+            padding: 5px 2px;
             background-color: rgba(255, 255, 255, 0.5);
-            color: white;
             text-decoration: none;
+        }
+        .arrow {
+            line-height: 40px;
         }
 
 
@@ -82,17 +91,23 @@
 </head>
 <body>
 
+<div class="container">
 <div class="wrap">
     <ul class="sliders">
         <li id="slider-1"></li>
         <li id="slider-2"></li>
         <li id="slider-3"></li>
     </ul>
-    <div class="btns">
-        <a href="#slider-1">1</a>
-        <a href="#slider-2">2</a>
-        <a href="#slider-3">3</a>
-    </div>
+</div>
+
+<div class="btns">
+    <a class="arrow" id="left-arrow"> < </a>
+    <a href="#slider-1"><img src="pics-small/1.jpg"></a>
+    <a href="#slider-2"><img src="pics-small/2.jpg"></a>
+    <a href="#slider-3"><img src="pics-small/3.jpg"></a>
+    <a class="arrow" id="right-arrow"> > </a>
+</div>
+
 </div>
 
 </body>
