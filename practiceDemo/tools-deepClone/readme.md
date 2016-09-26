@@ -2,7 +2,7 @@
 
 1. nodes, object literals, dates, regular expressions, arrays, and generic objects
 
-    见[deepClone.js]()
+    见[deepClone.js](https://github.com/cardaminexhz/cardaminexhz.github.io/blob/master/practiceDemo/tools-deepClone/deepClone.js)
 
 ***
 
